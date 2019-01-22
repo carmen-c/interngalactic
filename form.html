@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Job form posting page</title>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<!-- Vue Js -->
+	<script src="node_modules/vue/dist/vue.js"></script>
+	</head>
+	
+	<body>
+	<div class="container">
+		
+		<button class="btn btn-success mt-5 mb-5"
+				@click="addNewEmployeeForm">
+			Job Details
+		</button>
+		
+		<div class="card mb-3"
+			 v-for="(employee, index) in employees">
+			<div class="card-body">
+				<span class="float-right" style="cursor:pointer">
+				X
+				</span>
+				<h4 class="card-title">Add Employee (index:{{ index }} )</h4>
+				
+				<div class="employee-form">
+					<input type="text" class="form-control mb-2" placeholder="Name"
+						   v-model="employee.name">
+					
+					<input type="text" class="form-control mb-2" placeholder="Job"
+						   v-model="employee.job">
+					
+					<textarea class="form-control" cols="30" rows="10" placeholder="About"
+							  v-model="employee.about"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/index.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

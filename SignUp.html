@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Intern Galactic Log In</title>
+	<meta charset="UTF-8">
+	<link href="css/index.css" rel="stylesheet" type="text/css">
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato|Oxygen" rel="stylesheet">
+	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
+</head>
+<body>
+		<div class="container">
+			<div class="wrap">
+				<div class="loginPic">
+					<img src="images/Pollways.png" alt="image">
+				</div>
+
+				<form>
+					<h1 id="signUp">Sign Up</h1>
+					<div>
+					<input class="inputUser" type="text" name="email" placeholder="Email">
+					</div>
+					<div>
+					<input class="inputUser" type="password" name="pass" placeholder="Password">
+					</div>
+					<div>
+					<button id="button" class="formButton inputUser">Sign Up</button>
+					</div>
+					
+					<div id="createUserBox">
+						<a href="SignIn.html" class="txt2" href="#">login in</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	<script src="node_modules/vue/dist/vue.js"></script>
+	
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBkL8hsIlbZtQRLhb9xpE7grLtiI8Idfqw",
+    authDomain: "interngalactic.firebaseapp.com",
+    databaseURL: "https://interngalactic.firebaseio.com",
+    projectId: "interngalactic",
+    storageBucket: "interngalactic.appspot.com",
+    messagingSenderId: "154943197764"
+  };
+  firebase.initializeApp(config);
+</script>
+</body>
+</html>

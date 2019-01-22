@@ -105,9 +105,11 @@ font-family: 'Lato', sans-serif;
 #memberLog {
 	margin-left: 10px;
 	font-size: 24px;
-	text-align: center;
 }
-
+#signUp {
+	margin-left: 10px;
+	font-size: 24px;
+}
 .container {
   width: 100%;  
   min-height: 100vh;

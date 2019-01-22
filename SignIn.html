@@ -4,12 +4,10 @@
 	<title>Intern Galactic Log In</title>
 	<meta charset="UTF-8">
 	<link href="css/index.css" rel="stylesheet" type="text/css">
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 	<link href="https://fonts.googleapis.com/css?family=Lato|Oxygen" rel="stylesheet">
-	<script src="js/index.js">
-	document.getElementById("button").addEventListener({
-		
-	})
-	</script>
+	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
 </head>
 <body>
 		<div class="container">
@@ -31,11 +29,25 @@
 					</div>
 					
 					<div id="createUserBox">
-						<a class="txt2" href="#">Create your Account</a>
+						<a href="SignUp.html" class="txt2" href="#">Create your Account</a>
 					</div>
 				</form>
 			</div>
 		</div>
 	<script src="node_modules/vue/dist/vue.js"></script>
+	
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBkL8hsIlbZtQRLhb9xpE7grLtiI8Idfqw",
+    authDomain: "interngalactic.firebaseapp.com",
+    databaseURL: "https://interngalactic.firebaseio.com",
+    projectId: "interngalactic",
+    storageBucket: "interngalactic.appspot.com",
+    messagingSenderId: "154943197764"
+  };
+  firebase.initializeApp(config);
+</script>
 </body>
 </html>
