@@ -2,23 +2,27 @@
 var app = new Vue({
 	el:".container",
 	data: {
-		employees: [
+		internForm: [
 			{
 				name: '',
 				job: '',
+				location: '',
+				time: '',
 				about: ''
 			}
 		]
 	},
-	methods: {
-		addNewEmployeeForm () {
-			this.employees.push({
-				name: '',
-				job: '',
-				about: ''
-			})
-		}
-	}
+//	methods: {
+//		addNewInternForm () {
+//			this.internForm.push({
+//				name: '',
+//				job: '',
+//				location: '',
+//				time: '',
+//				about: ''
+//			})
+//		}
+//	}
 })
 
 

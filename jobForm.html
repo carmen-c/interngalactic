@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Job form posting page</title>
+	<title>Internship form posting page</title>
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -13,32 +13,31 @@
 	<div class="container">
 		
 		<div class="card mb-3"
-			 v-for="(employee, index) in employees">
+			 v-for="(internForm, index) in internForm">
 			<div class="card-body">
 				<span class="float-right" style="cursor:pointer">
 				X
 				</span>
-				<h4 class="card-title">Job Posting Form (index:{{ index }} )</h4>
+				<h4 class="card-title">Internship Posting Form (index:{{ index }} )</h4>
 				
-				<div class="employee-form">
+				<div class="job-form">
 					<input type="text" class="form-control mb-2" placeholder="Company name"
-						   v-model="employee.name">
+						   v-model="internForm.name">
 					
 					<input type="text" class="form-control mb-2" placeholder="Job Title"
-						   v-model="employee.job">
+						   v-model="internForm.job">
 					
 					<input type="text" class="form-control mb-2" placeholder="Location"
-						   v-model="employee.job">
+						   v-model="internForm.location">
 					
-					<input type="text" class="form-control mb-2" placeholder="Job Type"
-						   v-model="employee.job">
-					
+					<input type="text" class="form-control mb-2" placeholder="Length of Intern"
+						   v-model="internForm.time">
+
 					<textarea class="form-control" cols="30" rows="10" placeholder="About"
-							  v-model="employee.about"></textarea>
-					
-					<button class="btn btn-success mt-5 mb-5"
-					@click="addNewEmployeeForm">
-					Submit Job Posting
+							  v-model="internForm.about"></textarea>
+					<!--@click="addNewInternForm"-->
+					<button class="btn btn-success mt-5 mb-5">
+					Submit Internship Posting
 					</button>
 				</div>
 			</div>
