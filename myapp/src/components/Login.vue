@@ -1,6 +1,6 @@
 <template>
   <div class="LoginPage">
-			<form class="formContainer">
+	  <div class="formContainer">
 			  <div class="form-group">
 				  <div class="logo-container">
 					<img src="../../images/InternLogo.svg" class="internLogo"/>
@@ -22,8 +22,8 @@
 				<p class="registerP">Not a member yet? 
 					<router-link to="/Register">Register</router-link>
 				</p>
-					</form>
-				</div>
+			</div>
+		</div>
 </template>
 
 <script>

@@ -1,13 +1,13 @@
 <template>
   <div class="register">
-      <div class="formcontainer">  
-		<div class="logo-container">
-		  <img src="../../images/InternLogo.svg" class="internLogo"/>
-          <h3 class="logotitle-container">InternGalactic</h3>
+      <div class="formcontainer">
+		  <div class="logo-container">
+			  <img src="../../images/InternLogo.svg" class="internLogo"/>
 		</div>
+		   <h3 class="logotitle-container">InternGalactic</h3>
 		<div class="form-group">
 		  <input type="text" class="form-control" v-model="name"
-			   id="exampleInputName" placeholder="Enter Name / Company">
+			   id="exampleInputName" placeholder="Preferred name">
         </div>
         <div class="form-group">
 		  <input type="email" class="form-control" v-model="email"
@@ -82,7 +82,7 @@ export default {
 <style>
 	.submitWrap {
 		text-align: center;
-		    text-decoration: none;
+		text-decoration: none;
 	}
 	#submitButt {
 		margin: 4px;
@@ -103,32 +103,12 @@ export default {
 		z-index: -1;
 		background: linear-gradient(-135deg, #c850c0, #4158d0);
 	}
-	.formContainer {
+	.formcontainer {
 		background-color: white;
+		justify-content:center;
+		align-items:center;
 		padding: 30px 80px;
 		border-radius: 15px;
 	}
+
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
