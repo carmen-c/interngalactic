@@ -16,32 +16,32 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
-		meta: {
-			requiresAuth: true
-		}
+//      meta: {
+//          requiresAuth: true
+//      }
     },
 	{
 	  path: '/LoginPage',
 	  name: 'LoginPage',
 	  component: LoginPage
 	},
-	  {
-	  path: '/',
-	  redirect: '/login'
-	  },
-	  {
-	   path: '*',
-	  redirect: '/login'
-	  },
+    {
+      path: '/',
+      redirect: '/login'
+    },
+    {
+      path: '*',
+      redirect: '/login'
+    },
 	{
-		path: '/Login',
-		 name:'/login',
-		component: Login,
+      path: '/Login',
+      name:'/login',
+      component: Login,
 	},
 	{
-		path: '/Register',
-		 name:'/Register',
-		component: Register,
+      path: '/Register',
+      name:'/Register',
+      component: Register,
 	},
     {
       path: '/about',

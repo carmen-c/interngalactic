@@ -18,7 +18,6 @@ const config = {
 
 Vue.prototype.store={
 	//global variables here
- db: firebase.firestore()
 }
 
 new Vue({

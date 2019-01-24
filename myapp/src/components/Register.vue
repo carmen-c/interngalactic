@@ -1,31 +1,34 @@
 <template>
   <div class="register">
-	<form class="formContainer">
-	  <div class="form-group">
-		   <div class="logo-container">
-					<img src="../../images/InternLogo.svg" class="internLogo"/>
-				  </div>
-						<h3 class="logotitle-container">InternGalactic</h3>
-		<input type="email" class="form-control" v-model="email"
+      <div class="formcontainer">  
+		<div class="logo-container">
+		  <img src="../../images/InternLogo.svg" class="internLogo"/>
+          <h3 class="logotitle-container">InternGalactic</h3>
+		</div>
+		<div class="form-group">
+		  <input type="text" class="form-control" v-model="name"
+			   id="exampleInputName" placeholder="Enter Name / Company">
+        </div>
+        <div class="form-group">
+		  <input type="email" class="form-control" v-model="email"
 			   id="exampleInputEmail1" aria-describedby="emailHelp" 
 			   placeholder="Enter email">
-	  	</div>
-		  <div class="form-group">
-			<input type="password" class="form-control" v-model="password"
-				   id="exampleInputPassword1" placeholder="Password">
-		  </div>
+        </div>
 		<div class="form-group">
-			<input type="password" class="form-control" v-model="retypePass"
-				    placeholder="Retype Password">
-		  </div>
-			 <div class="submitWrap"> 
-				  <button v-on:click="signup" id="submitButt" type="submit" class="btn btn-primary">Register</button>
-				</div>
-			<p class="registerP">Already a member? 
-					<router-link to="/Login">Login</router-link>
-				</p>
-			</form>
+		  <input type="password" class="form-control" v-model="password"
+				   id="exampleInputPassword1" placeholder="Password">
 		</div>
+		<div class="form-group">
+		  <input type="password" class="form-control" v-model="retypePass" placeholder="Retype Password">
+		</div>
+		<div class="submitWrap"> 
+		  <button v-on:click="signup" id="submitButt" type="submit" class="btn btn-primary">Register</button>
+		</div>
+		<p class="registerP">
+          Already a member? <router-link to="/Login">Login</router-link>
+		</p>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -38,6 +41,7 @@ export default {
 	name: 'register',
 	data(){
 		return {
+            name: '',
 			email: '',
 			password: '',
 			retypePass: ''
@@ -48,18 +52,18 @@ export default {
 		signup:function() {
 			if(this.password == this.retypePass){
 				firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-					function(user){
+					(user)=>{
 						alert('account created')
-						var userRef = this.db.collection('users').doc();
-						var id = userRef.key;
-						this.db.collection("users").doc(id).set({
-							email: this.email,
-							password: this.password,
-							uid: this.uid
-						})
+                        console.log(user)
+						var ref = firebase.firestore().collection("users").doc(user.user.uid);
+                        ref.set({
+                          name: this.name,
+                          email: this.email,
+                          password: this.password,
+                        })
 					},
 					function(err){
-						alert
+						alert("error")
 					}
 				);
 			}
