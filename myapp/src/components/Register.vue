@@ -50,8 +50,9 @@ export default {
 				firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
 					function(user){
 						alert('account created')
-						var uid = db.createId();
-						db.collection("users").doc(this.uid).set({
+						var userRef = this.db.collection('users').doc();
+						var id = userRef.key;
+						this.db.collection("users").doc(id).set({
 							email: this.email,
 							password: this.password,
 							uid: this.uid
