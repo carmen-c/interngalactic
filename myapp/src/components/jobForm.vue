@@ -1,17 +1,31 @@
 <template>
   <div class="jobForm">
 	  <div class="formContainer">
-			  <div class="form-group">
-				<input type="text" class="form-control" 
-					   id="exampleInputEmail1" aria-describedby="emailHelp" 
-					   v-model="email" placeholder="Enter email">
-			  	</div>
-				  <div class="form-group">
-					<input type="password" class="form-control" 
-						   iv-model="password" d="exampleInputPassword1" placeholder="Password">
-				  </div>
-			</div>
-		</div>
+        
+          <div class="form-group">
+            <input type="text" class="form-control" 
+                   id="exampleInputEmail1" aria-describedby="emailHelp" 
+                   v-model="start_date" placeholder="Enter start date">
+            <input type="text" class="form-control" 
+                   id="exampleInputEmail1" aria-describedby="emailHelp" 
+                   v-model="end_date" placeholder="Enter end date">
+            <input type="text" class="form-control" 
+                   id="exampleInputEmail1" aria-describedby="emailHelp" 
+                   v-model="location" placeholder="Enter location">
+            <input type="text" class="form-control" 
+                   id="exampleInputEmail1" aria-describedby="emailHelp" 
+                   v-model="title" placeholder="Enter title"> 
+            <input type="text" class="form-control" 
+                   id="exampleInputEmail1" aria-describedby="emailHelp" 
+                   v-model="description" placeholder="Enter description"> 
+            <input type="text" class="form-control" 
+                   id="exampleInputEmail1" aria-describedby="emailHelp" 
+                   v-model="company" placeholder="Enter company">
+            <button @click="postJob">Post</button>
+          </div>
+            
+      </div>
+  </div>
 </template>
 
 <script>
@@ -22,23 +36,35 @@ export default {
 	name:"jobForm",
 	data() {
 		return {
-			email: '',
-			password: ''
+          start_date: '',
+          end_date: '',
+          location: '',
+          title: '',
+          description: '',
+          company: ''
 		}
 	},
 	components:{
 	},
 	methods: {
-		login: function() {
-			firebase.auth().signInWithEmailAndPassword(this.email,this.password).then(
-			(user) => {
-				this. $router.replace('Home')
-			},
-			(err) => {
-				alert(err.message)
-			}
-		  );
-		}
+		postJob: function() {
+            const currentUser = firebase.auth().currentUser;
+            if(currentUser) {
+              var ref = firebase.firestore().collection('jobs').doc();
+              ref.set({
+                  uid: currentUser.uid,
+                  post_id: ref.id,
+                  start_date: this.start_date,
+                  end_date: this.end_date,
+                  location: this.location,
+                  title: this.title,
+                  description: this.description,
+                  company: this.company
+                })
+            } else {
+              alert("error message");
+            }
+        }
 	}
 }
 </script>
