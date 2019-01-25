@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import LoginPage from './views/LoginPage.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
+import jobForm from './components/jobForm.vue'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -42,6 +43,11 @@ export default new Router({
       path: '/Register',
       name:'/Register',
       component: Register,
+	},
+	{
+	  path: '/jobForm',
+	  name: '/jobForm',
+	  component: jobForm,
 	},
     {
       path: '/about',
