@@ -50,10 +50,11 @@ export default {
 		postJob: function() {
             const currentUser = firebase.auth().currentUser;
             if(currentUser) {
-              var ref = firebase.firestore().collection('jobs').doc();
-              ref.set({
+              var ref = firebase.firestore().collection('jobs');
+              //First add string post_id
+              ref.add({
                   uid: currentUser.uid,
-                  post_id: ref.id,
+                  post_id: 'ref.id',
                   start_date: this.start_date,
                   end_date: this.end_date,
                   location: this.location,
@@ -61,6 +62,12 @@ export default {
                   description: this.description,
                   company: this.company
                 })
+              // Update post_id to ref.id
+                .then (ref => {
+                  ref.update({
+                    post_id: ref.id
+                  })
+              })
             } else {
               alert("error message");
             }
