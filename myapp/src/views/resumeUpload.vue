@@ -3,29 +3,23 @@
 	  <clientHeader />
 	  <div class="formWrapper">
       <div class="formcontainer">
-		<div class="form-group">
-			<h2 style="float:left;">Resume and Profile</h2>
+			<h2 class="resumeH">Resume and Profile</h2>
 		  <input type="text" class="form-control" v-model="name"
 			   id="exampleInputName" placeholder="Preferred name">
-        </div>
-        <div class="form-group">
 		  <input type="email" class="form-control" v-model="email"
 			   id="exampleInputEmail1" aria-describedby="emailHelp" 
 			   placeholder="Enter email">
-        </div>
-		<div class="form-group">
-		  <input type="password" class="form-control" v-model="password"
-				   id="exampleInputPassword1" placeholder="Password">
-		</div>
-		<div class="form-group">
-		  <input type="password" class="form-control" v-model="retypePass" placeholder="Retype Password">
-		</div>
+		  <input type="text" class="form-control" v-model="number"
+				   id="exampleInputNumber" placeholder="Phone Number">
 		<div class="submitWrap">
-			<div>
-				<p style="float:left">Upload Reusme</p>
-		  			<button v-on:click="signup" style="float:left;" type="submit" class="btn btn-primary">Choose File</button>
+			<div class="row">
+  				<div class="col-6">
+	  				<p class="uploadR" >Upload Resume</p>
+		  			<button v-on:click="signup" type="submit" class="btn btn-primary uploadBtn">Choose File</button></div>
+  				<div class="col-6">
+					<button v-on:click="signup" type="submit" class="btn btn-primary updateBtn">Update Profile</button>
+				</div>
 			</div>
-		  <button v-on:click="signup" style="float:right;" type="submit" class="btn btn-primary">Update Profile</button>
 		</div>
       </div>
 	</div>
@@ -40,37 +34,12 @@ import clientHeader from '@/components/clientHeader.vue';
 import firebase from 'firebase';
 	
 export default {
-	name: 'register',
+	name: 'resumeUpload',
 	data(){
 		return {
-            name: '',
-			email: '',
-			password: '',
-			retypePass: ''
 		}
-		
 	},
 	methods:{
-		signup:function() {
-			if(this.password == this.retypePass){
-				firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-					(user)=>{
-						alert('account created')
-                        console.log(user)
-						var ref = firebase.firestore().collection("users").doc(user.user.uid);
-                        ref.set({
-                          name: this.name,
-                          email: this.email,
-                          password: this.password,
-                        })
-					},
-					function(err){
-						alert("error")
-					}
-				);
-			}
-			
-		}
 	},
 	components: {
 		Login:Login,
@@ -83,9 +52,29 @@ export default {
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
 </style>
 <style>
+	.resumeH {
+		float: left;
+		margin:20px;
+	}
+	.form-control {
+		margin: 20px;
+	}
+	.updateBtn {
+		float: right;
+	}
+	.uploadBtn {
+		text-align: left;
+		float: left;
+	}
+	.uploadR {
+		text-align:left;
+		padding: 0;
+		margin:0;
+	}
 	.submitWrap {
 		text-align: center;
 		width: 100%;
+		
 	}
 	.formWrapper {
 		display:flex;
@@ -101,11 +90,12 @@ export default {
 		z-index: -1;
 	}
 	.formcontainer {
-		background-color: white;
 		justify-content:center;
 		align-items:center;
 		padding: 30px 80px;
 		border-radius: 15px;
+		width: 30%;
+		
 	}
 
 </style>
