@@ -1,5 +1,5 @@
 <template>
-  <div class="LoginPage">
+  <div class="Login">
 	  <div class="formContainer">
 			  <div class="form-group">
 				  <div class="logo-container">
@@ -99,7 +99,7 @@ export default {
 		text-decoration: none;
 		color: white;
 	}
-	.LoginPage {
+	.Login {
 		display:flex;
 		position:fixed;
 		left:0;

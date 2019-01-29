@@ -46,7 +46,6 @@ export default {
 			password: '',
 			retypePass: ''
 		}
-		
 	},
 	methods:{
 		signup:function() {
@@ -67,7 +66,6 @@ export default {
 					}
 				);
 			}
-			
 		}
 	},
 	components: {

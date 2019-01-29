@@ -117,7 +117,7 @@ export default {
 		text-decoration: none;
 		color: white;
 	}
-	.LoginPage {
+	.jobForm {
 		display:flex;
 		position:fixed;
 		left:0;
