@@ -49,10 +49,8 @@ export default {
 	.resumeUpload {
 		width: 100vw;
 		height: 100vh;
-		background-color: blanchedalmond;
 	}
 	.formWrapper {
-		background-color: aquamarine;
 		display:flex;
 		position:fixed;
 		width:100vw;
@@ -61,7 +59,6 @@ export default {
 		align-items:center;
 		text-align: left;
 		color: #000;
-		background: linear-gradient(-135deg, #c850c0, #4158d0);
 	}
 	.formContainer {
 		text-align: left;

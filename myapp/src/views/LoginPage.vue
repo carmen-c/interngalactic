@@ -1,80 +1,75 @@
 <template>
-<div class="loginPage">
-  
-  <div class="leftcolumn">
-    <div id="strokeLogo">
-      <img src="../../images/strokeLOGO.svg"/>
-    </div>
-    
-    <div id="alignment">
-        <div id="find">
-    <img src="../../images/find.svg"/> 
-    </div>
-        <div id="browse">
-    <img src="../../images/browse.svg"/> 
-    </div>
-    
-        <div id="inTouch">
-    <img src="../../images/getintouch.svg"/> 
-        </div>        
-  </div>
-    </div> 
-  
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-  
-        <div class="form-group">
-    <fieldset class="form-group col-xs-6">
-		  <input type="email" class="form-control" v-model="email"
-			   id="exampleInputEmail1" aria-describedby="emailHelp" 
-			   placeholder="Email">
-          </fieldset>
-  <fieldset class="form-group col-xs-6">
-		  <input type="password" class="form-control" v-model="password"
-				   id="exampleInputPassword1" placeholder="Password">
-        </fieldset>
-  <fieldset class="form-group col-xs-6">
-		  <button v-on:click="signup" id="loginbut" type="submit" class="btn btn-primary">Login</button>
-  </fieldset>
+ <div class="loginPage">
+	<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="row">
+  <div class="col-md-5 border left">
+	  <img class="strokeLogo" src="../../images/strokeLOGO.svg"/>
+	  <div class="aboutImgs">
+		<div class="row">
+			<img src="../../images/find.svg" />
 		</div>
-  
-  <div id="greeting">
-    <img id="logo" src="../../images/InternLogo.svg"/> 
-    <p id="slogan"><b>Searching the galaxy to find you 
-      the <br> internship opportunities you deserve.</b></p>
+		<div class="row">
+			<img src="../../images/browse.svg" />
+		</div>
+		<div class="row">
+			<img src="../../images/getintouch.svg" />
+		</div>
+	</div>
+	</div>
+  <div class="col-md-7 border">
+	<div class="container">
+		<div class="row">
+		  <div class="col-xs-12 loginContainer">
+			<div class="form-inline">
+  				<div class="form-group">
+					<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+				</div>
+				  	<button type="submit" class="btn btn-default" id="signinBtn">Login</button>
+			</div>
+			</div>
+				<div class="col-xs-12 textA">
+					<div class="right-missionContainer">
+						<img src="../../images/InternLogo.svg" class="login-internLogo"/>
+						<h2>Searching the Galaxy to find you the internship opportunities you deserve.</h2>
+					</div>
+				</div>
+<div class="col-xs-12 registerContainer">
+	<div>
+		<p style="text-align:left">I would like to register as:</p>
+		<!-- Small button groups (default and split) -->
+<div class="btn-group">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Small button
+  </button>
+  <div class="dropdown-menu">
+    ...
   </div>
-  
-  <div class="regForm">
-    
-    <p id="preference">I would like to register as:</p>
-    
-      <select id="preference">
-        <option value="applicant">Applicant</option>
-        <option value="employer">Employer</option>
-      </select>
-
-    
-		 <input type="email" class="form-control" v-model="email"
-			   id="exampleInputEmail1" aria-describedby="emailHelp" 
-			   placeholder="Email">
-        		 
-        <input type="text" class="form-control" v-model="name"
-			   id="exampleInputName" placeholder="Full Name">
-   
-		
-		  <input type="password" class="form-control" v-model="password"
-				   id="exampleInputPassword1" placeholder="Password">
-		
-		
-		  <input type="password" class="form-control" v-model="retypePass" placeholder="Confirm Password">
-		
-		
-		  <button v-on:click="signup" id="register" type="submit" class="btn btn-primary"><b>Register</b></button>
 </div>
-
-
-  
+		<div class="row">
+			<div class="form-group">
+				<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<input type="name" class="form-control" id="exampleInputEmail3" placeholder="Full Name">
+			</div>		
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Password">
+			</div>		
+		</div>
+	</div>
 </div>
-  
+</div>
+	</div>
+		</div>
+			</div>
+				</div>
 
 </template>
 
@@ -100,115 +95,68 @@ import Register from "@/components/Register.vue";
 
 <style>
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");  
-</style>
-<style>
-   
-  	.leftcolumn {
-		display:flex;
-		position:fixed;
-        overflow: hidden;
-		left:0;
-		top:0;
-		width:40vw;
-		height:100vh;
-		justify-content:center;
-		align-items:center;
-		text-align: left;
-		color: #000;
-		z-index: -1;
-        background: linear-gradient(-135deg, #c850c0, #4158d0); 
-		
+	
+	.border {
+		border: 1px solid
 	}
-  
-  #strokeLogo{
-    opacity: 0.02;
-    position: fixed;
-    width: 60%;
-    height: auto;
-    float: left;  
-    left: -400px;
-  
-  }
-  
-  #find{
-    position: fixed;
-    width: 24%;
-    height: auto;
-    top: 250px;
-  }
-  
-    #browse{
-    position: fixed;
-    width: 27%;
-    height: auto; 
-    top: 450px;
-  
-  }
-  
-    #inTouch{
-    position: fixed;
-    width: 24%;
-    height: auto; 
-    top: 650px;
-  }
-
-    
-  #alignment{
-    position: relative;
-    float: left;
-    left: -30%;
-  }
-  
-  
-  #loginbut {
-    border: 2px solid #7FD686;
-    background-color: #FFFFFF;
-    color: #7FD686;
-
-  }
-  
-  .form-group{
-    width: 30%;
-    height: auto;
-    position: fixed;
-    float: right;
-    top: 3%;
-    right: 0px;
-    bottom: 0;
-    left: 40%;
-  }
-  
-  #logo{
-    width: 5%;
-    position: fixed;
-    left: 52%;
-    top: 30%;
-  }
-  
-  #slogan{
-    position: fixed;
-    left: 52%;
-    top: 38%;
-    font-size: 20px;
-    
-  }
-  
-  .regForm{
-    position: fixed;
-    width: 20%;
-    left: 52%;
-    top: 45%;
-  }
-  
-  #register{
-    background-color: #7FD686;
-    border: none;
-    float: left;
-    margin-left: 7%;
-  }
-
-  
+	.left {
+		background: linear-gradient(-135deg, #c850c0, #4158d0);
+		height: 100vh;
+		overflow: hidden;
+	}
+	.strokeLogo {
+		opacity: 0.02;
+		position: absolute;
+		top: 100px;
+		left: -500px;
+		width: 1000px;
+	}
+	.aboutImgs {
+		margin-top: 80px;
+	}
+	.aboutImgs img{
+		padding-top: 130px;
+		margin: 5px;
+	}
+	.row {
+		text-align: center;
+		justify-content: center;
+	}
+	
+/************* RIGHT SIDE **************************/
+	.form-inline {
+		float: right;
+	}
+	.form-group {
+		margin-right: 10px;
+	}
+	#signinBtn {
+		border:2px solid #7fd686;
+		color: #7fd686;
+		border-radius: 10px;
+	}
+	.loginContainer {
+		width: 100%;
+		margin-right: 80px;
+		margin-top: 60px;
+	}
+	.textA {
+		text-align: left;
+	}
+	.login-internLogo {
+		width: 100px;
+		margin-bottom: 20px;
+	}
+	.right-missionContainer {
+		padding-right: 180px;
+		padding-left: 180px;
+		margin-top: 120px;
+	}
+	.registerContainer {
+		margin: 100px;
+	}
 </style>
+
 
 
 
