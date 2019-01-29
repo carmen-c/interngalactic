@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <div class="container">
       
       <div v-if="page==1" class="row">
            <div class="header col-md-12">
@@ -45,7 +44,6 @@
            </div>
       </div>
       
-    </div> 
   </div>
 </template>
 
@@ -92,7 +90,7 @@
   }
   .bg-title {
     color: #fff;
-    padding-top: 30%;
+    padding-top: 20%;
     font-size:22px;
   }
   .searchBtn {
@@ -138,7 +136,7 @@ export default {
   },
   data() {
     return {
-      page: 2
+      page: 1
     }
   }
 }
