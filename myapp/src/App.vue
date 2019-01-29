@@ -37,5 +37,6 @@
   color: #42b983;
 }
 #app {
+	z-index: 999;
 }
 </style>
