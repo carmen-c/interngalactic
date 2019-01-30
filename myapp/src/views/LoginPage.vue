@@ -62,6 +62,16 @@
 				<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Password">
 			</div>		
 		</div>
+		<div class="row">
+			<div class="form-group">
+				<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Re-type Password">
+			</div>		
+		</div>
+		<div class="row floatLeft">
+			<div class="form-group">
+				<button class="btn btn-default" id="registerBtn">Register</button>
+			</div>
+		</div>
 	</div>
 </div>
 </div>
@@ -95,7 +105,9 @@ import Register from "@/components/Register.vue";
 
 <style>
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");  
-	
+	.floatLeft{
+		float: left;
+	}
 	.border {
 		border: 1px solid
 	}
@@ -150,7 +162,7 @@ import Register from "@/components/Register.vue";
 	.right-missionContainer {
 		padding-right: 180px;
 		padding-left: 180px;
-		margin-top: 120px;
+		margin-top: 90px;
 	}
 	.registerContainer {
 		margin: 100px;
@@ -172,11 +184,18 @@ import Register from "@/components/Register.vue";
     .btn-left-round {
       border-top-left-radius: 1.5rem !important;
       border-bottom-left-radius: 1.5rem !important;
-    }
+    }	
     .btn-right-round {
       border-top-right-radius: 1.5rem !important;
       border-bottom-right-radius: 1.5rem !important;
     }
+	#registerBtn {
+		border:2px solid #7fd686;
+		background-color: #7fd686;
+		padding: 5px;
+		border-radius: 10px;
+		color: white;
+	}
 </style>
 
 
