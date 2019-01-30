@@ -30,51 +30,47 @@
 				  	<button type="submit" class="btn btn-default" id="signinBtn">Login</button>
 			</div>
 			</div>
-				<div class="col-xs-12 textA">
+				<div class="col-xs-12 rightSectionCont">
 					<div class="right-missionContainer">
 						<img src="../../images/InternLogo.svg" class="login-internLogo"/>
-						<h2>Searching the Galaxy to find you the internship opportunities you deserve.</h2>
+						<h3 class="searching-the">Searching the Galaxy to find you the internship opportunities you deserve.</h3>
+							<div class="registerContainer">			
+								<div class="row">
+								  <p>I would like to register as:</p><br/>
+								</div>
+								<div class="row">
+								  <div class="btn-group">
+									<button class="btn user-class btn-left-round">Applicant</button>
+									<button class="btn user-class btn-right-round">Intern</button>
+								  </div>
+								</div>
+								<div class="marginInput">
+								<div class="row">
+									<div class="form-group">
+										<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<input type="name" class="form-control" id="exampleInputEmail3" placeholder="Full Name">
+									</div>		
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Password">
+									</div>		
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Re-type Password">
+									</div>		
+								</div>
+							</div>
+							<button class="btn btn-default" id="registerBtn">Register</button>
+						</div>
 					</div>
 				</div>
-<div class="col-xs-12 registerContainer">
-	<div>
-        <div class="row">
-          <p style="text-align:left">I would like to register as:</p><br/>
-        </div>
-        <div class="row">
-          <div class="btn-group">
-            <button class="btn user-class btn-left-round">Applicant</button>
-            <button class="btn user-class btn-right-round">Intern</button>
-          </div>
-        </div>
-		<div class="row">
-			<div class="form-group">
-				<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
 			</div>
-		</div>
-		<div class="row">
-			<div class="form-group">
-				<input type="name" class="form-control" id="exampleInputEmail3" placeholder="Full Name">
-			</div>		
-		</div>
-		<div class="row">
-			<div class="form-group">
-				<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Password">
-			</div>		
-		</div>
-		<div class="row">
-			<div class="form-group">
-				<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Re-type Password">
-			</div>		
-		</div>
-		<div class="row floatLeft">
-			<div class="form-group">
-				<button class="btn btn-default" id="registerBtn">Register</button>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
 	</div>
 		</div>
 			</div>
@@ -149,23 +145,18 @@ import Register from "@/components/Register.vue";
 	}
 	.loginContainer {
 		width: 100%;
-		margin-right: 80px;
+		margin-right: 20px;
 		margin-top: 60px;
 	}
-	.textA {
+	.rightSectionCont {
+		margin-top: 120px;
+		margin-left: 40px;
+		width: 600px;
 		text-align: left;
 	}
 	.login-internLogo {
 		width: 100px;
 		margin-bottom: 20px;
-	}
-	.right-missionContainer {
-		padding-right: 180px;
-		padding-left: 180px;
-		margin-top: 90px;
-	}
-	.registerContainer {
-		margin: 100px;
 	}
     .user-class {
         border: 1px solid #000 !important;
@@ -195,6 +186,19 @@ import Register from "@/components/Register.vue";
 		padding: 5px;
 		border-radius: 10px;
 		color: white;
+		margin-left: 5px;
+	}
+	.searching-the {
+		font-weight: 600;
+		color: black;
+	}
+	.registerContainer {
+		margin-top: 10px;
+		margin-bottom: 30px;
+		float: left;
+	}
+	.marginInput {
+		margin-left: 20px;
 	}
 </style>
 
