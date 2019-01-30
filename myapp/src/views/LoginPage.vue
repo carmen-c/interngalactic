@@ -107,11 +107,10 @@ import firebase from 'firebase';
 					alert(err.message)
 				}
 				);
-			}
-		},
-			signup:function() {
+			},
+          signup:function() {
 			if(this.password == this.retypePass){
-				firebase.auth().createUserWithEmailAndPassword(this.email, this.password,this.name).then(
+				firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
 					(user)=>{
 						alert('account created')
                         console.log(user)
@@ -128,6 +127,8 @@ import firebase from 'firebase';
 				);
 			}
 		}
+          
+		}	
 	}
 </script>
 
