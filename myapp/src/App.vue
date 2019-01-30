@@ -5,11 +5,8 @@
       <router-link to="/about">About</router-link> | 
       <router-link to="/LoginPage">LoginPage</router-link> | 
       <router-link to="/resumeUpload">resumeUpload</router-link> | 
-      <router-link to="/Login">Login</router-link> | 
-      <router-link to="/Register">Register</router-link> | 
 	  <router-link to ="/jobForm">Job Form</router-link> |
-	  <router-link to ="/adminHeader">Admin Header</router-link> |
-	  <router-link to ="/clientHeader">Client Header</router-link>
+	  <router-link to ="/jobFeedPage">Job Feed</router-link> |
     </div>
     <router-view/>
   </div>
@@ -37,6 +34,6 @@
   color: #42b983;
 }
 #app {
-	z-index: 999999;
+	z-index: 999;
 }
 </style>
