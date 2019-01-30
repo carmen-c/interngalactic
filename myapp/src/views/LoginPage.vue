@@ -22,12 +22,12 @@
 		  <div class="col-xs-12 loginContainer">
 			<div class="form-inline">
   				<div class="form-group">
-					<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+					<input type="email" class="form-control" id="exampleInputEmail3" v-model="email" placeholder="Email">
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+					<input type="password" class="form-control" id="exampleInputPassword3"  v-model="password"placeholder="Password">
 				</div>
-				  	<button type="submit" class="btn btn-default" id="signinBtn">Login</button>
+				  	<button @click="login" type="submit" class="btn btn-default" id="signinBtn">Login</button>
 			</div>
 			</div>
 				<div class="col-xs-12 rightSectionCont">
@@ -47,26 +47,26 @@
 								<div class="marginInput">
 								<div class="row">
 									<div class="form-group">
-										<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+										<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" v-model="email">
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group">
-										<input type="name" class="form-control" id="exampleInputEmail3" placeholder="Full Name">
+										<input type="name" class="form-control" v-model="name"id="exampleInputEmail3" placeholder="Full Name">
 									</div>		
 								</div>
 								<div class="row">
 									<div class="form-group">
-										<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Password">
+										<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Password" v-model="password">
 									</div>		
 								</div>
 								<div class="row">
 									<div class="form-group">
-										<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Re-type Password">
+										<input type="password" class="form-control" id="exampleInputEmail3"  v-model="retypePass"placeholder="Re-type Password">
 									</div>		
 								</div>
 							</div>
-							<button class="btn btn-default" id="registerBtn">Register</button>
+							<button @click="signup" class="btn btn-default" id="registerBtn">Register</button>
 						</div>
 					</div>
 				</div>
@@ -83,18 +83,50 @@
 import HelloWorld from '@/components/HelloWorld.vue';
 import Login from "@/components/Login.vue";
 import Register from "@/components/Register.vue";
+import firebase from 'firebase';
   
 	export default {
 		name:"LoginPage",
 		components: {
-			MyLogin:Login,
-			MyReg:Register
 		},
 		data(){
 			return {
+				email: '',
+				password: '',
+				name: '',
+				retypePass: ''
 			}
 		},
 		methods: {
+			login: function() {
+				firebase.auth().signInWithEmailAndPassword(this.email,this.password).then(
+				(user) => {
+					this.$router.replace('Home')
+				},
+				(err) => {
+					alert(err.message)
+				}
+				);
+			}
+		},
+			signup:function() {
+			if(this.password == this.retypePass){
+				firebase.auth().createUserWithEmailAndPassword(this.email, this.password,this.name).then(
+					(user)=>{
+						alert('account created')
+                        console.log(user)
+						var ref = firebase.firestore().collection("users").doc(user.user.uid);
+                        ref.set({
+                          name: this.name,
+                          email: this.email,
+                          password: this.password,
+                        })
+					},
+					function(err){
+						alert("error")
+					}
+				);
+			}
 		}
 	}
 </script>

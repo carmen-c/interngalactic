@@ -14,7 +14,7 @@
 				  <div class="form-group">
 <!--					<label for="exampleInputPassword1">Password</label>-->
 					<input type="password" class="form-control" 
-						   iv-model="password" d="exampleInputPassword1" placeholder="Password">
+						   v-model="password" d="exampleInputPassword1" placeholder="Password">
 				  </div>
 					 <div class="submitWrap"> 
 						  <button @click="login" id="submitButt" type="submit" class="btn btn-primary">Login</button>
