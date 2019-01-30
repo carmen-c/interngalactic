@@ -21,8 +21,10 @@
 		  <p>Surrey (6)</p>
 	</div>
 <hr class="line"/>
-	 <button class="btn btn-outline-success my-2 my-sm-0" id="logoBtn" type="submit">Clear All Searches</button>
+	<div class="recent-Location">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Clear All Searches</button>
 	</div>
+</div>
 	  <div class="col-md-9">
 		<div>Hello</div>
 	</div>
