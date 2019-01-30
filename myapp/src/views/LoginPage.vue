@@ -38,16 +38,15 @@
 				</div>
 <div class="col-xs-12 registerContainer">
 	<div>
-		<p style="text-align:left">I would like to register as:</p>
-		<!-- Small button groups (default and split) -->
-<div class="btn-group">
-  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Small button
-  </button>
-  <div class="dropdown-menu">
-    ...
-  </div>
-</div>
+        <div class="row">
+          <p style="text-align:left">I would like to register as:</p><br/>
+        </div>
+        <div class="row">
+          <div class="btn-group">
+            <button class="btn user-class btn-left-round">Applicant</button>
+            <button class="btn user-class btn-right-round">Intern</button>
+          </div>
+        </div>
 		<div class="row">
 			<div class="form-group">
 				<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
@@ -78,6 +77,7 @@
 import HelloWorld from '@/components/HelloWorld.vue';
 import Login from "@/components/Login.vue";
 import Register from "@/components/Register.vue";
+  
 	export default {
 		name:"LoginPage",
 		components: {
@@ -155,6 +155,28 @@ import Register from "@/components/Register.vue";
 	.registerContainer {
 		margin: 100px;
 	}
+    .user-class {
+        border: 1px solid #000 !important;
+        padding: 0.5rem 1rem !important;
+        margin-bottom: 15px;
+        width: 100px;
+    }
+    .user-class:hover {
+        border: 1px solid #7fd686 !important;
+        color: #7fd686 !important;
+    }
+    .selected {
+        border: 1px solid #7fd686 !important;
+        color: #7fd686 !important;
+    }
+    .btn-left-round {
+      border-top-left-radius: 1.5rem !important;
+      border-bottom-left-radius: 1.5rem !important;
+    }
+    .btn-right-round {
+      border-top-right-radius: 1.5rem !important;
+      border-bottom-right-radius: 1.5rem !important;
+    }
 </style>
 
 
