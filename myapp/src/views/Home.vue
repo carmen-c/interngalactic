@@ -21,12 +21,11 @@
                 <div class="searchForm">
                   <input type="text" placeholder="Internship Title" class="input-left-round input-style"/>
                   <input type="text" placeholder="Location" class="input-style"/>
-                  <select class="input-style">
-                    <option value="Default">Sort By</option>
-                    <option value="Relevance">Relevance</option>
-                    <option value="Date Posted">Date Posted</option>
-                    <option value="Location">Location</option>
-                  </select>
+                  <b-dropdown class="dropdown" :text="dropdown">
+                    <b-dropdown-item @click="dropdownSelect('Relevance')" value="Relevance">Relevance</b-dropdown-item>
+                    <b-dropdown-item @click="dropdownSelect('Date Posted')" value="Date Posted">Date Posted</b-dropdown-item>
+                    <b-dropdown-item @click="dropdownSelect('Location')">Location</b-dropdown-item>
+                  </b-dropdown>
                 </div>
                 <br/>
                 <button class="btn searchBtn">Search</button>
@@ -65,6 +64,12 @@
     padding-top: 20%;
     font-size:22px;
   }
+  .searchForm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .searchBtn {
     color: #fff !important;
     font-weight: bold !important;
@@ -77,7 +82,7 @@
     border: none;
     color: #000;
     font-weight: bold;
-    margin-left: 5px;
+    margin-right: 5px;
     padding: 0.5rem;
   }
   .input-left-round {
@@ -88,8 +93,9 @@
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
   }
-  .dropdown {
-    
+  .btn-secondary {
+    background-color: #7fd686 !important;
+    border: 0 !important;
   }
 </style>
 
@@ -108,7 +114,15 @@ export default {
   },
   data() {
     return {
-      page: 1    }
+      page: 2,
+      dropdown: "Sort By",
+      selected: ""
+    }
+  },
+  methods: {
+    dropdownSelect: function(value) {
+      this.dropdown = value
+    }
   }
 }
 </script>
