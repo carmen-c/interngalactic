@@ -33,20 +33,20 @@
 		<div class="row">
 		<!--DROP DOWN MENU -->
 		  <div class="col-xs-12 col-md-12 dropDown">
-	<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
+	<div>
+  <b-dropdown id="ddown1" text="Dropdown Button" class="m-md-2">
+    <b-dropdown-item>First Action</b-dropdown-item>
+    <b-dropdown-item>Second Action</b-dropdown-item>
+    <b-dropdown-item>Third Action</b-dropdown-item>
+    <b-dropdown-divider></b-dropdown-divider>
+    <b-dropdown-item>Something else here...</b-dropdown-item>
+    <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+  </b-dropdown>
 </div>
-	</div>
+
+<!-- dropdown.vue -->
+	
+		</div>
 		</div>
 		<!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
 		<jobPostContainer />
@@ -61,6 +61,8 @@
 import clientheader from '@/components/clientHeader.vue'
 import firebase from 'firebase';
 import jobPostContainer from '@/components/jobPostContainer.vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
   
 	export default {
 		name:"LoginPage",
