@@ -48,7 +48,6 @@
 </template>
 
 <style>
-@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
   .banner {

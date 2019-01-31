@@ -13,6 +13,7 @@
 </template>
 
 <style>
+
 /*Boot strap */
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
