@@ -30,24 +30,28 @@
 <!--<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
 <!--******* RIGHT SIDE OF THE PAGE *************		 -->
 	 <div class="col-md-9">
+		 <div class="test1">
 		<div class="row">
-		<!--DROP DOWN MENU -->
-		  <div class="col-xs-12 col-md-12 dropDown">
-	<div>
-  <b-dropdown id="ddown1" text="Dropdown Button" class="m-md-2">
-    <b-dropdown-item>First Action</b-dropdown-item>
-    <b-dropdown-item>Second Action</b-dropdown-item>
-    <b-dropdown-item>Third Action</b-dropdown-item>
-    <b-dropdown-divider></b-dropdown-divider>
-    <b-dropdown-item>Something else here...</b-dropdown-item>
-    <b-dropdown-item disabled>Disabled action</b-dropdown-item>
-  </b-dropdown>
-</div>
-
-<!-- dropdown.vue -->
-	
+			<!--DROP DOWN MENU -->
+			  <div class="col-xs-12 col-md-12 dropDown">
+				  <div>
+					<b-form inline>
+					  <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Internship Title" />
+					  <b-input-group left="@" class="mb-2 mr-sm-2 mb-sm-0">
+						<b-input id="inlineFormInputGroupUsername2" placeholder="Location" />
+					  </b-input-group>
+						<div>
+						  <b-dropdown id="ddown1" text="Sort By" class="m-md-2">
+							<b-dropdown-item>First Action</b-dropdown-item>
+							<b-dropdown-item>Second Action</b-dropdown-item>
+							<b-dropdown-item>Third Action</b-dropdown-item>
+						  </b-dropdown>
+						</div>
+					</b-form>
+				  </div>
+			</div>
 		</div>
-		</div>
+		 </div>
 		<!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
 		<jobPostContainer />
 		<!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
@@ -112,7 +116,14 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 /*	*******************************  */
 /*	Right Side  */
 	.dropDown {
-		background-color: lavender;
+		padding: 20px;
+	}
+	.inputWidth {
+		width: 200px;
+	}
+	.test1 {
+		justify-content: left;
+		display: flex;
 		padding: 20px;
 	}
 </style>
