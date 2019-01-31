@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-md-5 border left">
 	  <img class="strokeLogo" src="../../images/strokeLOGO.svg"/>
-	  <div class="aboutImgs">
+	  <div class="aboutImgs col-md-12">
 		<div class="row">
 			<img src="../../images/find.svg" />
 		</div>
@@ -14,7 +14,7 @@
 		<div class="row">
 			<img src="../../images/getintouch.svg" />
 		</div>
-	</div>
+	   </div >
 	</div>
   <div class="col-md-7 border">
 	<div class="container">
@@ -73,9 +73,8 @@
 			</div>
 	</div>
 		</div>
-			</div>
-				</div>
-
+</div>
+  </div>
 </template>
 
 <script>
@@ -138,12 +137,13 @@ import firebase from 'firebase';
 		float: left;
 	}
 	.border {
-		border: 1px solid
+		border: 1px solid;
 	}
+    .loginPage {
+      overflow: hidden;
+    }
 	.left {
 		background: linear-gradient(-135deg, #c850c0, #4158d0);
-		height: 100vh;
-		overflow: hidden;
 	}
 	.strokeLogo {
 		opacity: 0.02;
