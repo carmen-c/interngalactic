@@ -3,7 +3,7 @@
 			 <div class="jobContainer">
 				<div class="row jobBox">
 				  <div class="col-md-3 col-md-push-3 test3">
-					  <div class="col-md-12 col-md-push-3">
+					  <div class="col-md-12 col-sm-6 col-md-push-3">
 						<!-- *********************************************************************** -->
 						<!-- COMPANY LOGO'S MUST BE 180 BY 180 -->
 						<!-- *********************************************************************** -->
@@ -48,8 +48,8 @@
 		width: 100%;
 	}
 	.companyLogo {
-		width: 180px;
-		height: 180px;
+		width: 100%;
+		height: auto;
 		margin: 10px;
 	}
 	.learnMore {
