@@ -70,12 +70,6 @@ import jobPostContainer from '@/components/jobPostContainer.vue'
 	}
 	.col-md-9 {
 	}
-	.floatRight {
-		float: right;
-	}
-	.textLeft {
-		text-align: left;
-	}
 /*	*******************************  */
 	.line {
 		margin-top: 20px;
@@ -99,38 +93,6 @@ import jobPostContainer from '@/components/jobPostContainer.vue'
 	.dropDown {
 		background-color: lavender;
 		padding: 20px;
-	}
-	.jobWrapper {
-		margin: 10px;
-		width: 100%;
-	}
-	.jobContainer {
-		background-color: #ededed;
-		border-radius: 15px;
-		padding: 10px;
-		margin: 40px;
-		margin-right: 35px;
-	}
-	.jobBox {
-		width: 100%;
-	}
-	.companyLogo {
-		width: 180px;
-		height: 180px;
-		margin: 10px;
-	}
-	.learnMore {
-		margin: 10px;
-	}
-	.contractIcon {
-		width: 30px;
-	}
-	.test1 {
-	}
-	.test2 {
-	}
-	.test3 {
-		height: 100%;
 	}
 </style>
 
