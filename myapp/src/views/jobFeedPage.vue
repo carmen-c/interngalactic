@@ -126,6 +126,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 		display: flex;
 		padding: 20px;
 	}
+	.jobFeedPage {
+		overflow: hidden;
+	}
 </style>
 
 
