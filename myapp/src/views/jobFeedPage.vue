@@ -6,20 +6,20 @@
 	  <div class="col-md-3 marginTop">
 		<div class="recent-Location">
 		<h4 class="h4MarginBottom">Recent Searches:</h4>
-		  <p>Graphic Designer</p>
-		  <p>Developer</p>
-		  <p>Content Creator</p>
-		  <p>UI/UX Design</p>
-		  <p>Marketing</p>
+		  <p><a href="#">Graphic Designer</a></p>
+		  <p><a href="#">Developer</a></p>
+		  <p><a href="#">Content Creator</a></p>
+		  <p><a href="#">UI/UX Design</a></p>
+		  <p><a href="#">Marketing</a></p>
 	</div>
 <hr class="line"/>
 	<div class="recent-Location">
 		<h4 class="h4MarginBottom">Locations:</h4>
-		  <p>Vancouver (104)</p>
-		  <p>Burnaby (92)</p>
-		  <p>Richmond (59)</p>
-		  <p>Coquitlam (36)</p>
-		  <p>Surrey (6)</p>
+		  <p><a href="#">Vancouver (104)</a></p>
+		  <p><a href="#">Burnaby (92)</a></p>
+		  <p><a href="#">Richmond (59)</a></p>
+		  <p><a href="#">Coquitlam (36)</a></p>
+		<p><a href="#">Surrey (6)</a></p>
 	</div>
 <hr class="line"/>
 	<div class="recent-Location">
@@ -27,7 +27,7 @@
 	</div>
 </div>
 		 
-		 
+<!--<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
 <!--******* RIGHT SIDE OF THE PAGE *************		 -->
 	 <div class="col-md-9">
 		<div class="row">
@@ -35,27 +35,8 @@
 		  <div class="col-xs-12 col-md-12 dropDown">Drop Down menu will go here</div>
 		</div>
 		<!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
-		<div class="jobWrapper">
-			 <div class="jobContainer">
-				<div class="row jobBox">
-				  <div class="col-md-3 col-md-push-3 test3">
-					  <div class="col-md-12 col-md-push-3">
-						<img class="companyLogo" src="../../images/UNIQLO_logo.svg"/>
-						</div>
-					  <div class="col-md-12 col-md-push-3">
-						<button class="btn btn-outline-success learnMore" type="submit">Learn More</button>
-						</div>
-					</div>
-				  <div class="col-md-9 col-md-pull-9 textLeft">
-					<div class="test1"><h1>Graphic Design Assistant</h1></div>
-					<div class="test2"><p>Uniqlo - Vancouver, BC</p></div>
-					<div class="test2"><p>Canada Drives is a young, dynamic, and fast growing company. We work with dealerships and finance partners across Canada to ensure that every customer, regardless of bad credit or no credit, has access to the auto financing they need. Our office is located in the heart of downtown Vancouver and we want you to join our growing team!</p></div>
-					<div class="test3"><p><span class="glyphicon glyphicon-time" aria-hidden="true"></span>4 Month Internship</p></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		 
+		<jobPostContainer />
+		<!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
 	</div> 
 </div>
 </div>
@@ -65,11 +46,13 @@
 // @ is an alias to /src
 import clientheader from '@/components/clientHeader.vue'
 import firebase from 'firebase';
+import jobPostContainer from '@/components/jobPostContainer.vue'
   
 	export default {
 		name:"LoginPage",
 		components: {
-			clientheader
+			clientheader,
+			jobPostContainer
 		},
 		data(){
 			return {
@@ -81,6 +64,7 @@ import firebase from 'firebase';
 </script>
 
 <style>
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css")
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
 	.col-md-3 {
 	}
@@ -132,10 +116,14 @@ import firebase from 'firebase';
 	}
 	.companyLogo {
 		width: 180px;
+		height: 180px;
 		margin: 10px;
 	}
 	.learnMore {
 		margin: 10px;
+	}
+	.contractIcon {
+		width: 30px;
 	}
 	.test1 {
 	}
