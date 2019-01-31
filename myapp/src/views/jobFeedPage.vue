@@ -50,6 +50,7 @@
 					<div class="test1"><h1>Graphic Design Assistant</h1></div>
 					<div class="test2"><p>Uniqlo - Vancouver, BC</p></div>
 					<div class="test2"><p>Canada Drives is a young, dynamic, and fast growing company. We work with dealerships and finance partners across Canada to ensure that every customer, regardless of bad credit or no credit, has access to the auto financing they need. Our office is located in the heart of downtown Vancouver and we want you to join our growing team!</p></div>
+					<div class="test3"><p><span class="glyphicon glyphicon-time" aria-hidden="true"></span>4 Month Internship</p></div>
 					</div>
 				</div>
 			</div>
