@@ -25,6 +25,9 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 </style>
 <style>
+    .navbar {
+        background: linear-gradient(-135deg, #c850c0, #4158d0);
+    }
 	#logoBtn {
 		margin-right: 10px;
 	}
