@@ -3,7 +3,7 @@
 	 <clientheader/>
 	 <div class="row">
 <!--******* LEFT SIDE OF THE PAGE *************		 -->
-	  <div class="col-md-3 marginTop">
+	  <div class="col-md-3 marginTop linkStyles">
 		<div class="recent-Location">
 		<h4 class="h4MarginBottom">Recent Searches:</h4>
 		  <p><a href="#">Graphic Designer</a></p>
@@ -87,6 +87,10 @@ import jobPostContainer from '@/components/jobPostContainer.vue'
 	}
 	.h4MarginBottom {
 		margin-bottom: 20px;
+	}
+	.linkStyles a {
+		color: black;
+		
 	}
 /*	*******************************  */
 /*	Right Side  */
