@@ -2,25 +2,29 @@
   <div class="jobForm">
 	  <div class="formContainer">
         
-          <div class="form-group">
-            <input type="text" class="form-control" 
-                   id="exampleInputEmail1" aria-describedby="emailHelp" 
+          <div class="row col-md-12">
+            <div class="col-md-9">
+              <input type="text" class="form-control"  
+                   v-model="company" placeholder="Company Name">
+              <input type="text" class="form-control"  
+                   v-model="position" placeholder="Intern Position"> 
+              <input type="text" class="form-control"  
+                   v-model="description" placeholder="Description">
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" 
                    v-model="start_date" placeholder="Enter start date">
-            <input type="text" class="form-control" 
-                   id="exampleInputEmail1" aria-describedby="emailHelp" 
+              <input type="text" class="form-control"  
                    v-model="end_date" placeholder="Enter end date">
-            <input type="text" class="form-control" 
-                   id="exampleInputEmail1" aria-describedby="emailHelp" 
+              <input type="text" class="form-control"  
                    v-model="location" placeholder="Enter location">
-            <input type="text" class="form-control" 
-                   id="exampleInputEmail1" aria-describedby="emailHelp" 
-                   v-model="title" placeholder="Enter title"> 
-            <input type="text" class="form-control" 
-                   id="exampleInputEmail1" aria-describedby="emailHelp" 
-                   v-model="description" placeholder="Enter description"> 
-            <input type="text" class="form-control" 
-                   id="exampleInputEmail1" aria-describedby="emailHelp" 
-                   v-model="company" placeholder="Enter company">
+            </div>
+          </div>
+          <div class="row">
+            Add Company Logo<br/>
+            <button>Choose file</button>
+            <input type="radio"> Require resume
+            <input type="radio"> Applicants will fill out fields provided on application
             <button @click="postJob">Post</button>
           </div>
             
@@ -39,7 +43,7 @@ export default {
           start_date: '',
           end_date: '',
           location: '',
-          title: '',
+          position: '',
           description: '',
           company: ''
 		}
@@ -58,7 +62,7 @@ export default {
                   start_date: this.start_date,
                   end_date: this.end_date,
                   location: this.location,
-                  title: this.title,
+                  position: this.position,
                   description: this.description,
                   company: this.company
                 })
@@ -75,68 +79,6 @@ export default {
 	}
 }
 </script>
-
-<style>
-@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
-</style>
-
-
-<style>
-	.logo-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding-bottom: 0.5em; 	
-	}
-	.logotitle-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-family: 'Comfortaa', cursive;
-		margin-bottom: 0.7em;
-	}
-	.internLogo {
-		width: 120px;
-		text-align: center;
-	}
-	.registerP {
-		font-size: 12px;
-		text-align: center;
-		padding-top: 15px;
-		margin-bottom: -5px;
-	}
-	.submitWrap {
-		text-align: center;
-	}
-	#submitButt {
-		margin: 4px;
-		width: 120px;
-	}
-	.test {
-		text-decoration: none;
-		color: white;
-	}
-	.jobForm {
-		display:flex;
-		position:fixed;
-		left:0;
-		top:0;
-		width:100vw;
-		height:100vh;
-		justify-content:center;
-		align-items:center;
-		text-align: left;
-		color: #000;
-		z-index: -1;
-		background: linear-gradient(-135deg, #c850c0, #4158d0);
-	}
-	.formContainer {
-		background-color: white;
-		padding: 30px 80px;
-		border-radius: 15px;
-	}
-</style>
 
 
 
