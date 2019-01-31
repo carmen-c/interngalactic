@@ -45,6 +45,7 @@
 	}
 	.navbar-brand {
 		font-family: 'Comfortaa', cursive;
+		color: white !important;
 	}
 	#internLogo{
 		width: 50px;
