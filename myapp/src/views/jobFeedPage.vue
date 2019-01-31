@@ -61,6 +61,7 @@
 import clientheader from '@/components/clientHeader.vue'
 import firebase from 'firebase';
 import jobPostContainer from '@/components/jobPostContainer.vue'
+// Boot Strap Vue
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
   
