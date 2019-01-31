@@ -1,14 +1,19 @@
 <template>
   <div class="jobForm">
+    <AdminHeader/>
 	  <div class="formContainer">
-        
+          
+          <div class="row">
+            <h2>Please fill out the fields below.</h2>
+          </div>
           <div class="row col-md-12">
             <div class="col-md-9">
+              
               <input type="text" class="form-control"  
                    v-model="company" placeholder="Company Name">
               <input type="text" class="form-control"  
                    v-model="position" placeholder="Intern Position"> 
-              <input type="text" class="form-control"  
+              <input type="text" class="form-control description"  
                    v-model="description" placeholder="Description">
             </div>
             <div class="col-md-3">
@@ -21,11 +26,21 @@
             </div>
           </div>
           <div class="row">
-            Add Company Logo<br/>
-            <button>Choose file</button>
-            <input type="radio"> Require resume
-            <input type="radio"> Applicants will fill out fields provided on application
-            <button @click="postJob">Post</button>
+            <div class="col-md-12">
+              <p class="addCompanyLogo">Add Company Logo</p><br/>
+              <ul class="other-info">
+                <li><button>Choose file</button></li>
+                <li><input type="radio"> Require resume</li>
+                <li><input type="radio"> Applicants will fill out fields provided on application</li>
+                <li><button @click="postJob">Post</button></li>
+              </ul>
+              
+             
+              
+              
+            </div>
+            
+            
           </div>
             
       </div>
@@ -35,7 +50,8 @@
 <script>
 // @ is an alias to /src
 import firebase from 'firebase';
-
+import AdminHeader from '@/components/adminHeader.vue'
+  
 export default {
 	name:"jobForm",
 	data() {
@@ -49,6 +65,7 @@ export default {
 		}
 	},
 	components:{
+      AdminHeader
 	},
 	methods: {
 		postJob: function() {
@@ -80,7 +97,24 @@ export default {
 }
 </script>
 
-
+<style>
+  .form-control {
+    margin-bottom: 1em;
+  }
+  .other-info {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .other-info li {
+    margin: 0 1em;
+  }
+  .addCompanyLogo {
+    text-align: left;
+    text-indent: 1em;
+  }
+</style>
 
 
 

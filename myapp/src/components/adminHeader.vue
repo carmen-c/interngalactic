@@ -16,7 +16,19 @@
     </form>
   </div>
 </nav>
-	</div>
+  <div class="header col-md-12">
+    <div class="banner">
+      <div class="banner-title">
+        Welcome Back, User!
+      </div>
+    </div>
+ </div>
+  <div class="nav admin-navigation col-md-12">
+    <button type="button" class="btn admin-buttons">Postings</button>
+    <button type="button" class="btn admin-buttons">Post Jobs</button>
+    <button type="button" class="btn admin-buttons">Applicants</button>
+  </div>
+</div>
 </template>
 
 
@@ -39,6 +51,25 @@
 		margin-left:10px;
 		margin-right:12px;
 	}
+    .header {
+        padding: 0 !important;
+    }
+    .admin-navigation {
+      margin-top: -38px;
+      z-index: 5;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .admin-buttons {
+      background-color: #e6e6e6 !important;
+      text-transform: uppercase;
+      border-top-left-radius: 1rem !important;
+      border-top-right-radius: 1rem !important;
+      border-bottom-right-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      margin: 0 0.25rem;
+    }
 </style>
 
 <script>

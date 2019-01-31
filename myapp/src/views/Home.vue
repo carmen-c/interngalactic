@@ -2,22 +2,12 @@
   <div class="home">
       
       <div v-if="page==1" class="row">
-           <div class="header col-md-12">
-              <AdminHeader/>
-              <div class="banner">
-                <div class="banner-title">
-                  Welcome Back, User!
-                </div>
-              </div>
-           </div>
-            <div class="nav admin-navigation col-md-12">
-              <button type="button" class="btn admin-buttons">Postings</button>
-              <button type="button" class="btn admin-buttons">Post Jobs</button>
-              <button type="button" class="btn admin-buttons">Applicants</button>
-            </div>
+        <div class="col-md-12">
+            <AdminHeader/>
             <div class="page">
 <!--              import fake data / components here                    -->
             </div>
+        </div>
       </div>
       
       <div v-if="page==2" class="row">
@@ -65,23 +55,6 @@
     text-align: center;
     margin: 0 auto;
   }
-  .admin-navigation {
-    margin-top: -45px;
-    z-index: 5;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .admin-buttons {
-    background-color: #e6e6e6 !important;
-    text-transform: uppercase;
-    border-top-left-radius: 1rem !important;
-    border-top-right-radius: 1rem !important;
-    border-bottom-right-radius: 0 !important;
-    border-bottom-left-radius: 0 !important;
-    margin: 0 0.25rem;
-  }
-  
   .bg {
     height: 100vh;
     background-image: url(../assets/temp.jpeg);
