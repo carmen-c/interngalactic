@@ -4,23 +4,31 @@
       <div v-if="page==1" class="row">
         <div class="col-md-12">
             <AdminHeader/>
+            <div class="nav admin-navigation col-md-12">
+              <button type="button" class="btn admin-buttons" @click="changePage(1)">Postings</button>
+              <button type="button" class="btn admin-buttons" @click="changePage(2)">Post Jobs</button>
+              <button type="button" class="btn admin-buttons" @click="changePage(3)">Applicants</button>
+            </div>
             <div class="page">
-<!--         import fake data / components here     -->			
-				<div class="applicantWrapper">
-					<div class="applicantContainer">
-						<h3>Current Applicants:</h3>
-					</div>
-				</div>
-<!--	INPUT APPLICANTS			-->
-<!--	<applicants />				-->
-				
-<!--	INPUT ACTIVE JOB POSTINGS	-->
-<!--	<currentJobPost />				-->
-				
+              <!--              Postings-->
+              <div v-if="adminPage==1">
+                <currentJobPost/>
+              </div>
+              <!--              Post Jobs-->
+              <div v-if="adminPage==2">
+                <jobForm/>
+              </div>
+              <!--              Applicants-->
+              <div v-if="adminPage==3">
+                <applicants/>
+              </div>
             </div>
         </div>
       </div>
       
+    
+    
+    
       <div v-if="page==2" class="row">
            <div class="header col-md-12">
               <ClientHeader/>
@@ -120,6 +128,22 @@
 		display: flex;
 		margin-top: 20px;
 	}
+    .admin-navigation {
+      margin-top: -38px;
+      z-index: 5;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .admin-buttons {
+      background-color: #e6e6e6 !important;
+      text-transform: uppercase;
+      border-top-left-radius: 1rem !important;
+      border-top-right-radius: 1rem !important;
+      border-bottom-right-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      margin: 0 0.25rem;
+    }
 </style>
 
 <script>
@@ -128,7 +152,8 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import ClientHeader from '@/components/clientHeader.vue'
 import AdminHeader from '@/components/adminHeader.vue'
 import applicants from '@/components/applicants.vue'
-//import currentJobPost from '@/components/currentJobPost.vue'
+import currentJobPost from '@/components/currentJobPost.vue'
+import jobForm from '@/components/jobForm.vue'
 
 export default {
   name: 'home',
@@ -137,18 +162,20 @@ export default {
     ClientHeader,
     AdminHeader,
 	applicants,
-//	currentJobPost
+	currentJobPost,
+    jobForm
   },
   data() {
     return {
       page: 1,
+      adminPage: 1,
       dropdown: "Sort By",
       selected: ""
     }
   },
   methods: {
-    dropdownSelect: function(value) {
-      this.dropdown = value
+    changePage: function(value) {
+      this.adminPage = value
     }
   }
 }
