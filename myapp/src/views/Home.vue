@@ -12,7 +12,10 @@
 					</div>
 				</div>
 <!--	INPUT APPLICANTS			-->
-				<applicants />
+<!--	<applicants />				-->
+				
+<!--	INPUT ACTIVE JOB POSTINGS	-->
+				
 				
             </div>
         </div>
