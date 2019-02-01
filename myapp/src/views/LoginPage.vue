@@ -22,10 +22,10 @@
 		  <div class="col-xs-12 loginContainer">
 			<div class="form-inline">
   				<div class="form-group">
-					<input type="email" class="form-control" id="exampleInputEmail3" v-model="email" placeholder="Email">
+					<input type="email" class="form-control" v-model="loginEmail" placeholder="Email">
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" id="exampleInputPassword3"  v-model="password"placeholder="Password">
+					<input type="password" class="form-control" v-model="password"placeholder="Password">
 				</div>
 				  	<button @click="login" type="submit" class="btn btn-default" id="signinBtn">Login</button>
 			</div>
@@ -40,29 +40,29 @@
 								</div>
 								<div class="row">
 								  <div class="btn-group">
-									<button class="btn user-class btn-left-round">Applicant</button>
-									<button class="btn user-class btn-right-round">Intern</button>
+									<button class="btn user-class btn-left-round" :class="{'selected':userType=='company'}" @click="selectType('company')">Company</button>
+									<button class="btn user-class btn-right-round" :class="{'selected':userType=='intern'}" @click="selectType('intern')">Intern</button>
 								  </div>
 								</div>
 								<div class="marginInput">
 								<div class="row">
 									<div class="form-group">
-										<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" v-model="email">
+										<input type="email" class="form-control" placeholder="Email" v-model="email">
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group">
-										<input type="name" class="form-control" v-model="name"id="exampleInputEmail3" placeholder="Full Name">
+										<input type="name" class="form-control" v-model="name" placeholder="Full Name">
 									</div>		
 								</div>
 								<div class="row">
 									<div class="form-group">
-										<input type="password" class="form-control" id="exampleInputEmail3" placeholder="Password" v-model="password">
+										<input type="password" class="form-control" placeholder="Password" v-model="password">
 									</div>		
 								</div>
 								<div class="row">
 									<div class="form-group">
-										<input type="password" class="form-control" id="exampleInputEmail3"  v-model="retypePass"placeholder="Re-type Password">
+										<input type="password" class="form-control" v-model="retypePass" placeholder="Re-type Password">
 									</div>		
 								</div>
 							</div>
@@ -89,18 +89,20 @@ import firebase from 'firebase';
 		components: {
 		},
 		data(){
-			return {
-				email: '',
-				password: '',
-				name: '',
-				retypePass: ''
-			}
+          return {
+            userType:'',
+            email: '',
+            name: '',
+            password: '',
+            retypePass: '',
+            loginEmail: ''
+          }
 		},
 		methods: {
-			login: function() {
-				firebase.auth().signInWithEmailAndPassword(this.email,this.password).then(
+		  login: function() {
+				firebase.auth().signInWithEmailAndPassword(this.loginEmail,this.password).then(
 				(user) => {
-					this.$router.replace('Home')
+					this.$router.replace('/')
 				},
 				(err) => {
 					alert(err.message)
@@ -118,6 +120,7 @@ import firebase from 'firebase';
                           name: this.name,
                           email: this.email,
                           password: this.password,
+                          userType: this.userType
                         })
 					},
 					function(err){
@@ -125,7 +128,10 @@ import firebase from 'firebase';
 					}
 				);
 			}
-		}
+		  },
+          selectType:function(type) {
+            this.userType = type
+          }
           
 		}	
 	}
@@ -147,7 +153,7 @@ import firebase from 'firebase';
 	}
 	.strokeLogo {
 		opacity: 0.02;
-		position: absolute;
+        position: absolute;
 		top: 100px;
 		left: -500px;
 		width: 1000px;

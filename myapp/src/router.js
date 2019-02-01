@@ -38,14 +38,6 @@ export default new Router({
 	  name: 'resumeUpload',
 	  component: resumeUpload
 	},
-    {
-      path: '/',
-      redirect: '/login'
-    },
-    {
-      path: '*',
-      redirect: '/login'
-    },
 	{
       path: '/Login',
       name:'/login',
