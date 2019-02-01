@@ -1,6 +1,5 @@
 <template>
   <div class="jobForm">
-    <AdminHeader/>
 	  <div class="formContainer">
           
           <div class="row">
