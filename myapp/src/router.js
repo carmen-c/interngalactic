@@ -6,6 +6,7 @@ import resumeUpload from './views/resumeUpload.vue'
 import jobFeedPage from './views/jobFeedPage.vue'
 
 import Login from './components/Login.vue'
+import currentJobPost from './components/currentJobPost.vue'
 import Register from './components/Register.vue'
 import applicants from './components/applicants.vue'
 import jobForm from './components/jobForm.vue'
@@ -79,6 +80,11 @@ export default new Router({
 	  path: '/applicants',
 	  name: '/applicants',
 	  component: applicants
+	},
+	 {
+	  path: '/currentJobPost',
+	  name: '/currentJobPost',
+	  component: currentJobPost
 	},
     {
       path: '/about',

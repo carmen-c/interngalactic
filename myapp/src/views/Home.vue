@@ -15,7 +15,7 @@
 <!--	<applicants />				-->
 				
 <!--	INPUT ACTIVE JOB POSTINGS	-->
-				
+<!--	<currentJobPost />				-->
 				
             </div>
         </div>
@@ -128,6 +128,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import ClientHeader from '@/components/clientHeader.vue'
 import AdminHeader from '@/components/adminHeader.vue'
 import applicants from '@/components/applicants.vue'
+//import currentJobPost from '@/components/currentJobPost.vue'
 
 export default {
   name: 'home',
@@ -135,7 +136,8 @@ export default {
     HelloWorld,
     ClientHeader,
     AdminHeader,
-	applicants
+	applicants,
+//	currentJobPost
   },
   data() {
     return {

@@ -41,6 +41,8 @@
 		padding: 10px;
 		margin: 40px;
 		margin-right: 35px;
+		position: relative;
+		right: 3%;
 	}
 	.jobBox {
 		width: 100%;

@@ -7,7 +7,7 @@
       <router-link to="/resumeUpload">resumeUpload</router-link> | 
 	  <router-link to ="/jobForm">Job Form</router-link> |
 	  <router-link to ="/jobFeedPage">Job Feed</router-link> |
-	  <router-link to ="/applicants">applicants</router-link> |
+	  <router-link to ="/applicants">applicants</router-link> | <router-link to ="/currentJobPost">currentJobPost</router-link> |
     </div>
     <router-view/>
   </div>
