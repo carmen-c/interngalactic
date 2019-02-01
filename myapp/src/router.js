@@ -7,6 +7,7 @@ import jobFeedPage from './views/jobFeedPage.vue'
 
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
+import applicants from './components/applicants.vue'
 import jobForm from './components/jobForm.vue'
 import adminHeader from './components/adminHeader.vue'
 import clientHeader from './components/clientHeader.vue'
@@ -73,6 +74,11 @@ export default new Router({
 	  path: '/jobFeedPage',
 	  name: '/jobFeedPage',
 	  component: jobFeedPage
+	},
+	{
+	  path: '/applicants',
+	  name: '/applicants',
+	  component: applicants
 	},
     {
       path: '/about',

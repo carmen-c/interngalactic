@@ -5,7 +5,8 @@
         <div class="col-md-12">
             <AdminHeader/>
             <div class="page">
-<!--              import fake data / components here                    -->
+<!--         import fake data / components here     -->
+				<applicants />
             </div>
         </div>
       </div>
@@ -104,17 +105,19 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import ClientHeader from '@/components/clientHeader.vue'
 import AdminHeader from '@/components/adminHeader.vue'
+import applicants from '@/components/applicants.vue'
 
 export default {
   name: 'home',
   components: {
     HelloWorld,
     ClientHeader,
-    AdminHeader
+    AdminHeader,
+	applicants
   },
   data() {
     return {
-      page: 2,
+      page: 1,
       dropdown: "Sort By",
       selected: ""
     }

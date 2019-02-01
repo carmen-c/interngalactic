@@ -42,9 +42,9 @@
 					  </b-input-group>
 						<div>
 						  <b-dropdown id="ddown1" text="Sort By" class="m-md-2">
-							<b-dropdown-item>First Action</b-dropdown-item>
-							<b-dropdown-item>Second Action</b-dropdown-item>
-							<b-dropdown-item>Third Action</b-dropdown-item>
+							<b-dropdown-item>Most Recent</b-dropdown-item>
+							<b-dropdown-item>Full time</b-dropdown-item>
+							<b-dropdown-item>Part time</b-dropdown-item>
 						  </b-dropdown>
 						</div>
 					</b-form>
@@ -111,6 +111,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 	}
 	.linkStyles a {
 		color: black;
+	}
+	.linkStyles {
 		
 	}
 /*	*******************************  */
@@ -128,6 +130,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 	}
 	.jobFeedPage {
 		overflow: hidden;
+	}
+	.test1 {
+		margin-left: 30px;
 	}
 </style>
 
