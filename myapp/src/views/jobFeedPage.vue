@@ -53,7 +53,17 @@
 		</div>
 		 </div>
 		<!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
-		<jobPostContainer />
+          <jobPostContainer 
+            v-for="job in jobsArray"
+            v-bind:key="job.post_id"
+            v-bind:position="job.position"
+            v-bind:company="job.company"
+            v-bind:location="job.location"
+            v-bind:description="job.description"
+            v-bind:start="job.start_date"
+            v-bind:end="job.end_date"
+          />
+       
 		<!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
 	</div> 
 </div>
@@ -69,19 +79,47 @@ import jobPostContainer from '@/components/jobPostContainer.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
   
-	export default {
-		name:"LoginPage",
-		components: {
-			clientheader,
-			jobPostContainer
-		},
-		data(){
-			return {
-			}
-		},
-		methods: {
-		}
-	}
+export default {
+  name:"LoginPage",
+  components: {
+      clientheader,
+      jobPostContainer
+  },
+  data(){
+      return {
+        jobsArray: []
+      }
+  },
+  created: function() {
+    this.getJobs();
+  },
+  methods: {
+    getJobs: function() {
+      var jobs = firebase.firestore().collection("jobs");
+      jobs.get().then(
+        (snapshot) => {
+            snapshot.forEach((doc)=>{
+              var data = doc.data();
+                 this.jobsArray.push({
+                   post_id: data.post_id,
+                   uid: data.uid,
+                   position: data.position,
+                   company: data.company,
+                   location: data.location,
+                   start_date: data.start_date,
+                   end_date: data.end_date,
+                   description: data.description
+                 })
+            });
+        },
+        (err) => {
+            alert(err.message)
+        }
+      );
+    }   
+  }
+}
+
 </script>
 
 <style>
