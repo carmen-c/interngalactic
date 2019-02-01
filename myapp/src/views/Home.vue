@@ -5,8 +5,15 @@
         <div class="col-md-12">
             <AdminHeader/>
             <div class="page">
-<!--         import fake data / components here     -->
+<!--         import fake data / components here     -->			
+				<div class="applicantWrapper">
+					<div class="applicantContainer">
+						<h3>Current Applicants:</h3>
+					</div>
+				</div>
+<!--	INPUT APPLICANTS			-->
 				<applicants />
+				
             </div>
         </div>
       </div>
@@ -98,6 +105,18 @@
     background-color: #7fd686 !important;
     border: 0 !important;
   }
+	.applicantContainer {
+		width: 50%;
+		margin-right: 100px;
+		text-align: left;
+		justify-content: center;
+	}
+	.applicantWrapper {
+		width: 100%;
+		justify-content: center;
+		display: flex;
+		margin-top: 20px;
+	}
 </style>
 
 <script>
