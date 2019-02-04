@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import LoginPage from './views/LoginPage.vue'
 import resumeUpload from './views/resumeUpload.vue'
 import jobFeedPage from './views/jobFeedPage.vue'
+import profilePage from './views/profilePage.vue'
 
 import Login from './components/Login.vue'
 import currentJobPost from './components/currentJobPost.vue'
@@ -73,7 +74,12 @@ export default new Router({
 	  name: '/applicants',
 	  component: applicants
 	},
-	 {
+	{
+	  path: '/profilePage',
+	  name: '/profilePage',
+	  component: profilePage
+	},
+	{
 	  path: '/currentJobPost',
 	  name: '/currentJobPost',
 	  component: currentJobPost

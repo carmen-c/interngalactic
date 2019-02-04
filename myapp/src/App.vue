@@ -4,10 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> | 
       <router-link to="/LoginPage">LoginPage</router-link> | 
-      <router-link to="/resumeUpload">resumeUpload</router-link> | 
-	  <router-link to ="/jobForm">Job Form</router-link> |
 	  <router-link to ="/jobFeedPage">Job Feed</router-link> |
-	  <router-link to ="/applicants">applicants</router-link> | <router-link to ="/currentJobPost">currentJobPost</router-link> |
+	  <router-link to ="/currentJobPost">currentJobPost</router-link> |
+	  <router-link to ="/profilePage">profilePage</router-link> |
     </div>
     <router-view/>
   </div>
@@ -22,7 +21,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
+}	
 #nav {
   padding: 30px;
 }
