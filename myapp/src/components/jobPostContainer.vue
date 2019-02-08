@@ -16,7 +16,7 @@
 					<!-- *********************************************************************** -->
 					<!-- Maxium Word Count for Description is 65 NO MORE -->
 					<!-- *********************************************************************** -->
-					<div class="jobDescription">{{description}}}</div>
+					<div class="jobDescription">{{description}}</div>
 					<div class="test3">
 						<p><img class="contractIcon jobDuration" src="../../images/contract.svg"/>{{start}} to {{end}}		<button class="btn btn-outline-success learnMore" type="submit">Learn More</button></p></div>
 					</div>

@@ -16,10 +16,11 @@
                    v-model="description" placeholder="Description">
             </div>
             <div class="col-md-3">
-                <input type="text" class="form-control" 
-                   v-model="start_date" placeholder="Enter start date">
-              <input type="text" class="form-control"  
-                   v-model="end_date" placeholder="Enter end date">
+                <v-date-picker
+                  mode='range'
+                  v-model='myDates'
+                  show-caps>
+                </v-date-picker>
               <input type="text" class="form-control"  
                    v-model="location" placeholder="Enter location">
             </div>
@@ -60,7 +61,11 @@ export default {
           location: '',
           position: '',
           description: '',
-          company: ''
+          company: '',
+          myDates: "",
+          format: {
+            input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
+          }
 		}
 	},
 	components:{
@@ -68,6 +73,9 @@ export default {
 	},
 	methods: {
 		postJob: function() {
+            this.start_date = this.myDates.start
+            this.end_date = this.myDates.end
+          
             const currentUser = firebase.auth().currentUser;
             if(currentUser) {
               var ref = firebase.firestore().collection('jobs');
