@@ -1,10 +1,15 @@
 import Vue from 'vue'
+import VCalendar from 'v-calendar'
+import 'v-calendar/lib/v-calendar.min.css'
 import App from './App.vue'
 import router from './router'
 import firebase from 'firebase'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false
+Vue.use(VCalendar, {
+	firstDayOfWeek:1,
+});
 
 const config = {
     apiKey: "AIzaSyBkL8hsIlbZtQRLhb9xpE7grLtiI8Idfqw",

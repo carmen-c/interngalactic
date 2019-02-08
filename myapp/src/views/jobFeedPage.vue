@@ -63,8 +63,6 @@
             v-bind:start="job.start_date"
             v-bind:end="job.end_date"
           />
-       
-		<!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
 	</div> 
 </div>
 </div>
