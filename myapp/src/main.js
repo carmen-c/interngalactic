@@ -9,6 +9,7 @@ Vue.use(BootstrapVue);
 Vue.config.productionTip = false
 Vue.use(VCalendar, {
 	firstDayOfWeek:1,
+	datePickerTintColor:""
 });
 
 const config = {

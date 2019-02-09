@@ -3,10 +3,10 @@
 	  <div class="formContainer">
           
           <div class="row">
-            <h2>Please fill out the fields below.</h2>
+            <h2 style="margin-bottom:40px">Please fill out the fields below.</h2>
           </div>
           <div class="row col-md-12">
-            <div class="col-md-9">
+            <div class="col-md-5">
               
               <input type="text" class="form-control"  
                    v-model="company" placeholder="Company Name">
@@ -16,33 +16,28 @@
                    v-model="description" placeholder="Description">
             </div>
             <div class="col-md-3">
-                <v-date-picker
+                <v-date-picker class="datePickerStyle"
                   mode='range'
                   v-model='myDates'
                   show-caps>
                 </v-date-picker>
-              <input type="text" class="form-control"  
+				<div style="margin-left:10px">
+              <input type="text" class="form-control "  
                    v-model="location" placeholder="Enter location">
+					</div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <p class="addCompanyLogo">Add Company Logo</p><br/>
+            <div class="col-md-8">
+              <p class="addCompanyLogo"><b>Add Company Logo</b></p><br/>
               <ul class="other-info">
                 <li><button>Choose file</button></li>
                 <li><input type="radio"> Require resume</li>
                 <li><input type="radio"> Applicants will fill out fields provided on application</li>
                 <li><button @click="postJob">Post</button></li>
               </ul>
-              
-             
-              
-              
             </div>
-            
-            
           </div>
-            
       </div>
   </div>
 </template>
@@ -120,7 +115,12 @@ export default {
   .addCompanyLogo {
     text-align: left;
     text-indent: 1em;
+	 margin-bottom: -10px;
   }
+	.datePickerStyle {
+		width: 220px;
+		padding-bottom: 25px;
+	}
 </style>
 
 
