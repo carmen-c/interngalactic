@@ -18,7 +18,11 @@
 					<!-- *********************************************************************** -->
 					<div class="jobDescription">{{description}}</div>
 					<div class="test3">
-						<p><img class="contractIcon jobDuration" src="../../images/contract.svg"/>{{start}} to {{end}}		<button class="btn btn-outline-success learnMore" type="submit">Learn More</button></p></div>
+						<p>
+                          <img class="contractIcon jobDuration" src="../../images/contract.svg"/>
+                          <span>{{start.seconds | moment("MMMM Do YYYY")}}</span> to {{end.seconds | moment("MMMM Do YYYY")}}
+                          <button class="btn btn-outline-success learnMore" type="submit">Learn More</button>
+                        </p></div>
 					</div>
 				</div>
 			</div>
@@ -26,6 +30,7 @@
 </template>
 
 <script>
+  
   export default {
     props: ['key','position','company','location','description','start','end']
   }
