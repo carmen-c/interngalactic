@@ -16,9 +16,17 @@
 					<!-- *********************************************************************** -->
 					<!-- Maxium Word Count for Description is 65 NO MORE -->
 					<!-- *********************************************************************** -->
-					<div class="jobDescription">{{description}}</div>
+					<div class="jobDescription">
+                      <p v-if="description.length <= 200">{{description}}</p>
+                      <p v-if="description.length >200">{{description.substring(0,200)+"..."}}</p>
+                      
+                    </div>
 					<div class="test3">
-						<p><img class="contractIcon jobDuration" src="../../images/contract.svg"/>{{start}} to {{end}}		<button class="btn btn-outline-success learnMore" type="submit">Learn More</button></p></div>
+						<p>
+                          <img class="contractIcon jobDuration" src="../../images/contract.svg"/>
+                          <span>{{start.seconds | moment("MMMM Do YYYY")}}</span> to {{end.seconds | moment("MMMM Do YYYY")}}
+                          <button class="btn btn-outline-success learnMore" type="submit">Learn More</button>
+                        </p></div>
 					</div>
 				</div>
 			</div>
@@ -26,6 +34,7 @@
 </template>
 
 <script>
+  
   export default {
     props: ['key','position','company','location','description','start','end']
   }

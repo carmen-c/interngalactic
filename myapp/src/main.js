@@ -11,6 +11,7 @@ Vue.use(VCalendar, {
 	firstDayOfWeek:1,
 	datePickerTintColor:""
 });
+Vue.use(require('vue-moment'));
 
 const config = {
     apiKey: "AIzaSyBkL8hsIlbZtQRLhb9xpE7grLtiI8Idfqw",

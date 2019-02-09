@@ -57,10 +57,7 @@ export default {
           position: '',
           description: '',
           company: '',
-          myDates: "",
-          format: {
-            input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
-          }
+          myDates: ""
 		}
 	},
 	components:{
