@@ -16,7 +16,11 @@
 					<!-- *********************************************************************** -->
 					<!-- Maxium Word Count for Description is 65 NO MORE -->
 					<!-- *********************************************************************** -->
-					<div class="jobDescription">{{description}}</div>
+					<div class="jobDescription">
+                      <p v-if="description.length <= 200">{{description}}</p>
+                      <p v-if="description.length >200">{{description.substring(0,200)+"..."}}</p>
+                      
+                    </div>
 					<div class="test3">
 						<p>
                           <img class="contractIcon jobDuration" src="../../images/contract.svg"/>
