@@ -63,6 +63,8 @@
             v-bind:start="job.start_date"
             v-bind:end="job.end_date"
           />
+        <!--	PUT THE ACCORDION HERE	  -->
+       
 	</div> 
 </div>
 </div>
