@@ -3,11 +3,11 @@
 
 <div class="coverpic">
   <div id="profilepic">
-    <img id="headshot" src="../../images/headshot.png"/>
+    <img id="headshot" src=""/>
     </div>
   </div>
    
-   <img id="edit" src="../../images/edit.png"/>
+   <img id="edit" src=""/>
    
   <div class="profileInfo">
    <h2 class="profileName">Austin Glover</h2><br>
@@ -52,7 +52,6 @@ import calendar from '@/components/calendar.vue'
 		width: 800px;
 	}
   .coverpic {
-    background-image: url('../../images/bannerpic.jpg');
     background-size: cover;
     height: 370px;
     padding-top: 220px;
