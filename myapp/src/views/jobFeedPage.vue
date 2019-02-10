@@ -130,8 +130,9 @@ export default {
 /*	*******************************  */
 	.line {
 		margin-top: 20px;
-		width: 60%;
-		border:1px solid #7fd686;
+        margin-left: 70px;
+		width: 50%;
+		border:.5px solid #7fd686;
 	}
 /*	*******************************  */
 /*	Left Side  */

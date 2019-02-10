@@ -1,45 +1,69 @@
 <template>
-<div class="jobWrapper">
-			 <div class="jobContainer" id="key">
-				<div class="row jobBox">
-				  <div class="col-md-3 col-md-push-3 test3">
-					  <div class="col-md-12 col-sm-6 col-md-push-3">
-						<!-- *********************************************************************** -->
-						<!-- COMPANY LOGO'S MUST BE 180 BY 180 -->
-						<!-- *********************************************************************** -->
-						<img class="companyLogo" src="../../images/TD.png"/>
-						</div>
-					</div>
-				  <div class="col-md-9 col-md-pull-9 textLeft">
-					<div class="jobTitle"><h1>{{position}}</h1></div>
-					<div class="jobLocation"><p>{{company}} - {{location}}</p></div>
-					<!-- *********************************************************************** -->
-					<!-- Maxium Word Count for Description is 65 NO MORE -->
-					<!-- *********************************************************************** -->
-					<div class="jobDescription">
-                      <p v-if="description.length <= 200">{{description}}</p>
-                      <p v-if="description.length >200">{{description.substring(0,200)+"..."}}</p>
-                      
-                    </div>
-					<div class="test3">
-						<p>
-                          <img class="contractIcon jobDuration" src="../../images/contract.svg"/>
-                          <span>{{start.seconds | moment("MMMM Do YYYY")}}</span> to {{end.seconds | moment("MMMM Do YYYY")}}
-                          <button class="btn btn-outline-success learnMore" type="submit">Learn More</button>
-                        </p></div>
-					</div>
-				</div>
-			</div>
-		</div>
+  <div role="tablist" class="tablist">
+    <b-card no-body class="mb-1" id="cardWrapper">
+ <div class="jobWrapper">
+   <div class="jobContainer" id="key">
+     <div class="row jobBox">
+       <div class="col-md-3 col-md-push-3 test3">
+         <div class="col-md-12 col-sm-6 col-md-push-3">
+           <!-- *********************************************************************** -->
+           <!-- COMPANY LOGO'S MUST BE 180 BY 180 -->
+           <!-- *********************************************************************** -->
+           <img class="companyLogo" src="../../images/TD.png"/>
+  </div>
+  </div>
+       <div class="col-md-9 col-md-pull-9 textLeft">
+         <div class="jobTitle"><h1>{{position}}</h1></div>
+         <div class="jobLocation"><p>{{company}} - {{location}}</p></div>
+         <!-- *********************************************************************** -->
+         <!-- Maxium Word Count for Description is 65 NO MORE -->
+         <!-- *********************************************************************** -->
+         <div class="jobDescription">
+           <p v-if="description.length <= 200">{{description}}</p>
+           <p v-if="description.length >200">{{description.substring(0,200)+"..."}}</p>
+  </div>
+         <div class="test3">
+           <p>
+             <img class="contractIcon jobDuration" src="../../images/contract.svg"/>
+             <span>{{start.seconds | moment("MMMM Do YYYY")}}</span> to {{end.seconds | moment("MMMM Do YYYY")}}
+             <button block href="#" v-b-toggle.accordion1 class="btn btn-outline-success learnMore" type="submit">Learn More</button></p>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+      <b-collapse id="accordion1"  role="tabpanel">
+        <b-card-body>
+          <p class="card-text">Job Description</p>
+          <p v-if="description.length >200"> {{ text }} </p>
+        </b-card-body>
+      </b-collapse>
+  </b-card>
+  </div>
 </template>
 
 <script>
-  
-  export default {
+export default {
+  data () {
+    return {
+      text: `
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+        tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+        wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+        vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+        synth nesciunt you probably haven't heard of them accusamus labore VHS.
+      `
+    }
+  },
     props: ['key','position','company','location','description','start','end']
-  }
+ }
+	
 </script>
 
+<!-- accordion-1.vue -->
 <style>
 /*	************************************* */
 	.textLeft {
@@ -82,4 +106,7 @@
 	}
 	.jobDuration {
 	}
+  #cardWrapper {
+    border: none;
+  }
 </style>

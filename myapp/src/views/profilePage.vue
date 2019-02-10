@@ -7,7 +7,7 @@
     </div>
   </div>
    
-   <img id="edit" src=""/>
+<!--   <img id="edit" src=""/>-->
    
   <div class="profileInfo">
    <h2 class="profileName">Austin Glover</h2><br>
