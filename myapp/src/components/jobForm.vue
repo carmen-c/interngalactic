@@ -19,6 +19,8 @@
                 <v-date-picker class="datePickerStyle"
                   mode='range'
                   v-model='myDates'
+                  :theme-styles='themeStyle'
+                  tint-color='#7fd686'
                   show-caps>
                 </v-date-picker>
 				<div style="margin-left:10px">
@@ -57,7 +59,22 @@ export default {
           position: '',
           description: '',
           company: '',
-          myDates: ""
+          myDates: "",
+          attribute: {
+            
+          },
+          themeStyle: {
+            wrapper: {
+              background: 'linear-gradient(-135deg, #c850c0, #4158d0)',
+              color: '#fafafa'
+            },
+            weekdays: {
+              color: '#7fd686'
+            },
+            weeks: {
+              color: '#ffffff'
+            }
+          }
 		}
 	},
 	components:{
