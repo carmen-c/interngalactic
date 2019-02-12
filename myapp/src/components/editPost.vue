@@ -9,11 +9,11 @@
             <div class="col-md-5">
               {{start}} {{end}} {{post_id}}
               <input type="text" class="form-control"  
-                   v-model="company" placeholder="Company Name">
+                   v-model="edit_company" placeholder="Company Name">
               <input type="text" class="form-control"  
-                   v-model="position" placeholder="Intern Position"> 
+                   v-model="edit_position" placeholder="Intern Position"> 
               <input type="text" class="form-control description"  
-                   v-model="description" placeholder="Description">
+                   v-model="edit_description" placeholder="Description">
             </div>
             <div class="col-md-3">
                 <v-date-picker class="datePickerStyle"
@@ -25,7 +25,7 @@
                 </v-date-picker>
 				<div style="margin-left:10px">
               <input type="text" class="form-control "  
-                   v-model="location" placeholder="Enter location">
+                   v-model="edit_location" placeholder="Enter location">
 					</div>
             </div>
           </div>
@@ -61,8 +61,7 @@ export default {
           edit_description: '',
           edit_company: '',
           edit_myDates: '',
-          themeStyle: {},
-          edit_postid: 'something'
+          themeStyle: {}
 		}
 	},
 	components:{
@@ -78,11 +77,9 @@ export default {
           
             const currentUser = firebase.auth().currentUser;
             if(currentUser) {
-              var ref = firebase.firestore().collection('jobs').doc(this.edit_post_id);
+              var ref = firebase.firestore().collection('jobs').doc(this.post_id);
               //First add string post_id
               ref.update({
-                  uid: currentUser.uid,
-                  post_id: 'ref.id',
                   start_date: this.edit_start_date,
                   end_date: this.edit_end_date,
                   location: this.edit_location,
@@ -105,8 +102,7 @@ export default {
         this.edit_position = this.position,
         this.edit_description = this.description,
         this.edit_company = this.company,
-        this.edit_myDates = {start: this.start, end: this.end},
-        this.edit_postid = this.post_id
+        this.edit_myDates = {start: this.start, end: this.end}
       }
 	},
     created: function(){   
