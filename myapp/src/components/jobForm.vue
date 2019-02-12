@@ -104,11 +104,16 @@ export default {
                   ref.update({
                     post_id: ref.id
                   })
-                
-              })
+                }).then (()=>{
+                  this.changePage(1);
+                })
             } else {
               alert("error message");
             }
+        },
+        changePage: function(value) {
+          this.store.adminPage = value
+          this.adminPage = this.store.adminPage
         }
 	}
 }

@@ -19,7 +19,7 @@
   <div class="header col-md-12">
     <div class="banner">
       <div class="banner-title">
-        Welcome Back, User!
+        Welcome Back, {{username}}!
       </div>
     </div>
  </div>
@@ -62,12 +62,31 @@ export default {
 	name:"adminHeader",
 	data() {
 		return {
+          username: "user"
 		}
 	},
 	components:{
 	},
     methods: {
-      
+      getName: function(){
+        var currentuser = firebase.auth().currentUser;
+        var ref = firebase.firestore().collection("users").doc(currentuser.uid);
+        
+        ref.get().then(doc =>{
+          if(!doc.exists) {
+            alert("doc does not exist");
+          } else {
+//            console.log(doc.data());
+            this.username = doc.data().name
+          }
+        })
+        .catch(err => {
+            alert(err.message);
+        })
+      }
+    },
+    mounted() {
+      this.getName();
     }
 }
 </script>

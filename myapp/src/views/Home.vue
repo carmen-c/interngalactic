@@ -152,7 +152,6 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 import ClientHeader from '@/components/clientHeader.vue'
 import AdminHeader from '@/components/adminHeader.vue'
 import applicants from '@/components/applicants.vue'
@@ -162,7 +161,6 @@ import jobForm from '@/components/jobForm.vue'
 export default {
   name: 'home',
   components: {
-    HelloWorld,
     ClientHeader,
     AdminHeader,
 	applicants,
