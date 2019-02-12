@@ -1,11 +1,24 @@
 <template>
   <div class="adminActive">
+    <div class="edit">
+      <editPost 
+        v-if="editPostDisplay == true"
+        v-bind:post_id="post_id"
+        v-bind:position="position"
+        v-bind:company="company"
+        v-bind:location="location"
+        v-bind:description="description"
+        v-bind:start="start.seconds"
+        v-bind:end="end.seconds"
+        />
+    </div>
     <div class="container activePost">
-      
+    
     <div class="row">
       <div class="col-md-12">
         <div class="text-right pull-right">
-          <button class="btn btn-default">Edit</button>
+          {{post_id}}
+          <button class="btn btn-default" @click="editPost">Edit</button>
           <button class="btn btn-default" @click="deletePost">Delete</button>
         </div>
       </div>
@@ -31,20 +44,16 @@
 
 <script>
 import firebase from 'firebase';
+import editPost from './editPost.vue'
   
 export default {
+  name:"adminActive",
+  components: {
+    editPost
+  },
   data () {
     return {
-      text: `
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-        tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-        vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-        synth nesciunt you probably haven't heard of them accusamus labore VHS.
-      `
+      editPostDisplay: false
     }
   },
   methods:{
@@ -56,6 +65,9 @@ export default {
       (err) => {
         alert(err.message);
       }
+    },
+    editPost: function() {
+      this.editPostDisplay = true
     }
   },
   props: ['post_id','position','company','location','description','start','end']

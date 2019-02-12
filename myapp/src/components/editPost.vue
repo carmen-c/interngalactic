@@ -1,13 +1,13 @@
 <template>
-  <div class="jobForm">
+  <div class="editPost">
 	  <div class="formContainer">
           
           <div class="row">
-            <h2 style="margin-bottom:40px">Please fill out the fields below.</h2>
+            <h2 style="margin-bottom:40px">Editing.</h2>
           </div>
           <div class="row col-md-12">
             <div class="col-md-5">
-              
+              {{start}} {{end}} {{post_id}}
               <input type="text" class="form-control"  
                    v-model="company" placeholder="Company Name">
               <input type="text" class="form-control"  
@@ -16,10 +16,9 @@
                    v-model="description" placeholder="Description">
             </div>
             <div class="col-md-3">
-              {{myDates}}
                 <v-date-picker class="datePickerStyle"
                   mode='range'
-                  v-model='myDates'
+                  v-model='edit_myDates'
                   :theme-styles='themeStyle'
                   tint-color='#7fd686'
                   show-caps>
@@ -37,7 +36,7 @@
                 <li><button>Choose file</button></li>
                 <li><input type="radio"> Require resume</li>
                 <li><input type="radio"> Applicants will fill out fields provided on application</li>
-                <li><button @click="postJob">Post</button></li>
+                <li><button @click="saveJob">Save</button></li>
               </ul>
             </div>
           </div>
@@ -51,72 +50,80 @@ import firebase from 'firebase';
 import AdminHeader from '@/components/adminHeader.vue'
   
 export default {
-	name:"jobForm",
+	name:"editPost",
+    props: ['post_id','position','company','location','description','start','end'],
 	data() {
 		return {
-          start_date: '',
-          end_date: '',
-          location: '',
-          position: '',
-          description: '',
-          company: '',
-          myDates: "",
-          attribute: {
-            
-          },
-          themeStyle: {
-            wrapper: {
-              background: 'linear-gradient(-135deg, #c850c0, #4158d0)',
-              color: '#fafafa'
-            },
-            weekdays: {
-              color: '#7fd686'
-            },
-            weeks: {
-              color: '#ffffff'
-            }
-          }
+          edit_start_date: '',
+          edit_end_date: '',
+          edit_location: '',
+          edit_position: '',
+          edit_description: '',
+          edit_company: '',
+          edit_myDates: '',
+          themeStyle: {},
+          edit_postid: 'something'
 		}
 	},
 	components:{
       AdminHeader
 	},
 	methods: {
-		postJob: function() {
-            this.start_date = this.myDates.start
-            this.end_date = this.myDates.end
+		saveJob: function() {
+          
+          if(this.edit_myDates != ""){
+            this.edit_start_date = this.edit_myDates.start
+            this.edit_end_date = this.edit_myDates.end
+          }
           
             const currentUser = firebase.auth().currentUser;
             if(currentUser) {
-              var ref = firebase.firestore().collection('jobs');
+              var ref = firebase.firestore().collection('jobs').doc(this.edit_post_id);
               //First add string post_id
-              ref.add({
+              ref.update({
                   uid: currentUser.uid,
                   post_id: 'ref.id',
-                  start_date: this.start_date,
-                  end_date: this.end_date,
-                  location: this.location,
-                  position: this.position,
-                  description: this.description,
-                  company: this.company
+                  start_date: this.edit_start_date,
+                  end_date: this.edit_end_date,
+                  location: this.edit_location,
+                  position: this.edit_position,
+                  description: this.edit_description,
+                  company: this.edit_company
                 })
-              // Update post_id to ref.id
-                .then (ref => {
-                  ref.update({
-                    post_id: ref.id
-                  })
-                }).then (()=>{
-                  this.changePage(1);
+
+               .then (()=>{
+                alert("updated");
                 })
             } else {
               alert("error message");
             }
         },
-        changePage: function(value) {
-          this.store.adminPage = value
-          this.adminPage = this.store.adminPage
-        }
-	}
+      grabData: function() {
+        this.edit_start_date = this.start,
+        this.edit_end_date = this.end,
+        this.edit_location = this.location,
+        this.edit_position = this.position,
+        this.edit_description = this.description,
+        this.edit_company = this.company,
+        this.edit_myDates = {start: this.start, end: this.end},
+        this.edit_postid = this.post_id
+      }
+	},
+    created: function(){   
+      this.themeStyle = {
+                          wrapper: {
+                            background: 'linear-gradient(-135deg, #c850c0, #4158d0)',
+                            color: '#fafafa'
+                          },
+                          weekdays: {
+                            color: '#7fd686'
+                          },
+                          weeks: {
+                            color: '#ffffff'
+                          }
+                        }
+      this.grabData();
+    }
 }
 </script>
 
