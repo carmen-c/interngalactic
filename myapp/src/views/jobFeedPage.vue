@@ -55,7 +55,7 @@
 		<!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
           <jobPostContainer 
             v-for="job in jobsArray"
-            v-bind:key="job.post_id"
+            v-bind:post_id="job.post_id"
             v-bind:position="job.position"
             v-bind:company="job.company"
             v-bind:location="job.location"

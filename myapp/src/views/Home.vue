@@ -172,14 +172,15 @@ export default {
   data() {
     return {
       page: 1,
-      adminPage: 1,
+      adminPage: this.store.adminPage,
       dropdown: "Sort By",
       selected: ""
     }
   },
   methods: {
     changePage: function(value) {
-      this.adminPage = value
+      this.store.adminPage = value
+      this.adminPage = this.store.adminPage
     }
   }
 }

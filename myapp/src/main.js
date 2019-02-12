@@ -26,6 +26,7 @@ const config = {
 
 Vue.prototype.store={
 	//global variables here
+  adminPage: 1
 }
 
 new Vue({

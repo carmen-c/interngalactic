@@ -104,6 +104,7 @@ export default {
                   ref.update({
                     post_id: ref.id
                   })
+                
               })
             } else {
               alert("error message");

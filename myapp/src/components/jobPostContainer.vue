@@ -2,7 +2,7 @@
   <div role="tablist" class="tablist">
     <b-card no-body class="mb-1" id="cardWrapper">
  <div class="jobWrapper">
-   <div class="jobContainer" id="key">
+   <div class="jobContainer" id="post_id">
      <div class="row jobBox">
        <div class="col-md-3 col-md-push-3 test3">
          <div class="col-md-12 col-sm-6 col-md-push-3">
@@ -58,7 +58,7 @@ export default {
       `
     }
   },
-    props: ['key','position','company','location','description','start','end']
+    props: ['post_id','position','company','location','description','start','end']
  }
 	
 </script>
