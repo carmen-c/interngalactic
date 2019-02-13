@@ -2,7 +2,7 @@
   <div role="tablist" class="tablist">
     <b-card no-body class="mb-1" id="cardWrapper">
  <div class="jobWrapper">
-   <div class="jobContainer" id="post_id">
+   <div class="jobContainer" :id="post_id">
      <div class="row jobBox">
        <div class="col-md-3 col-md-push-3 test3">
          <div class="col-md-12 col-sm-6 col-md-push-3">
@@ -26,16 +26,25 @@
            <p>
              <img class="contractIcon jobDuration" src="../../images/contract.svg"/>
              <span>{{start.seconds | moment("MMMM Do YYYY")}}</span> to {{end.seconds | moment("MMMM Do YYYY")}}
-             <button block href="#" v-b-toggle.accordion1 class="btn btn-outline-success learnMore" type="submit">Learn More</button></p>
+             
+<!--
+             class is for static classes, it doesnt change
+             :class will check if showCollapse is collapsed or null
+             :aria-controls tells this button what it controls
+             :aria-expanded will toggle showCollapse to true or false
+-->
+             
+             <button block href="#" @click="showCollapse = !showCollapse" class="btn btn-outline-success learnMore " :class="showCollapse ? 'collapsed':'null'" :aria-controls="post_id" :aria-expanded="showCollapse ? 'true':'false'" type="submit">Learn More</button></p>
   </div>
   </div>
   </div>
   </div>
   </div>
-      <b-collapse id="accordion1"  role="tabpanel">
+<!--      we bind this to showCollapse so it knows when to display/disappear -->
+      <b-collapse :id="post_id"  role="tabpanel" v-model="showCollapse">
         <b-card-body>
           <p class="card-text">Job Description</p>
-          <p v-if="description.length >200"> {{ text }} </p>
+          <p> {{ description }} </p>
         </b-card-body>
       </b-collapse>
   </b-card>
@@ -55,10 +64,11 @@ export default {
         wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
         vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
         synth nesciunt you probably haven't heard of them accusamus labore VHS.
-      `
+      `,
+      showCollapse: false
     }
   },
-    props: ['post_id','position','company','location','description','start','end']
+  props: ['post_id','position','company','location','description','start','end']
  }
 	
 </script>
