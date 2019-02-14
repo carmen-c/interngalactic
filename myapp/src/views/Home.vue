@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div v-if="page==1" class="row">
+    <div v-if="page=='company'" class="row">
       <div class="col-md-12">
         <AdminHeader/>
         <div class="nav admin-navigation col-md-12">
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div v-if="page==2" class="row">
+    <div v-if="page=='intern'" class="row">
       <div class="header col-md-12">
         <ClientHeader/>
         <div class="bg">
@@ -182,7 +182,7 @@ export default {
   },
   data() {
     return {
-      page: 1,
+      page: "intern",
       adminPage: this.store.adminPage,
       dropdown: "Sort By",
       selected: ""
@@ -193,6 +193,9 @@ export default {
       this.store.adminPage = value;
       this.adminPage = this.store.adminPage;
     }
+  },
+  created: function() {
+    this.page = this.store.userType;
   }
 };
 </script>

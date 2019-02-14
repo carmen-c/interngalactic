@@ -24,7 +24,7 @@
     </nav>
     <div class="header col-md-12">
       <div class="banner">
-        <div class="banner-title">Welcome Back, {{username}}!</div>
+        <div class="banner-title">Welcome Back, {{this.store.username}}!</div>
       </div>
     </div>
   </div>
@@ -64,35 +64,13 @@ export default {
   name: "adminHeader",
   data() {
     return {
-      username: "user"
+      username: ""
     };
   },
   components: {},
-  methods: {
-    getName: function() {
-      var currentuser = firebase.auth().currentUser;
-      var ref = firebase
-        .firestore()
-        .collection("users")
-        .doc(currentuser.uid);
-
-      ref
-        .get()
-        .then(doc => {
-          if (!doc.exists) {
-            alert("doc does not exist");
-          } else {
-            //            console.log(doc.data());
-            this.username = doc.data().name;
-          }
-        })
-        .catch(err => {
-          alert(err.message);
-        });
-    }
-  },
-  mounted() {
-    this.getName();
+  methods: {},
+  created: function() {
+    this.username = this.store.username;
   }
 };
 </script>
