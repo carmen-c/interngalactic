@@ -1,47 +1,56 @@
 <template>
   <div class="jobForm">
-	  <div class="formContainer">
-          
-          <div class="row">
-            <h2 style="margin-bottom:40px">Please fill out the fields below.</h2>
-          </div>
-          <div class="row col-md-12">
-            <div class="col-md-5">
-              
-              <input type="text" class="form-control"  
-                   v-model="company" placeholder="Company Name">
-              <input type="text" class="form-control"  
-                   v-model="position" placeholder="Intern Position"> 
-              <input type="text" class="form-control description"  
-                   v-model="description" placeholder="Description">
-            </div>
-            <div class="col-md-3">
-              {{myDates}}
-                <v-date-picker class="datePickerStyle"
-                  mode='range'
-                  v-model='myDates'
-                  :theme-styles='themeStyle'
-                  tint-color='#7fd686'
-                  show-caps>
-                </v-date-picker>
-				<div style="margin-left:10px">
-              <input type="text" class="form-control "  
-                   v-model="location" placeholder="Enter location">
-					</div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8">
-              <p class="addCompanyLogo"><b>Add Company Logo</b></p><br/>
-              <ul class="other-info">
-                <li><button>Choose file</button></li>
-                <li><input type="radio"> Require resume</li>
-                <li><input type="radio"> Applicants will fill out fields provided on application</li>
-                <li><button @click="postJob">Post</button></li>
-              </ul>
-            </div>
-          </div>
+    <div class="formContainer">
+      
+      <div class="row">
+        <h2>Please fill out the fields below.</h2>
       </div>
+
+      <div class="row col-md-12">
+        <div class="col-md-5">
+          <input type="text" 
+                 class="form-control"  
+                 v-model="company"
+                 placeholder="Company Name">
+          <input type="text" 
+                 class="form-control"  
+                 v-model="position" 
+                 placeholder="Intern Position"> 
+          <input type="text" 
+                 class="form-control description"  
+                 v-model="description" 
+                 placeholder="Description">
+        </div>
+        <div class="col-md-3">
+          <v-date-picker class="datePickerStyle"
+                         mode='range'
+                         v-model='myDates'
+                         :theme-styles='themeStyle'
+                         tint-color='#7fd686'
+                         show-caps>
+          </v-date-picker>
+          <div style="margin-left:10px">
+            <input type="text" 
+                   class="form-control"  
+                   v-model="location"
+                   placeholder="Enter location">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">
+          <p class="addCompanyLogo"><b>Add Company Logo</b></p><br/>
+          <ul class="other-info">
+            <li><button>Choose file</button></li>
+            <li><input type="radio"> Require resume</li>
+            <li><input type="radio"> Applicants will fill out fields provided on application</li>
+            <li><button @click="postJob">Post</button></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -138,10 +147,10 @@ export default {
     text-indent: 1em;
 	 margin-bottom: -10px;
   }
-	.datePickerStyle {
-		width: 220px;
-		padding-bottom: 25px;
-	}
+  .datePickerStyle {
+      width: 220px;
+      padding-bottom: 25px;
+  }
 </style>
 
 
