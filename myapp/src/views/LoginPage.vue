@@ -3,17 +3,24 @@
   <div class="row">
     <div class="col-5 leftContainer">
       <img id="StrokeImg" src="../../images/strokeLOGO.svg"/>
-      <div class="row threeImgCont">
-        <div class="col-12">
-          <img class="infoImg"  src="../../images/find.svg"/>
-        </div>
-        <div class="col-12">
-          <img class="infoImg"   src="../../images/browse.svg"/>  
-        </div>
-        <div class="col-12">
-          <img class="infoImg" src="../../images/getintouch.svg"/>  
-        </div>
-      </div>
+      <div class="container infoText">
+  <div class="row infoContainer">
+    <div class="col textAlignRight">
+  <img class="leftIcon" src="../../images/find.svg"/>
+  </div>
+    <div class="col"><p class="leftText">Find internships most relevant to you.</p></div>
+    <div class="w-100"></div>
+    <div class="col textAlignRight">
+    <img class="leftIcon" src="../../images/getintouch.svg"/>
+  </div>
+    <div class="col"><p class="leftText">Browse hundreds of intern opportunities.</p></div>
+    <div class="w-100"></div>
+    <div class="col textAlignRight">
+    <img class="leftIcon " src="../../images/browse.svg"/>
+  </div>
+    <div class="col"><p class="leftText ">Get in touch with companies and clients with the click of a button.</p> </div>
+  </div>
+</div>
   </div>
     
 <div class="col-7 rightContainer">
@@ -232,12 +239,21 @@ export default {
   .fontSizeTxts {
     font-size: 2em;
   }
+  .textAlignRight {
+    text-align: right;
+    float: right;
+  }
+  .infoText {
+    margin-top: 25%;
+  }
+  .w-100 {
+    margin-top: 7%;
+  }
 /* ******************************************  */
   .leftContainer {
     background: linear-gradient(-135deg, #c850c0, #4158d0);
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
   }
   #StrokeImg {
     position: absolute;
@@ -249,22 +265,24 @@ export default {
     top: 100px;
     left: -450px;
   }
-  .infoImg {
-    width: 470px;
-    margin-bottom: 10em;
+  .leftIcon {
+    width: 100px
   }
-  .threeImgCont {
-    margin-top: 37%;
+  .leftText {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 7%
+/*    background-color: blue;*/
   }
-/* ******************************************  */
-  
-  
-  
+  .infoContainer {
+    margin-top: 40%;
+    margin-left: 10px;
+  }  
 /* ******************************************  */
   .rightContainer {
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
   }
   .userLoginInput {
     margin-right: 50px;
@@ -324,5 +342,28 @@ export default {
   .inputPaddings {
     padding: 20px;
   }
-
-</style>
+/* ******************************************  */
+@media only screen and (max-width: 768px ) {
+  .LoginPage {
+  }
+  .leftContainer {
+    display: none;
+  }
+  .searchTxt {
+    width: 300px;
+  }
+  .fontSizeTxts {
+    width: 300px;
+  }
+  .userLoginInput {
+    position: fixed;
+    top: 0px;
+    right: 20px;
+    width: 300px;
+    margin-right: 0px;
+    margin-top: 0px;
+  }
+  #signinBtn {
+    width: 300px;
+  }
+}</style>
