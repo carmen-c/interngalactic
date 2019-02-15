@@ -16,6 +16,7 @@
       v-bind:description="job.description"
       v-bind:start="job.start_date"
       v-bind:end="job.end_date"
+      v-bind:post_date="job.post_date"
     />
   </div>
 </template>
@@ -50,10 +51,12 @@ export default {
       var jobs = firebase.firestore().collection("jobs");
 
       // search jobs collection for posts the logged in user created and then grab the posts
-      var query = jobs.where("uid", "==", currentUser.uid).get();
+      var query = jobs
+        .where("uid", "==", currentUser.uid)
+        .orderBy("post_date", "desc");
 
       // after i get my posts put it in activePosts array
-      query.then(
+      query.get().then(
         snapshot => {
           snapshot.forEach(doc => {
             var data = doc.data();
@@ -66,7 +69,8 @@ export default {
               location: data.location,
               start_date: data.start_date,
               end_date: data.end_date,
-              description: data.description
+              description: data.description,
+              post_date: data.post_date
             });
           });
         },

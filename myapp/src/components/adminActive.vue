@@ -26,7 +26,7 @@
           </div>
           <div class="col-md-10 text-left">
             <h1>{{position}}</h1>
-            <p>{{company}} - {{location}}</p>
+            <p>{{company}} - {{location}} posted on {{post_date.seconds | moment("MMMM Do YYYY")}}</p>
             <p>
               <img class="contractIcon jobDuration" src="../../images/contract.svg">
               {{start.seconds | moment("MMMM Do YYYY")}} to {{end.seconds | moment("MMMM Do YYYY")}}
@@ -89,7 +89,8 @@ export default {
     "location",
     "description",
     "start",
-    "end"
+    "end",
+    "post_date"
   ]
 };
 </script>
