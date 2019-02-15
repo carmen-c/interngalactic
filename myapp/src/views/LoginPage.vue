@@ -1,124 +1,132 @@
 <template>
-  <div class="loginPage">
-    <!-- Columns are always 50% wide, on mobile and desktop -->
-    <div class="row">
-      <div class="col-md-5 border left">
-        <img class="strokeLogo" src="../../images/strokeLOGO.svg">
-        <div class="aboutImgs col-md-12">
-          <div class="row">
-            <img src="../../images/find.svg">
-          </div>
-          <div class="row">
-            <img src="../../images/browse.svg">
-          </div>
-          <div class="row">
-            <img src="../../images/getintouch.svg">
-          </div>
+<div class="LoginPage">
+  <div class="row">
+    <div class="col-5 leftContainer">
+      <img id="StrokeImg" src="../../images/strokeLOGO.svg"/>
+      <div class="row threeImgCont">
+        <div class="col-12">
+          <img class="infoImg"  src="../../images/find.svg"/>
+        </div>
+        <div class="col-12">
+          <img class="infoImg"   src="../../images/browse.svg"/>  
+        </div>
+        <div class="col-12">
+          <img class="infoImg" src="../../images/getintouch.svg"/>  
         </div>
       </div>
-
-      <div class="col-md-7 border">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12 loginContainer">
-              <div class="form-inline">
-                <div class="login-group">
-                  <input
-                    type="email"
-                    name="loginEmail"
-                    class="form-control"
-                    v-model="loginEmail"
-                    placeholder="Email"
-                  >
-                  <input
-                    type="password"
-                    name="loginPass"
-                    class="form-control"
-                    v-model="password"
-                    placeholder="Password"
-                  >
-                  <button @click="login" type="submit" class="btn btn-default" id="signinBtn">Login</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-12 rightSectionCont">
-              <div class="right-missionContainer">
-                <img src="../../images/InternLogo.svg" class="login-internLogo">
-                <h3
-                  class="searching-the"
-                >Searching the Galaxy to find you the internship opportunities you deserve.</h3>
-
-                <div class="registerContainer">
-                  <div class="row">
-                    <p>I would like to register as:</p>
-                    <br>
-                  </div>
-                  <div class="row">
-                    <div class="btn-group">
-                      <button
-                        class="btn user-class btn-left-round"
-                        :class="{'selected':userType=='company'}"
-                        @click="selectType('company')"
-                      >Company</button>
-                      <button
-                        class="btn user-class btn-right-round"
-                        :class="{'selected':userType=='intern'}"
-                        @click="selectType('intern')"
-                      >Intern</button>
-                    </div>
-                  </div>
-                  <div class="marginInput">
-                    <div class="row">
-                      <div class="form-group">
-                        <input
-                          type="email"
-                          class="form-control"
-                          placeholder="Email"
-                          v-model="email"
-                        >
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group">
-                        <input
-                          type="name"
-                          class="form-control"
-                          v-model="name"
-                          placeholder="Full Name"
-                        >
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group">
-                        <input
-                          type="password"
-                          class="form-control"
-                          placeholder="Password"
-                          v-model="password"
-                        >
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group">
-                        <input
-                          type="password"
-                          class="form-control"
-                          v-model="retypePass"
-                          placeholder="Re-type Password"
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <button @click="signup" class="btn btn-default" id="registerBtn">Register</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  </div>
+    
+<div class="col-7 rightContainer">
+  <div class="col-12">
+    <div class="form-inline float-right userLoginInput">
+      <input
+             type="email"
+             name="loginEmail"
+             class="form-control inputMargins"
+             v-model="loginEmail"
+             placeholder="Email"
+             style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+             >
+      <input
+             type="password"
+             name="loginPass"
+             class="form-control inputMargins"
+             v-model="password"
+             placeholder="Password"
+             style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+             >
+      <button @click="login" type="submit" class="btn btn-default inputMargins" id="signinBtn">Login</button>
     </div>
   </div>
+  
+  
+  
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  
+  
+  <div class="container registerContainer">
+  <div class="col-6 registerMargin" id="#">
+    <img class="rightLogo" src="../../images/InternLogo.svg"/>
+    <br/>
+    <br/>
+    <h3 class="searchTxt">Searching the Galaxy to find you the internship opportunities you deserve.</h3>
+    <br/>
+    <br/>
+    <br/>
+      <p class="fontSizeTxts">I would like to register as:</p>
+    <div class="btn-group">
+      <button
+              class="btn user-class"
+              :class="{'selected':userType=='company'}"
+              @click="selectType('company')"
+              style="font-size:1.5em;
+                     letter-spacing:0.5px;"
+              ><b>Company</b></button>
+      <button
+              class="btn user-class"
+              :class="{'selected':userType=='intern'}"
+              @click="selectType('intern')"
+              style="font-size:1.5em;
+                     letter-spacing:0.5px;"
+              ><b>Intern</b></button>
+  </div>
+    <div class="marginInput registerWidthInput">
+      <div class="form-group">
+        <input
+               type="email"
+               class="form-control"
+               placeholder="Email"
+               v-model="email"
+               style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+               >
+  </div>
+      <div class="form-group">
+        <input
+               type="name"
+               class="form-control"
+               v-model="name"
+               placeholder="Full Name"
+               style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+               >
+  </div>
+      <div class="form-group">
+        <input
+               type="password"
+               class="form-control"
+               placeholder="Password"
+               v-model="password"
+               style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+               >
+  </div>
+      <div class="form-group">
+        <input
+               type="password"
+               class="form-control"
+               v-model="retypePass"
+               placeholder="Re-type Password"
+               style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+               >
+  </div>
+      <button @click="signup" class="btn btn-default" id="registerBtn">Register</button>
+  </div>
+  </div>
+  </div>
+</div>
+  
+  </div>
+</div>  
 </template>
 
 <script>
@@ -214,113 +222,107 @@ export default {
 
 <style>
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
-.floatLeft {
-  float: left;
+  
+  .LoginPage {
+    overflow: hidden;
+  }
+  #test {
+    background-color: red;
+  }
+  .fontSizeTxts {
+    font-size: 2em;
+  }
+/* ******************************************  */
+  .leftContainer {
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  #StrokeImg {
+    position: absolute;
+    top:0px;
+    left: 0px;
+    opacity: 0.04;
+    width: 1000px;
+    height: auto;
+    top: 100px;
+    left: -450px;
+  }
+  .infoImg {
+    width: 470px;
+    margin-bottom: 10em;
+  }
+  .threeImgCont {
+    margin-top: 37%;
+  }
+/* ******************************************  */
+  
+  
+  
+/* ******************************************  */
+  .rightContainer {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  .userLoginInput {
+    margin-right: 50px;
+    margin-top: 50px;
+  }
+  .inputMargins {
+    margin: 5px;
+  }
+  #signinBtn {
+    background-color: #7fd686;
+    border-radius: 2px;
+    color: white;
+    font-size: 1.5em;
 }
-.border {
-  border: 1px solid;
-}
-.loginPage {
-  overflow: hidden;
-}
-.left {
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
-}
-.strokeLogo {
-  opacity: 0.02;
-  position: absolute;
-  top: 100px;
-  left: -500px;
-  width: 1000px;
-}
-.aboutImgs {
-  margin-top: 80px;
-}
-.aboutImgs img {
-  padding-top: 130px;
-  margin: 5px;
-}
-.row {
-  text-align: center;
-  justify-content: center;
-}
+  .rightLogo {
+    width: 100px;
+  }
+  .searchTxt {
+    font-weight: 600;
+    font-size: 2em;
+    color: black;
+  }
+  .registerContainer {
+    margin-top: 10%;
+    text-align: left;
+  }
+  .registerMargin {
+    margin-left: 20%;
+  }
+  .form-group {
+    margin-right: 10px
+  }
+  .user-class {
+    margin-right: 4px;
+    border: 1px solid #000 !important;
+    margin-bottom: 5px;
+    width: 120px;
+  }
+  .user-class:hover {
+    border: 1px solid #7fd686 !important;
+    color: #7fd686 !important;
+  }
+  .selected {
+    border: 1px solid #7fd686 !important;
+    color: #7fd686 !important;
+  }
+  #registerBtn {
+    background-color: #7fd686;
+    border-radius: 5px;
+    color: white;
+    width: 100px;
+    font-size: 1.5em;
+  }
+  .registerWidthInput {
+    width: 210px;
+  }
+  .inputPaddings {
+    padding: 20px;
+  }
 
-/************* RIGHT SIDE **************************/
-.form-inline {
-  float: right;
-}
-.form-group {
-  margin-right: 10px;
-}
-#signinBtn {
-  border: 2px solid #7fd686;
-  color: #7fd686;
-  border-radius: 10px;
-}
-.loginContainer {
-  width: 100%;
-  margin-right: 20px;
-  margin-top: 60px;
-}
-.rightSectionCont {
-  margin-top: 120px;
-  margin-left: 40px;
-  width: 600px;
-  text-align: left;
-}
-.login-internLogo {
-  width: 100px;
-  margin-bottom: 20px;
-}
-.user-class {
-  border: 1px solid #000 !important;
-  padding: 0.5rem 1rem !important;
-  margin-bottom: 15px;
-  width: 100px;
-}
-.user-class:hover {
-  border: 1px solid #7fd686 !important;
-  color: #7fd686 !important;
-}
-.selected {
-  border: 1px solid #7fd686 !important;
-  color: #7fd686 !important;
-}
-.btn-left-round {
-  border-top-left-radius: 1.5rem !important;
-  border-bottom-left-radius: 1.5rem !important;
-}
-.btn-right-round {
-  border-top-right-radius: 1.5rem !important;
-  border-bottom-right-radius: 1.5rem !important;
-}
-#registerBtn {
-  border: 2px solid #7fd686;
-  background-color: #7fd686;
-  padding: 5px;
-  border-radius: 10px;
-  color: white;
-  margin-left: 5px;
-}
-.searching-the {
-  font-weight: 600;
-  color: black;
-}
-.registerContainer {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  float: left;
-}
-.marginInput {
-  margin-left: 20px;
-}
-.form-control {
-  margin-bottom: 0 !important;
-}
-.login-group {
-  vertical-align: baseline;
-}
-.login-group input {
-  margin-right: 10px;
-}
 </style>
