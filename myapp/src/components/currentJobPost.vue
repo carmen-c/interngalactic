@@ -16,6 +16,7 @@
       v-bind:description="job.description"
       v-bind:start="job.start_date"
       v-bind:end="job.end_date"
+      v-bind:post_date="job.post_date"
     />
   </div>
 </template>
@@ -66,7 +67,8 @@ export default {
               location: data.location,
               start_date: data.start_date,
               end_date: data.end_date,
-              description: data.description
+              description: data.description,
+              post_date: data.post_date
             });
           });
         },
