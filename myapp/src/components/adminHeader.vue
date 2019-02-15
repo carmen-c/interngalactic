@@ -17,9 +17,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto"></ul>
-        <form class="form-inline my-2 my-lg-0">
-          <button class="btn btn-outline-success my-2 my-sm-0" id="logoBtn" type="submit">Logout</button>
-        </form>
+        <button class="btn btn-outline-success my-2 my-sm-0" id="logoBtn" @click="logout">Logout</button>
       </div>
     </nav>
     <div class="header col-md-12">
@@ -59,6 +57,7 @@
 <script>
 // @ is an alias to /src
 import firebase from "firebase";
+import router from "../router.js";
 
 export default {
   name: "adminHeader",
@@ -68,7 +67,22 @@ export default {
     };
   },
   components: {},
-  methods: {},
+  methods: {
+    logout: function() {
+      firebase
+        .auth()
+        .signOut()
+        .then(
+          function() {
+            console.log("Signed Out");
+            router.replace("/");
+          },
+          function(error) {
+            console.error("Sign Out Error", error);
+          }
+        );
+    }
+  },
   created: function() {
     this.username = this.store.username;
   }

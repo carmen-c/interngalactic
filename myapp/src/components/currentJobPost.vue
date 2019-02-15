@@ -51,10 +51,12 @@ export default {
       var jobs = firebase.firestore().collection("jobs");
 
       // search jobs collection for posts the logged in user created and then grab the posts
-      var query = jobs.where("uid", "==", currentUser.uid).get();
+      var query = jobs
+        .where("uid", "==", currentUser.uid)
+        .orderBy("post_date", "desc");
 
       // after i get my posts put it in activePosts array
-      query.then(
+      query.get().then(
         snapshot => {
           snapshot.forEach(doc => {
             var data = doc.data();

@@ -13,25 +13,9 @@ Vue.use(VCalendar, {
 });
 Vue.use(require("vue-moment"));
 
-const config = {
-  apiKey: "AIzaSyBkL8hsIlbZtQRLhb9xpE7grLtiI8Idfqw",
-  authDomain: "interngalactic.firebaseapp.com",
-  databaseURL: "https://interngalactic.firebaseio.com",
-  projectId: "interngalactic",
-  storageBucket: "interngalactic.appspot.com",
-  messagingSenderId: "154943197764"
-};
+const config = {};
 
 firebase.initializeApp(config);
-
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    this.$router.replace("/home");
-  } else {
-    this.$router.replace("/");
-  }
-});
 
 Vue.prototype.store = {
   // global variables here
