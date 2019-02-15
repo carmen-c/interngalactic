@@ -319,7 +319,7 @@ export default {
     font-size: 1.5em;
   }
   .registerWidthInput {
-    width: 210px;
+    width: 254px;
   }
   .inputPaddings {
     padding: 20px;
