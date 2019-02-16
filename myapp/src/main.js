@@ -14,8 +14,7 @@ Vue.use(VCalendar, {
 Vue.use(require("vue-moment"));
 
 const config = {
-  
-  
+
 };
 
 firebase.initializeApp(config);

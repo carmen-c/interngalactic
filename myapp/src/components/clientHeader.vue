@@ -21,7 +21,7 @@
           class="btn btn-outline-success my-2 my-sm-0"
           id="logoBtn"
           type="submit"
-        >Upload Resume</button>
+        >Profile</button>
         <button class="btn btn-outline-success my-2 my-sm-0" id="logoBtn" @click="logout">Logout</button>
       </div>
     </nav>

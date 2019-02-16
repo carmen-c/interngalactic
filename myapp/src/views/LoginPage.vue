@@ -244,7 +244,7 @@ export default {
     float: right;
   }
   .infoText {
-    margin-top: 25%;
+    margin-top: 27%;
   }
   .w-100 {
     margin-top: 7%;
