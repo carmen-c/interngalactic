@@ -270,6 +270,7 @@ export default {
   }
   .leftText {
     color: white;
+    text-align: left;
     font-weight: bold;
     font-size: 1.5em;
     margin-top: 7%

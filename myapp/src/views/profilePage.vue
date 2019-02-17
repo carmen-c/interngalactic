@@ -1,42 +1,45 @@
 <template>
  <div class="profilePage">
-
-<div class="coverpic">
-  <div id="profilepic">
-    <img id="headshot" src=""/>
-    </div>
+   <clientHeader />
+<!--
+   <div class="hero">
+    <img src="../../images/herobanner_generic4.jpg"/>
   </div>
-   
-<!--   <img id="edit" src=""/>-->
-   
-  <div class="profileInfo">
-   <h2 class="profileName">Austin Glover</h2><br>
-    <p id="bio"><b>Currently Studying at Simon Fraser University</b></p>
-    <p id="city"><b>Vancouver, BC</b></p><br>
-    </div>
-       <hr><br><br>
-   <div class="resumeinfo">
-    <p>Upload your resume to your profile to make it easier for employers to find you!</p><br>
-    <button id="choosefile">Choose File</button>
-     </div>
-   
-   
-   
+-->
+   <div class="container userProfileContainer">
+     <div class="profileImgContainer">
+     <img src="../../images/TD.png"/>
+       </div>
+    <div class="profileContainer">
+      <h1>Austin Glover</h1>
+      <h3>Vancouver, BC</h3>
+      <h3>Currently Studying at <b>Simon Fraser University</b></h3>
+      <div class="container userBio"><p>Passionate Project Manager PMP with 10+ years of experience, seeking to increase profitability for C.S. Mott Children's Hospital. At Seton Hospital, slashed costs by 32% in 6 months by implementing Lean training across all departments. Cut stockroom waste by 65% with a new Kanban system. Skilled in Continuous Improvement, Agile, and Business Process Improvement.
+    </p>
+  </div>
+      <div class="resumeUploadContainer">
+        <h3><b>Upload Resume</b></h3>
+        <button>Choose File</button>&nbsp;&nbsp;<p>display.PDF here</p>
+      </div>
+  </div>
+  </div>
 	</div>
 </template>
 
 <script>
 // @ is an alias to /src
 import calendar from '@/components/calendar.vue'
+import clientHeader from '@/components/clientHeader.vue'
+  
   export default {
 		name:"profilePage",
 		components: {
+          clientHeader
 		},
 		data(){
           return {
      	
             }
-      
 		},
         methods: {
           checkdates: function () {
@@ -46,58 +49,64 @@ import calendar from '@/components/calendar.vue'
 </script>
 <style>
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");  
-	
-  .profilePage img {
-		transform: rotate(-90deg);
-		width: 800px;
-	}
-  .coverpic {
-    background-size: cover;
-    height: 370px;
-    padding-top: 220px;
+  .userProfileContainer {
+    margin-top: 10%;
   }
-  
-  #profilepic {
-    transform: rotate(90deg);
+  .userBio {
+    width: 50%;
   }
-  
-  #headshot {
-    width: 400px;
-    
+  .profileContainer p {
+    font-size: 1.5em;
   }
-  
-  #edit {
-    width: 20px;
-    float: right;
-    margin-top: 30px;
-    margin-right: 40px;
-    transform: rotate(5deg)
+  .profileContainer h1 {
+    font-size: 3em;
+    margin-bottom: 0.5%;
   }
-  
-  h2 {
-    margin-top: 150px;
+  .profileContainer h3 {
+    font-size: 1.75em;
   }
-  
-  hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 2px solid #7fd686;
-    margin: 1em 0;
-    padding: 0; 
+  .userBio {
+    margin-top: 1%;
   }
-  
-  #choosefile {
-    border:2px solid #7fd686;
-    background-color: #7fd686;
-    padding: 5px;
+  .userBio p {
+    font-size: 1em;
+    line-height: 1.375em;
+  }
+  .profileImgContainer img {
+    width: 170px;
+    height: 170px;
     border-radius: 10px;
-    color: white;
-    margin-left: 5px;
-	}
-  
-  
-
+    object-fit: cover;
+    background-position: center center;
+    background-size: cover;
+  }
+  .profileImgContainer {
+    padding: 15px;
+  }
+  .resumeUploadContainer {
+    margin-top: 3%;
+  }
+  .resumeUploadContainer p{
+    display: inline;
+  }
+  .resumeUploadContainer button {
+    background-color: lightblue;
+    font-size: 1em;
+    border-radius: 2px;
+    border: none;
+    color: black;
+  }
+/*  
+  .hero {
+    width:100%; 
+    overflow:hidden; 
+    margin:0; 
+  }
+  .hero img {
+    display: block;
+    width: 100%;
+  }
+*/
 </style>
 
 
