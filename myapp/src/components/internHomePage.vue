@@ -1,7 +1,7 @@
 <template>
-<div class="container-fluid bg" id="#">
+<div class="internHomePage bg container-fluid">
+    <ClientHeader />
   <img id="internPageImgStroke" src="../../images/strokeLOGO.svg"/>
-  <ClientHeader />
 <div class="container h-50">
     <div class="row align-items-center h-100">
         <div class="col-10 mx-auto">
@@ -45,7 +45,7 @@
         </div>
     </div>
 </div>
-</div>
+  </div>
 </template>
 <style>
   #__BVID__27__BV_toggle_ {
@@ -89,7 +89,6 @@
     color: white;
   }
 .bg {
-  width: 100vw;
   overflow: hidden;
   height: 100vh;
   background-color:#0B0B0B;

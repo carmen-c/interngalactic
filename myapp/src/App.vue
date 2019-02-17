@@ -8,6 +8,7 @@
 	  <router-link to ="/jobFeedPage">Job Feed</router-link> |
 	  <router-link to ="/currentJobPost">currentJobPost</router-link> |
 	  <router-link to ="/profilePage">profilePage</router-link> |
+      <router-link to ="/internHomePage">InternHomePage</router-link>
     </div>
 -->
     <router-view/>

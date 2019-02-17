@@ -14,13 +14,6 @@ Vue.use(VCalendar, {
 Vue.use(require("vue-moment"));
 
 const config = {
-    apiKey: "AIzaSyBkL8hsIlbZtQRLhb9xpE7grLtiI8Idfqw",
-  authDomain: "interngalactic.firebaseapp.com",
-  databaseURL: "https://interngalactic.firebaseio.com",
-  projectId: "interngalactic",
-  storageBucket: "interngalactic.appspot.com",
-  messagingSenderId: "154943197764"
-
 };
 
 firebase.initializeApp(config);

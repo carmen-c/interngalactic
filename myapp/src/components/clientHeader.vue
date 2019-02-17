@@ -24,11 +24,24 @@
           type="submit"
         >Profile</button>
 -->
-        <router-link to ="/jobFeedPage" class="btn my-2 my-sm-0" id="logoBtn">Internships</router-link>
-        <router-link to ="/profilePage" class="btn my-2 my-sm-0" id="logoBtn">Profile</router-link>
-        <button class="btn my-2 my-sm-0" id="logoBtn" @click="logout">Logout</button>
-      </div>
-    </nav>
+        <div class="dropDown">
+            <b-form inline>
+              <router-link to ="/profilePage" class="btn my-2 my-sm-0 dropdownTxt">
+                <img src="../../images/TD.png" id="smallProfileImg">&nbsp;&nbsp;</router-link>
+              <b-dropdown id="ddown1__BV_toggle_1234" text="Austin Glover">
+                <b-dropdown-item>
+                  <router-link to ="/jobFeedPage" class="btn my-2 my-sm-0" dropdownTxt>Internships</router-link></b-dropdown-item>
+                <b-dropdown-item>
+                  <router-link to ="/profilePage" class="btn my-2 my-sm-0 dropdownTxt">Profile</router-link></b-dropdown-item>
+                <b-dropdown-item>
+                  <router-link to ="/internHomePage" class="btn my-2 my-sm-0 dropdownTxt">Search</router-link></b-dropdown-item>
+                <b-dropdown-item>
+                  <button class="btn my-2 my-sm-0 dropdownTxt" @click="logout">Logout</button></b-dropdown-item>
+  </b-dropdown>
+  </b-form>
+  </div>
+  </div>
+  </nav>
   </div>
 </template>
 
@@ -41,6 +54,14 @@
 .navbar {
   background: linear-gradient(-135deg, #c850c0, #4158d0);
 }
+  #ddown1__BV_toggle_1234{
+/*    color: white;*/
+    height: 25px;
+  }
+  #smallProfileImg {
+    width: 28px;
+    border-radius: 50%;
+  }
 #logoBtn {
   margin-right: 10px;
   font-size: 1.2em;
