@@ -24,6 +24,7 @@
           type="submit"
         >Profile</button>
 -->
+        <router-link to ="/jobFeedPage" class="btn my-2 my-sm-0" id="logoBtn">Internships</router-link>
         <router-link to ="/profilePage" class="btn my-2 my-sm-0" id="logoBtn">Profile</router-link>
         <button class="btn my-2 my-sm-0" id="logoBtn" @click="logout">Logout</button>
       </div>
