@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="Home">
     <div v-if="page=='company'" class="row">
       <adminHomePage/>
     </div>
@@ -50,3 +50,9 @@ export default {
   }
 };
 </script>
+<style>
+  .Home {
+    overflow: hidden;
+  }
+
+</style>

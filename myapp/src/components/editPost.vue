@@ -2,49 +2,44 @@
   <div class="editPost">
     <div class="row">
       <div class="container">
-        <h2 class="text-left">Editing {{position}} for {{company}}.</h2>
+        <h2 class="text-left">Editing <b>{{position}}</b> internship for <b>{{company}}</b>.</h2>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-md-8">
-        <div class="editBox container">
-          <input type="text" class="form-control" v-model="edit_company" placeholder="Company Name">
-          <input
-            type="text"
-            class="form-control"
-            v-model="edit_position"
-            placeholder="Intern Position"
-          >
-          <textarea
-            type="text"
-            class="form-control description"
-            v-model="edit_description"
-            placeholder="Description"
-            aria-multiline="true"
-          />
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="editBox2 container">
+    <div class="container">
+<div class="form-row">
+        <div class="form-group col-md-12">
+          <input 
+                 type="text" 
+                 class="form-control" 
+                 v-model="edit_company" 
+                 placeholder="Name of your company">
+          <input 
+                 type="text" 
+                 class="form-control" 
+                 v-model="edit_position" 
+                 placeholder="Internship position"> 
+          <input 
+                 type="text" 
+                 class="form-control" 
+                 v-model="edit_location" 
+                 placeholder="Enter Location">
           <v-date-picker
             class="datePickerStyle"
             mode="range"
-            v-model="edit_myDates"
+            v-model="myDates"
             :theme-styles="themeStyle"
             tint-color="#7fd686"
             show-caps
           ></v-date-picker>
-          <input
-            type="text"
-            class="form-control"
-            v-model="edit_location"
-            placeholder="Enter location"
-          >
-        </div>
-      </div>
-    </div>
-
+  </div>
+  </div>
+  </div>
+     <textarea 
+               v-model="edit_description" 
+               placeholder="Description of the Internship" 
+               class="form-control" 
+               style="height: 130px;">
+  </textarea>
     <div class="row">
       <div class="container">
         <div class="col-md-12">
@@ -168,7 +163,11 @@ export default {
 }
 .editBox {
   padding: 50px 0 50px 50px !important;
+  background-color: red;
 }
+  .editPost h2 {
+    font-size: 1.75em;
+  }
 .editBox2 {
   padding: 50px 50px 50px 0 !important;
 }
