@@ -22,9 +22,10 @@
 </template>
 
 <style>
-.text-left {
-  text-align: left;
-}
+  .currentJobPost {
+    background-color: red;
+  }
+  
 </style>
 
 <script>

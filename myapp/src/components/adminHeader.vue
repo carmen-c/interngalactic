@@ -1,8 +1,8 @@
 <template>
   <div id="adminHeader">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <img src="../../images/InternLogo.svg" id="internLogo">
-      <a class="navbar-brand" href="#">InternGalactic</a>
+        <nav class="navbar navbar-expand-lg">
+      <img src="../../images/InternLogo.svg" id="internLogoClient">
+      <a class="navbar-brand" href="#" id="internGalacticC">Intern Galactic</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -14,45 +14,52 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto"></ul>
-        <button class="btn btn-outline-success my-2 my-sm-0" id="logoBtn" @click="logout">Logout</button>
-      </div>
-    </nav>
+<!--
+        <button
+          class="btn btn-outline-success my-2 my-sm-0"
+          id="logoBtn"
+          type="submit"
+        >Profile</button>
+-->
+        <div class="dropDown">
+            <b-form inline>
+              <router-link to ="/profilePage" class="btn my-2 my-sm-0 dropdownTxt">
+                <img src="../../images/TD.png" id="smallProfileImg">&nbsp;&nbsp;</router-link>
+              <b-dropdown id="ddown1__BV_toggle_1234" 
+                          style="font-size:1.5em;"
+                          text="COMPANY">
+                <b-dropdown-item>
+              <button class="btn my-2 my-sm-0 dropdownTxt" @click="logout">Logout</button>
+  </b-dropdown-item>
+  </b-dropdown>
+  </b-form>
+  </div>
+  </div>
+  </nav>
+  </div>
+<!--
     <div class="header col-md-12">
       <div class="banner">
         <div class="banner-title">Welcome Back, {{this.store.username}}!</div>
       </div>
     </div>
-  </div>
+-->
 </template>
 
 
 <style>
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
 @import url("https://fonts.googleapis.com/css?family=Comfortaa");
+
+  .banner-title {
+    color: WHITE;
+  }
+  
+
 </style>
-<style>
-.navbar {
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
-}
-#logoBtn {
-  margin-right: 10px;
-}
-.navbar-brand {
-  font-family: "Comfortaa", cursive;
-  color: white !important;
-}
-#internLogo {
-  width: 50px;
-  margin-left: 10px;
-  margin-right: 12px;
-}
-.header {
-  padding: 0 !important;
-}
-</style>
+
 
 <script>
 // @ is an alias to /src

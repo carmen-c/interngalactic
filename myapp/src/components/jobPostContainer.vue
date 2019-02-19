@@ -1,4 +1,5 @@
 <template>
+<div class="jobPostContainer">
   <div role="tablist" class="tablist">
     <b-card no-body class="mb-1" id="cardWrapper">
       <div class="jobWrapper">
@@ -57,14 +58,17 @@
         </div>
       </div>
       <!--      we bind this to showCollapse so it knows when to display/disappear -->
-      <b-collapse :id="post_id" role="tabpanel" v-model="showCollapse">
+      <b-collapse :id="post_id" role="tabpanel" v-model="showCollapse" class="expandStyling">
         <b-card-body>
-          <p class="card-text">Job Description</p>
+          <h1 class="card-text">Job Description</h1>
+          <h4>{{start.seconds | moment("MMMM Do YYYY")}} to {{end.seconds | moment("MMMM Do YYYY")}}</h4>
+          <br/>
           <p>{{ description }}</p>
         </b-card-body>
       </b-collapse>
     </b-card>
   </div>
+</div>
 </template>
 
 <script>
@@ -109,7 +113,7 @@ export default {
   width: 100%;
 }
 .jobContainer {
-  background-color: #ededed;
+  background-color: #FAFAFA;
   border-radius: 15px;
   padding: 10px;
   margin: 40px;
@@ -132,15 +136,55 @@ export default {
   width: 30px;
   margin-right: 10px;
 }
-.jobTitle {
+.jobTitle h1 {
+  font-size: 3em;
+  margin-top: 1%;
 }
-.jobLocation {
+.jobLocation p{
+  font-size: 1.5em;
 }
 .jobDescription {
+  width: 550px;
 }
 .jobDuration {
 }
 #cardWrapper {
   border: none;
+  width: 60%;
 }
+  .expandStyling {
+    text-align: left;
+    border-left: 4px solid #c850c0;
+/*    border-radius: 10px;*/
+    padding: 10px;
+  }
+  .expandStyling h1 {
+    font-size: 3em;
+  }
+  .expandStyling h4 {
+    font-size: 1.125em;
+  }
+  .expandStyling p {
+    font-size: 1em;
+    line-height: 1.575em;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </style>

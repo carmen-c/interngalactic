@@ -5,7 +5,7 @@
       <!--******* LEFT SIDE OF THE PAGE *************		 -->
       <div class="col-md-3 marginTop linkStyles">
         <div class="recent-Location">
-          <h4 class="h4MarginBottom">Recent Searches:</h4>
+          <h2 class="h4MarginBottom">Recent Searches:</h2>
           <p>
             <a href="#">Graphic Designer</a>
           </p>
@@ -24,7 +24,7 @@
         </div>
         <hr class="line">
         <div class="recent-Location">
-          <h4 class="h4MarginBottom">Locations:</h4>
+          <h2 class="h4MarginBottom">Locations:</h2>
           <p>
             <a href="#">Vancouver (104)</a>
           </p>
@@ -167,14 +167,24 @@ export default {
   text-align: left;
   padding-left: 70px;
 }
+  .recent-Location button {
+/*    background-color:*/
+    width: 180px;
+    height: 38px;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.5em 
+  }
 .marginTop {
   margin-top: 50px;
 }
 .h4MarginBottom {
   margin-bottom: 20px;
+  font-size: 2.25em;
 }
 .linkStyles a {
   color: black;
+  font-size: 1.5em;
 }
 .linkStyles {
 }
@@ -186,6 +196,14 @@ export default {
 .inputWidth {
   width: 200px;
 }
+  #inlineFormInputName2 {
+    font-size: 1.5em;
+    height: 30px;
+  }
+  #inlineFormInputGroupUsername2 {
+    font-size: 1.5em;
+    height: 30px;
+  }
 .test1 {
   justify-content: left;
   display: flex;

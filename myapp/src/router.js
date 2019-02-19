@@ -14,6 +14,7 @@ import jobForm from './components/jobForm.vue'
 import adminHeader from './components/adminHeader.vue'
 import clientHeader from './components/clientHeader.vue'
 import internHomePage from './components/internHomePage.vue'
+import adminHomePage from './components/adminHomePage.vue'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -89,6 +90,11 @@ export default new Router({
 	  path: '/internHomePage',
 	  name: '/internHomePage',
 	  component: internHomePage
+	}, 
+    {
+	  path: '/adminHomePage',
+	  name: '/adminHomePage',
+	  component: adminHomePage
 	},
     {
       path: '/about',

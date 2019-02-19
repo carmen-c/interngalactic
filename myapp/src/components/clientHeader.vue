@@ -28,7 +28,9 @@
             <b-form inline>
               <router-link to ="/profilePage" class="btn my-2 my-sm-0 dropdownTxt">
                 <img src="../../images/TD.png" id="smallProfileImg">&nbsp;&nbsp;</router-link>
-              <b-dropdown id="ddown1__BV_toggle_1234" text="Austin Glover">
+              <b-dropdown id="ddown1__BV_toggle_1234" 
+                          style="font-size:1.5em;"
+                          text="Austin Glover">
                 <b-dropdown-item>
                   <router-link to ="/jobFeedPage" class="btn my-2 my-sm-0" dropdownTxt>Internships</router-link></b-dropdown-item>
                 <b-dropdown-item>
@@ -57,6 +59,7 @@
   #ddown1__BV_toggle_1234{
 /*    color: white;*/
     height: 25px;
+    font-size: 1.7em;
   }
   #smallProfileImg {
     width: 28px;
@@ -87,7 +90,7 @@
   margin-right: 15px;
 }
   #internGalacticC {
-    font-size: 1.5em;
+    font-size: 1.75em;
     letter-spacing: .1em;
   }
 </style>
