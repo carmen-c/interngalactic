@@ -1,6 +1,6 @@
 <template>
   <div class="adminActive">
-    <b-card no-body class="mb-1" id="cardWrapper">
+    <b-card no-body class="" id="cardWrapper1">
       <div class="container activePost">
         <div class="row">
           <div class="col-md-12">
@@ -96,6 +96,10 @@ export default {
 </script>
 
 <style>
+  #cardWrapper1 {
+  border: none;
+  width: 100%;
+}
 .admin-posting-btn {
   background-color: #7fd686;
   color: #ffffff;

@@ -25,7 +25,7 @@
 -->
         <div class="dropDown">
             <b-form inline>
-              <router-link to ="/profilePage" class="btn my-2 my-sm-0 dropdownTxt">
+              <router-link to ="/adminHomePage" class="btn my-2 my-sm-0 dropdownTxt">
                 <img src="../../images/TD.png" id="smallProfileImg">&nbsp;&nbsp;</router-link>
               <b-dropdown id="ddown1__BV_toggle_1234" 
                           style="font-size:1.5em;"
@@ -53,9 +53,11 @@
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
 @import url("https://fonts.googleapis.com/css?family=Comfortaa");
 
+/*
   .banner-title {
     color: WHITE;
   }
+*/
   
 
 </style>

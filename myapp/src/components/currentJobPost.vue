@@ -1,10 +1,8 @@
 <template>
   <div class="currentJobPost">
-    <div class="row">
-      <div class="container">
-        <h2 class="text-left">Your active job postings.</h2>
+      <div class="form-row pleasefilloutTxt">
+        <h1>Your active job postings.</h1>
       </div>
-    </div>
 
     <!--	REPLACE WITH COMPONENT FOR JOB POST	  -->
     <adminActive
@@ -22,8 +20,15 @@
 </template>
 
 <style>
-  .currentJobPost {
-    background-color: red;
+  .pleasefilloutTxt h1 {
+    font-size: 3em;
+    margin-bottom:1%;
+    border-bottom: 1px solid black;
+    border-bottom-style:dotted;
+    width: 50%;
+  }
+  .pleasefilloutTxt {
+    margin-top: 2%;
   }
   
 </style>

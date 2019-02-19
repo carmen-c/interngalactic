@@ -3,7 +3,8 @@
   <div class="wrapper">
     <div class="inner">
       <div class="form-row pleasefilloutTxt">
-      <h1>Please fill out the fields below.</h1></div>
+      <h1>Please fill out the fields below.</h1>
+  </div>
       <div class="form-row">
         <div class="form-group col-md-12">
           <input 
