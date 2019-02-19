@@ -106,8 +106,8 @@ export default {
             post_id: "ref.id",
             start_date: this.start_date,
             end_date: this.end_date,
-            location: this.location,
-            position: this.position,
+            location: this.location.toLowerCase(),
+            position: this.position.toLowerCase(),
             description: this.description,
             company: this.company,
             post_date: new Date()

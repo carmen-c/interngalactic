@@ -67,6 +67,7 @@
                     <b-input
                       id="inlineFormInputGroupUsername2"
                       placeholder="Location"
+                      @change="handleSearch"
                       v-model="locationSearch"
                     />
                   </b-input-group>
@@ -156,13 +157,14 @@ export default {
       this.jobsArray = [];
       if (this.keywordSearch.length != 0 && this.locationSearch.length != 0) {
         query = jobs
-          .where("position", "==", this.keywordSearch)
-          .where("location", "==", this.locationSearch);
+          .where("position", "==", this.keywordSearch.toLowerCase())
+          .where("location", "==", this.locationSearch.toLowerCase());
+        this.search(query);
       } else if (this.keywordSearch.length != 0) {
-        query = jobs.where("position", "==", this.keywordSearch);
+        query = jobs.where("position", "==", this.keywordSearch.toLowerCase());
         this.search(query);
       } else if (this.locationSearch.length != 0) {
-        query = jobs.where("location", "==", this.locationSearch);
+        query = jobs.where("location", "==", this.locationSearch.toLowerCase());
         this.search(query);
       } else {
         this.getJobs();
