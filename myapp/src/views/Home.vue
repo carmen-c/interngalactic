@@ -5,7 +5,7 @@
     </div>
 
     <div v-if="page=='intern'" class="row">
-      <internHomePage />
+      <internHomePage/>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 // @ is an alias to /src
 import ClientHeader from "@/components/clientHeader.vue";
 import AdminHeader from "@/components/adminHeader.vue";
-import applicants from "@/components/applicants.vue";
+import adminApplied from "@/components/adminApplied.vue";
 import currentJobPost from "@/components/currentJobPost.vue";
 import jobForm from "@/components/jobForm.vue";
 import internHomePage from "@/components/internHomePage.vue";
@@ -25,7 +25,7 @@ export default {
   components: {
     ClientHeader,
     AdminHeader,
-    applicants,
+    adminApplied,
     currentJobPost,
     jobForm,
     internHomePage,
@@ -51,8 +51,7 @@ export default {
 };
 </script>
 <style>
-  .Home {
-    overflow: hidden;
-  }
-
+.Home {
+  overflow: hidden;
+}
 </style>

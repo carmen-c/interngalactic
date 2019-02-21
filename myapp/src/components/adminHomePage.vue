@@ -1,68 +1,68 @@
 <template>
-<div class="col-md-12">
-        <AdminHeader/>
-        <div class="col-md-12 navigationAdmin">
-          <button
-            type="button"
-            class="btn admin-buttons"
-            :class="{'active-button':adminPage==1}"
-            @click="changePage(1)"
-          >Postings</button>
-          <button
-            type="button"
-            class="btn admin-buttons"
-            :class="{'active-button':adminPage==2}"
-            @click="changePage(2)"
-          >Post Jobs</button>
-          <button
-            type="button"
-            class="btn admin-buttons"
-            :class="{'active-button':adminPage==3}"
-            @click="changePage(3)"
-          >Applicants</button>
-<!--          {{this.store.username}}-->
-        </div>
-        <div class="page container">
-          <!--              Postings-->
-          <div v-if="adminPage==1">
-            <currentJobPost />
-          </div>
-          <!--              Post Jobs-->
-          <div v-if="adminPage==2">
-            <jobForm/>
-          </div>
-          <!--              Applicants-->
-          <div v-if="adminPage==3">
-            <applicants/>
-          </div>
-        </div>
+  <div class="col-md-12">
+    <AdminHeader/>
+    <div class="col-md-12 navigationAdmin">
+      <button
+        type="button"
+        class="btn admin-buttons"
+        :class="{'active-button':adminPage==1}"
+        @click="changePage(1)"
+      >Postings</button>
+      <button
+        type="button"
+        class="btn admin-buttons"
+        :class="{'active-button':adminPage==2}"
+        @click="changePage(2)"
+      >Post Jobs</button>
+      <button
+        type="button"
+        class="btn admin-buttons"
+        :class="{'active-button':adminPage==3}"
+        @click="changePage(3)"
+      >Applicants</button>
+      <!--          {{this.store.username}}-->
+    </div>
+    <div class="page container">
+      <!--              Postings-->
+      <div v-if="adminPage==1">
+        <currentJobPost/>
       </div>
+      <!--              Post Jobs-->
+      <div v-if="adminPage==2">
+        <jobForm/>
+      </div>
+      <!--              Applicants-->
+      <div v-if="adminPage==3">
+        <adminApplied/>
+      </div>
+    </div>
+  </div>
 </template>
 <style>
-  .btn-secondary {
-    background-color: #3369E8 !important;
-    border: 0 !important;
+.btn-secondary {
+  background-color: #3369e8 !important;
+  border: 0 !important;
 }
-  .navigationAdmin {
-    background-image: url(../../images/herobanner_generic4.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: soft-light;
-  }
-  .navigationAdmin button {
-    font-size: 3em;
-    padding-left: 4%;
-    padding-right: 4%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-right: 2%;
-    margin-left: 2%;
-    border-radius: 10px;
-    border: 1px solid #DDDDDD;
-    background-color: #fff;
-/*    opacity: 0.6;*/
-    color: black;
-  }
+.navigationAdmin {
+  background-image: url(../../images/herobanner_generic4.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+}
+.navigationAdmin button {
+  font-size: 3em;
+  padding-left: 4%;
+  padding-right: 4%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-right: 2%;
+  margin-left: 2%;
+  border-radius: 10px;
+  border: 1px solid #dddddd;
+  background-color: #fff;
+  /*    opacity: 0.6;*/
+  color: black;
+}
 /*
   .home {
     overflow: hidden;
@@ -113,7 +113,7 @@
 <script>
 // @ is an alias to /src
 import AdminHeader from "@/components/adminHeader.vue";
-import applicants from "@/components/applicants.vue";
+import adminApplied from "@/components/adminApplied.vue";
 import currentJobPost from "@/components/currentJobPost.vue";
 import jobForm from "@/components/jobForm.vue";
 import internHomePage from "@/components/internHomePage.vue";
@@ -123,7 +123,7 @@ export default {
   name: "home",
   components: {
     AdminHeader,
-    applicants,
+    adminApplied,
     currentJobPost,
     jobForm,
     internHomePage,

@@ -94,6 +94,7 @@
           v-bind:start="job.start_date"
           v-bind:end="job.end_date"
           v-bind:post_date="job.post_date"
+          v-bind:author="job.uid"
         />
         <!--	PUT THE ACCORDION HERE	  -->
       </div>
@@ -218,14 +219,14 @@ export default {
   text-align: left;
   padding-left: 70px;
 }
-  .recent-Location button {
-/*    background-color:*/
-    width: 180px;
-    height: 38px;
-    text-align: center;
-    justify-content: center;
-    font-size: 1.5em 
-  }
+.recent-Location button {
+  /*    background-color:*/
+  width: 180px;
+  height: 38px;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
 .marginTop {
   margin-top: 50px;
 }
@@ -247,14 +248,14 @@ export default {
 .inputWidth {
   width: 200px;
 }
-  #inlineFormInputName2 {
-    font-size: 1.5em;
-    height: 30px;
-  }
-  #inlineFormInputGroupUsername2 {
-    font-size: 1.5em;
-    height: 30px;
-  }
+#inlineFormInputName2 {
+  font-size: 1.5em;
+  height: 30px;
+}
+#inlineFormInputGroupUsername2 {
+  font-size: 1.5em;
+  height: 30px;
+}
 .test1 {
   justify-content: left;
   display: flex;

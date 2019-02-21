@@ -99,7 +99,8 @@ export default {
     "description",
     "start",
     "end",
-    "post_date"
+    "post_date",
+    "author"
   ],
   methods: {
     applyNow: function() {
@@ -113,6 +114,7 @@ export default {
         ref
           .set(
             {
+              author: this.author,
               post_id: this.post_id,
               users: firebase.firestore.FieldValue.arrayUnion(currentUser.uid)
             },

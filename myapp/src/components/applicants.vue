@@ -2,63 +2,8 @@
   <div class="applicants">
     <b-container class="Applicant-container">
       <b-row class="justify-content-md-center test123">
-        <b-col col lg="3" class="applicantName">Angus Shun-Ming Tsai</b-col>
-        <b-col cols="12" md="4" class="applicantReason">Applying for intern as a Graphic Designer.</b-col>
-        <b-col class="downloadResume" col lg="3">
-          <div class="downloadBtn">
-            <a href="Download" download>Download Resume</a>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
-    <b-container class="Applicant-container">
-      <b-row class="justify-content-md-center test123">
-        <b-col col lg="3" class="applicantName">Angus Shun-Ming Tsai</b-col>
-        <b-col cols="12" md="4" class="applicantReason">Applying for intern as a Graphic Designer.</b-col>
-        <b-col class="downloadResume" col lg="3">
-          <div class="downloadBtn">
-            <a href="Download" download>Download Resume</a>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
-    <b-container class="Applicant-container">
-      <b-row class="justify-content-md-center test123">
-        <b-col col lg="3" class="applicantName">Angus Shun-Ming Tsai</b-col>
-        <b-col cols="12" md="4" class="applicantReason">Applying for intern as a Graphic Designer.</b-col>
-        <b-col class="downloadResume" col lg="3">
-          <div class="downloadBtn">
-            <a href="Download" download>Download Resume</a>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
-    <b-container class="Applicant-container">
-      <b-row class="justify-content-md-center test123">
-        <b-col col lg="3" class="applicantName">Angus Shun-Ming Tsai</b-col>
-        <b-col cols="12" md="4" class="applicantReason">Applying for intern as a Graphic Designer.</b-col>
-        <b-col class="downloadResume" col lg="3">
-          <div class="downloadBtn">
-            <a href="Download" download>Download Resume</a>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
-    <b-container class="Applicant-container">
-      <b-row class="justify-content-md-center test123">
-        <b-col col lg="3" class="applicantName">Angus Shun-Ming Tsai</b-col>
-        <b-col cols="12" md="4" class="applicantReason">Applying for intern as a Graphic Designer.</b-col>
-        <b-col class="downloadResume" col lg="3">
-          <div class="downloadBtn">
-            <a href="Download" download>Download Resume</a>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
-    <b-container class="Applicant-container">
-      <b-row class="justify-content-md-center test123">
-        <b-col col lg="3" class="applicantName">Angus Shun-Ming Tsai</b-col>
-        <b-col cols="12" md="4" class="applicantReason">Applying for intern as a Graphic Designer.</b-col>
+        <b-col col lg="3" class="applicantName">{{name}}</b-col>
+        <b-col cols="12" md="4" class="applicantReason">Applying for intern as a {{position}}</b-col>
         <b-col class="downloadResume" col lg="3">
           <div class="downloadBtn">
             <a href="Download" download>Download Resume</a>
@@ -114,6 +59,7 @@ export default {
   data() {
     return {};
   },
+  props: ["name", "position"],
   methods: {}
 };
 </script>
