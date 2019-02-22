@@ -5,7 +5,11 @@
     </div>
 
     <!--	REPLACE WITH COMPONENT FOR JOB POST	  -->
-    <Applicants v-for="a in applicants" v-bind:name="a.name" v-bind:position="a.position"/>
+    <applicants
+      v-for="person in this.store.alist"
+      v-bind:aname="person.name"
+      v-bind:aposition="person.position"
+    />
   </div>
 </template>
 
@@ -26,18 +30,18 @@
 // @ is an alias to /src
 import AdminHeader from "@/components/adminHeader.vue";
 import firebase from "firebase";
-import Applicants from "@/components/applicants.vue";
+import applicants from "@/components/applicants.vue";
 
 export default {
   name: "currentJobPost",
   components: {
     AdminHeader,
-    Applicants
+    applicants
   },
   data() {
     return {
       posts: [],
-      applicants: []
+      alist: []
     };
   },
   methods: {
@@ -53,35 +57,34 @@ export default {
         .then(snapshot => {
           snapshot.forEach(doc => {
             var data = doc.data();
-            // console.log(data);
             this.posts.push(data);
           });
         })
         .then(() => {
-          //   console.log(this.posts);
           this.getJobs();
         });
-      //find post data
-
-      //find applicants that applied to job
-      //display data
     },
     getJobs: function() {
-      //for each post that has applicants, grab post data and loop through users to grab user data
+      this.alist = [];
       var jobs = firebase.firestore().collection("jobs");
       var usersc = firebase.firestore().collection("users");
 
       this.posts.forEach(post => {
-        // console.log(post);
         var thing = new Object();
 
         jobs
           .where("post_id", "==", post.post_id)
           .get()
           .then(snapshot => {
-            snapshot.forEach(doc => {
-              thing.position = doc.data().position;
-            });
+            if (snapshot.empty == true) {
+              thing.position = "deleted";
+            } else {
+              snapshot.forEach(doc => {
+                if (doc.exists) {
+                  thing.position = doc.data().position;
+                }
+              });
+            }
           });
 
         post.users.forEach(user => {
@@ -90,18 +93,18 @@ export default {
             .get()
             .then(doc => {
               if (doc.exists) {
-                // console.log(doc.data());
                 var data = doc.data();
                 thing.name = doc.data().name;
               }
             });
-          this.applicants.push(thing);
-          // console.log(this.applicants);
+          this.alist.push(thing);
+          this.store.alist = this.alist;
+          // console.log(this.store.alist);
         });
       });
     }
   },
-  mounted: function() {
+  created: function() {
     this.checkApply();
   }
 };

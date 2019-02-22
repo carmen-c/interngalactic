@@ -13,10 +13,7 @@ Vue.use(VCalendar, {
 });
 Vue.use(require("vue-moment"));
 
-const config = {
- 
-
-};
+const config = {};
 
 firebase.initializeApp(config);
 
@@ -24,7 +21,8 @@ Vue.prototype.store = {
   // global variables here
   adminPage: 1,
   userType: "",
-  username: ""
+  username: "",
+  alist: []
 };
 
 new Vue({

@@ -2,12 +2,15 @@
   <div class="applicants">
     <b-container class="Applicant-container">
       <b-row class="justify-content-md-center test123">
-        <b-col col lg="3" class="applicantName">{{name}}</b-col>
-        <b-col cols="12" md="4" class="applicantReason">Applying for intern as a {{position}}</b-col>
+        <b-col col lg="3" class="applicantName">{{aname}}</b-col>
+        <b-col cols="12" md="4" class="applicantReason">Applying for {{aposition}}</b-col>
         <b-col class="downloadResume" col lg="3">
-          <div class="downloadBtn">
+          <button class="downloadBtn">
             <a href="Download" download>Download Resume</a>
-          </div>
+          </button>
+          <button class="downloadBtn">
+            <a href="Download" download>Delete</a>
+          </button>
         </b-col>
       </b-row>
     </b-container>
@@ -59,7 +62,7 @@ export default {
   data() {
     return {};
   },
-  props: ["name", "position"],
+  props: ["aname", "aposition"],
   methods: {}
 };
 </script>
