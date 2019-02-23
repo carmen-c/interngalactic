@@ -41,7 +41,8 @@ export default {
   data() {
     return {
       posts: [],
-      alist: []
+      alist: [],
+      refresh: false
     };
   },
   methods: {
@@ -99,7 +100,8 @@ export default {
             });
           this.alist.push(thing);
           this.store.alist = this.alist;
-          // console.log(this.store.alist);
+
+          console.log(this.store.alist);
         });
       });
     }

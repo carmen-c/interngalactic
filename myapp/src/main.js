@@ -5,6 +5,7 @@ import App from "./App.vue";
 import router from "./router";
 import firebase from "firebase";
 import BootstrapVue from "bootstrap-vue";
+
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 Vue.use(VCalendar, {
@@ -12,6 +13,8 @@ Vue.use(VCalendar, {
   datePickerTintColor: ""
 });
 Vue.use(require("vue-moment"));
+
+let app = "";
 
 const config = {};
 
@@ -25,7 +28,11 @@ Vue.prototype.store = {
   alist: []
 };
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount("#app");
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      render: h => h(App)
+    }).$mount("#app");
+  }
+});
