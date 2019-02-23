@@ -1,60 +1,46 @@
 <template>
-<div class="jobForm">
-  <div class="wrapper">
-    <div class="inner">
-      <div class="form-row pleasefilloutTxt">
-      <h1>Please fill out the fields below.</h1>
-  </div>
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <input 
-                 type="text" 
-                 class="form-control" v-model="company" placeholder="Name of your company">
-          <input 
-                 type="text" 
-                 class="form-control" v-model="position" placeholder="Internship position"> 
-          <input 
-                 type="text" 
-                 class="form-control" v-model="location" placeholder="Enter Location">
-          <v-date-picker
-            class="datePickerStyle"
-            mode="range"
-            v-model="myDates"
-            :theme-styles="themeStyle"
-            tint-color="#7fd686"
-            show-caps
-          ></v-date-picker>
-  </div>
-  </div>
-      <textarea v-model="description" placeholder="Description of the Internship" class="form-control" style="height: 130px;"></textarea>
-      <div class="row">
-        <div class="col-md-8">
-          <p class="addCompanyLogo">
-            <b>Add Company Logo</b>
-          </p>
-          <br>
-          <ul class="other-info">
-            <li>
-              <button>Choose file</button>
-            </li>
-            <li>
-              <input type="radio"> Require resume
-            </li>
-            <li>
-              <input type="radio"> Applicants will fill out fields provided on application
-            </li>
-          </ul>
+  <div class="jobForm">
+    <div class="wrapper">
+      <div class="inner">
+        <div class="form-row pleasefilloutTxt">
+          <h1>Please fill out the fields below.</h1>
         </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <input
+              type="text"
+              class="form-control"
+              v-model="company"
+              placeholder="Name of your company"
+            >
+            <input
+              type="text"
+              class="form-control"
+              v-model="position"
+              placeholder="Internship position"
+            >
+            <input type="text" class="form-control" v-model="location" placeholder="Enter Location">
+            <v-date-picker
+              class="datePickerStyle"
+              mode="range"
+              v-model="myDates"
+              :theme-styles="themeStyle"
+              tint-color="#7fd686"
+              show-caps
+            ></v-date-picker>
+          </div>
+        </div>
+        <textarea
+          v-model="description"
+          placeholder="Description of the Internship"
+          class="form-control"
+          style="height: 130px;"
+        ></textarea>
+        <button class="postJobBtn" @click="postJob">Post Now</button>
       </div>
-      <button class="postJobBtn" @click="postJob">Post Now</button>				
-			</div>
-		</div>
-  
-  
-  
-  
-  
-<!--
+    </div>
+
+    <!--
   
     <div class="formContainer">
       <div class="row">
@@ -110,7 +96,7 @@
         </div>
       </div>
     </div>
--->
+    -->
   </div>
 </template>
 
@@ -191,20 +177,20 @@ export default {
 </script>
 
 <style>
-  .pleasefilloutTxt {
-    text-align: center;
-    justify-content: center;
-  }
-  .inner h1 {
-    font-size: 3em;
-    margin-bottom:1%;
-    border-bottom: 1px solid black;
-    border-bottom-style:dotted;
-    width: 50%;
-  }
-  .jobForm {
-    margin-top: 2%;
-  }
+.pleasefilloutTxt {
+  text-align: center;
+  justify-content: center;
+}
+.inner h1 {
+  font-size: 3em;
+  margin-bottom: 1%;
+  border-bottom: 1px solid black;
+  border-bottom-style: dotted;
+  width: 50%;
+}
+.jobForm {
+  margin-top: 2%;
+}
 .form-control {
   font-size: 1em;
 }
@@ -233,7 +219,6 @@ export default {
 }
 </style>
 <style>
-
 .postJobBtn {
   height: 47px;
   width: 174px;
@@ -255,184 +240,242 @@ export default {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   -webkit-transition-property: color, background-color;
-  transition-property: color, background-color; }
-  .postJobBtn i {
-    margin-left: 8px;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0); }
-  .postJobBtn:hover {
-    -webkit-animation-name: hvr-back-pulse;
-    animation-name: hvr-back-pulse;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-delay: 0.5s;
-    animation-delay: 0.5s;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    background-color: #17c8f8;
-    color: white; }
-    .postJobBtn:hover i {
-      -webkit-animation-name: hvr-icon-buzz-out;
-      animation-name: hvr-icon-buzz-out;
-      -webkit-animation-duration: 0.75s;
-      animation-duration: 0.75s;
-      -webkit-animation-timing-function: linear;
-      animation-timing-function: linear;
-      -webkit-animation-iteration-count: infinite;
-      animation-iteration-count: infinite; }
-  .form-control {
+  transition-property: color, background-color;
+}
+.postJobBtn i {
+  margin-left: 8px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.postJobBtn:hover {
+  -webkit-animation-name: hvr-back-pulse;
+  animation-name: hvr-back-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-color: #17c8f8;
+  color: white;
+}
+.postJobBtn:hover i {
+  -webkit-animation-name: hvr-icon-buzz-out;
+  animation-name: hvr-icon-buzz-out;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.form-control {
   height: 47px;
   display: block;
   border: 1px solid #e6e6e6;
   background: none;
   border-radius: 5px;
-  padding: 0 19px; }
-  .form-control:focus {
-    border: 1px solid #f4d5cc; }
-  .form-control::-webkit-input-placeholder {
-    color: #999; }
-  .form-control::-moz-placeholder {
-    color: #999; }
-  .form-control:-ms-input-placeholder {
-    color: #999; }
-  .form-control:-moz-placeholder {
-    color: #999; }
+  padding: 0 19px;
+}
+.form-control:focus {
+  border: 1px solid #f4d5cc;
+}
+.form-control::-webkit-input-placeholder {
+  color: #999;
+}
+.form-control::-moz-placeholder {
+  color: #999;
+}
+.form-control:-ms-input-placeholder {
+  color: #999;
+}
+.form-control:-moz-placeholder {
+  color: #999;
+}
 
 select.form-control {
   -moz-appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
-  color: #999; }
-  select.form-control option[value=""][disabled] {
-    display: none; }
+  color: #999;
+}
+select.form-control option[value=""][disabled] {
+  display: none;
+}
 
 textarea.form-control {
   width: 100%;
   padding-top: 13px;
-  padding-bottom: 13px; }
+  padding-bottom: 13px;
+}
 
 .form-row {
   display: flex;
-  margin-bottom: 20px; }
-  .form-row .form-control {
-    width: 50%; }
-    .form-row .form-control:first-child {
-      margin-right: 20px; }
-  .form-row .form-holder {
-    width: 50%; }
-    .form-row .form-holder .form-control {
-      width: 100%; }
+  margin-bottom: 20px;
+}
+.form-row .form-control {
+  width: 50%;
+}
+.form-row .form-control:first-child {
+  margin-right: 20px;
+}
+.form-row .form-holder {
+  width: 50%;
+}
+.form-row .form-holder .form-control {
+  width: 100%;
+}
 
 .form-holder {
-  position: relative; }
-  .form-holder i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 20px; }
+  position: relative;
+}
+.form-holder i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+}
 
 @-webkit-keyframes hvr-back-pulse {
   50% {
-    background-color: rgba(32, 152, 209, 0.75); } }
+    background-color: rgba(32, 152, 209, 0.75);
+  }
+}
 @keyframes hvr-back-pulse {
   50% {
-    background-color: rgba(32, 152, 209, 0.75); } }
+    background-color: rgba(32, 152, 209, 0.75);
+  }
+}
 @-webkit-keyframes hvr-icon-buzz-out {
   10% {
     -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg); }
+    transform: translateX(3px) rotate(2deg);
+  }
   20% {
     -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg); }
+    transform: translateX(-3px) rotate(-2deg);
+  }
   30% {
     -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg); }
+    transform: translateX(3px) rotate(2deg);
+  }
   40% {
     -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg); }
+    transform: translateX(-3px) rotate(-2deg);
+  }
   50% {
     -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg); }
+    transform: translateX(2px) rotate(1deg);
+  }
   60% {
     -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg); }
+    transform: translateX(-2px) rotate(-1deg);
+  }
   70% {
     -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg); }
+    transform: translateX(2px) rotate(1deg);
+  }
   80% {
     -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg); }
+    transform: translateX(-2px) rotate(-1deg);
+  }
   90% {
     -webkit-transform: translateX(1px) rotate(0);
-    transform: translateX(1px) rotate(0); }
+    transform: translateX(1px) rotate(0);
+  }
   100% {
     -webkit-transform: translateX(-1px) rotate(0);
-    transform: translateX(-1px) rotate(0); } }
+    transform: translateX(-1px) rotate(0);
+  }
+}
 @keyframes hvr-icon-buzz-out {
   10% {
     -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg); }
+    transform: translateX(3px) rotate(2deg);
+  }
   20% {
     -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg); }
+    transform: translateX(-3px) rotate(-2deg);
+  }
   30% {
     -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg); }
+    transform: translateX(3px) rotate(2deg);
+  }
   40% {
     -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg); }
+    transform: translateX(-3px) rotate(-2deg);
+  }
   50% {
     -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg); }
+    transform: translateX(2px) rotate(1deg);
+  }
   60% {
     -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg); }
+    transform: translateX(-2px) rotate(-1deg);
+  }
   70% {
     -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg); }
+    transform: translateX(2px) rotate(1deg);
+  }
   80% {
     -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg); }
+    transform: translateX(-2px) rotate(-1deg);
+  }
   90% {
     -webkit-transform: translateX(1px) rotate(0);
-    transform: translateX(1px) rotate(0); }
+    transform: translateX(1px) rotate(0);
+  }
   100% {
     -webkit-transform: translateX(-1px) rotate(0);
-    transform: translateX(-1px) rotate(0); } }
+    transform: translateX(-1px) rotate(0);
+  }
+}
 @media (max-width: 991px) {
   .inner {
     min-width: auto;
-    max-width: 660px; }
+    max-width: 660px;
+  }
 
   form {
-    padding-top: 0; } }
+    padding-top: 0;
+  }
+}
 @media (max-width: 767px) {
   .inner {
     display: block;
     transform: translateX(0);
     border-radius: 0;
-    box-shadow: none; }
+    box-shadow: none;
+  }
 
   .image-holder img {
     transform: translateX(0);
-    border-radius: 0; }
+    border-radius: 0;
+  }
 
   form {
     transform: translateX(0);
-    padding-top: 40px; }
+    padding-top: 40px;
+  }
 
   .form-row {
-    display: block; }
-    .form-row .form-control, .form-row .form-holder {
-      width: 100%; }
+    display: block;
+  }
+  .form-row .form-control,
+  .form-row .form-holder {
+    width: 100%;
+  }
 
   .form-control {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+  }
 
   .wrapper {
-    background: none; } }
+    background: none;
+  }
+}
 </style>
 
 
