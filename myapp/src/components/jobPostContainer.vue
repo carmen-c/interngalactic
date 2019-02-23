@@ -150,7 +150,7 @@ export default {
 }
 #cardWrapper {
   border: none;
-  width: 60%;
+  width: 75%;
 }
   .expandStyling {
     text-align: left;
@@ -168,23 +168,4 @@ export default {
     font-size: 1em;
     line-height: 1.575em;
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 </style>
