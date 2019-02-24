@@ -47,7 +47,7 @@
               type="password"
               name="loginPass"
               class="form-control inputMargins"
-              v-model="password"
+              v-model="loginPass"
               placeholder="Password"
               style="font-size:1.5em;
                       padding-top:15px;padding-bottom:15px;"
@@ -166,7 +166,8 @@ export default {
       name: "",
       password: "",
       retypePass: "",
-      loginEmail: ""
+      loginEmail: "",
+      loginPass: ""
     };
   },
   methods: {
@@ -232,7 +233,7 @@ export default {
         })
         .then(() => {
           console.log(this.store.username, this.store.userType);
-          this.$router.push("/home");
+          this.$router.replace("/home");
         })
         .catch(err => {
           alert(err.message);

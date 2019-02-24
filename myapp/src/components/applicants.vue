@@ -6,7 +6,11 @@
         <b-col cols="12" md="4" class="applicantReason">Applying for {{aposition}}</b-col>
         <b-col class="downloadResume" col lg="3">
           <button class="downloadBtn">
-            <a href="Download" download>Download Resume</a>
+            <a
+              :href="this.aresume"
+              target="_blank"
+              :download="this.aname + '_resume_for' + this.aposition"
+            >Download Resume</a>
           </button>
           <button class="downloadBtn">
             <a href="Download" download>Delete</a>
@@ -53,6 +57,7 @@
 <script>
 // @ is an alias to /src
 import AdminHeader from "@/components/adminHeader.vue";
+import firebase from "firebase";
 
 export default {
   name: "home",
@@ -62,7 +67,7 @@ export default {
   data() {
     return {};
   },
-  props: ["aname", "aposition"],
+  props: ["aname", "aposition", "aresume"],
   methods: {}
 };
 </script>

@@ -9,6 +9,7 @@
       v-for="person in this.store.alist"
       v-bind:aname="person.name"
       v-bind:aposition="person.position"
+      v-bind:aresume="person.resume"
     />
   </div>
 </template>
@@ -96,6 +97,7 @@ export default {
               if (doc.exists) {
                 var data = doc.data();
                 thing.name = doc.data().name;
+                thing.resume = doc.data().resume;
               }
             });
           this.alist.push(thing);
