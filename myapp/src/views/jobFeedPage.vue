@@ -61,21 +61,19 @@
                     id="inlineFormInputName2"
                     placeholder="Internship Title"
                     @change="handleSearch"
-                    v-model="keywordSearch"
+                    v-model="keyword"
                   />
                   <b-input-group left="@" class="mb-2 mr-sm-2 mb-sm-0">
                     <b-input
                       id="inlineFormInputGroupUsername2"
                       placeholder="Location"
                       @change="handleSearch"
-                      v-model="locationSearch"
+                      v-model="location"
                     />
                   </b-input-group>
                   <div>
                     <b-dropdown id="ddown1" text="Sort By" class="m-md-2">
                       <b-dropdown-item>Most Recent</b-dropdown-item>
-                      <b-dropdown-item>Full time</b-dropdown-item>
-                      <b-dropdown-item>Part time</b-dropdown-item>
                     </b-dropdown>
                   </div>
                 </b-form>
@@ -120,8 +118,9 @@ export default {
   data() {
     return {
       jobsArray: [],
-      keywordSearch: "",
-      locationSearch: ""
+      keyword: "",
+      location: "",
+      allJobs: []
     };
   },
   created: function() {
@@ -129,9 +128,11 @@ export default {
   },
   methods: {
     getJobs: function() {
+      this.jobsArray = [];
       var jobs = firebase.firestore().collection("jobs");
-      jobs.get().then(
-        snapshot => {
+      jobs
+        .get()
+        .then(snapshot => {
           snapshot.forEach(doc => {
             var data = doc.data();
             this.jobsArray.push({
@@ -146,53 +147,49 @@ export default {
               post_date: data.post_date
             });
           });
-        },
-        err => {
-          alert(err.message);
-        }
-      );
+        })
+        .then(() => {
+          this.allJobs = this.jobsArray;
+          console.log(this.allJobs);
+        });
     },
     handleSearch: function() {
-      var jobs = firebase.firestore().collection("jobs");
-      var query = "";
-      this.jobsArray = [];
-      if (this.keywordSearch.length != 0 && this.locationSearch.length != 0) {
-        query = jobs
-          .where("position", "==", this.keywordSearch.toLowerCase())
-          .where("location", "==", this.locationSearch.toLowerCase());
-        this.search(query);
-      } else if (this.keywordSearch.length != 0) {
-        query = jobs.where("position", "==", this.keywordSearch.toLowerCase());
-        this.search(query);
-      } else if (this.locationSearch.length != 0) {
-        query = jobs.where("location", "==", this.locationSearch.toLowerCase());
-        this.search(query);
+      if (this.keyword.length != 0 && this.location.length != 0) {
+        this.plSearch();
+      } else if (this.keyword.length != 0) {
+        this.positionSearch();
+      } else if (this.location.length != 0) {
+        this.locationSearch();
       } else {
         this.getJobs();
       }
     },
-    search: function(query) {
-      query.get().then(snapshot => {
-        console.log(snapshot);
-        if (snapshot.docs.length == 0) {
-          alert("no jobs");
-        } else {
-          snapshot.forEach(doc => {
-            var data = doc.data();
-            this.jobsArray.push({
-              post_id: data.post_id,
-              uid: data.uid,
-              position: data.position,
-              company: data.company,
-              location: data.location,
-              start_date: data.start_date,
-              end_date: data.end_date,
-              description: data.description,
-              post_date: data.post_date
-            });
-          });
-        }
+    positionSearch: function() {
+      var newResult = this.allJobs.filter(post => {
+        var match = new RegExp(this.keyword.toLowerCase(), "g");
+        var arr = post.position.toLowerCase().match(match);
+        return arr;
       });
+      this.jobsArray = newResult;
+    },
+    locationSearch: function() {
+      var newResult = this.allJobs.filter(post => {
+        var match = new RegExp(this.location.toLowerCase(), "g");
+        var arr = post.location.toLowerCase().match(match);
+        return arr;
+      });
+      this.jobsArray = newResult;
+    },
+    plSearch: function() {
+      var newResult = this.allJobs.filter(post => {
+        var match = new RegExp(this.location.toLowerCase(), "g");
+        var match2 = new RegExp(this.keyword.toLowerCase(), "g");
+        var arr =
+          post.location.toLowerCase().match(match) &&
+          post.position.toLowerCase().match(match2);
+        return arr;
+      });
+      this.jobsArray = newResult;
     }
   }
 };

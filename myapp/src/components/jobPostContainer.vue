@@ -184,7 +184,6 @@ export default {
   border: none;
   width: 75%;
 }
-<<<<<<< HEAD
 .expandStyling {
   text-align: left;
   border-left: 4px solid #c850c0;
@@ -201,25 +200,4 @@ export default {
   font-size: 1em;
   line-height: 1.575em;
 }
-.alert {
-  display: none;
-}
-=======
-  .expandStyling {
-    text-align: left;
-    border-left: 4px solid #c850c0;
-/*    border-radius: 10px;*/
-    padding: 10px;
-  }
-  .expandStyling h1 {
-    font-size: 3em;
-  }
-  .expandStyling h4 {
-    font-size: 1.125em;
-  }
-  .expandStyling p {
-    font-size: 1em;
-    line-height: 1.575em;
-  }
->>>>>>> 31ccb11ecaf5d0dd418f2084b48652989f492c0c
 </style>
