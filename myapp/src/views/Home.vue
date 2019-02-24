@@ -12,41 +12,58 @@
 
 <script>
 // @ is an alias to /src
-import ClientHeader from "@/components/clientHeader.vue";
-import AdminHeader from "@/components/adminHeader.vue";
-import adminApplied from "@/components/adminApplied.vue";
-import currentJobPost from "@/components/currentJobPost.vue";
-import jobForm from "@/components/jobForm.vue";
 import internHomePage from "@/components/internHomePage.vue";
 import adminHomePage from "@/components/adminHomePage.vue";
+import firebase from "firebase";
 
 export default {
   name: "home",
   components: {
-    ClientHeader,
-    AdminHeader,
-    adminApplied,
-    currentJobPost,
-    jobForm,
     internHomePage,
     adminHomePage
   },
   data() {
     return {
       page: "intern",
-      adminPage: this.store.adminPage,
-      dropdown: "Sort By",
-      selected: ""
+      adminPage: this.store.adminPage
     };
   },
   methods: {
     changePage: function(value) {
       this.store.adminPage = value;
       this.adminPage = this.store.adminPage;
+    },
+    getUserInfo: function() {
+      var currentuser = firebase.auth().currentUser;
+      var ref = firebase
+        .firestore()
+        .collection("users")
+        .doc(currentuser.uid);
+
+      ref
+        .get()
+        .then(doc => {
+          if (!doc.exists) {
+            alert("doc does not exist");
+          } else {
+            //            console.log(doc.data());
+            this.store.username = doc.data().name;
+            this.store.userType = doc.data().userType;
+            this.page = doc.data().userType;
+          }
+        })
+        .catch(err => {
+          alert(err.message);
+        });
     }
   },
+
   created: function() {
-    this.page = this.store.userType;
+    if (this.store.userType == "") {
+      this.getUserInfo();
+    } else {
+      //do nothing
+    }
   }
 };
 </script>

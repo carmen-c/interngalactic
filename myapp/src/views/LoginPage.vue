@@ -174,7 +174,7 @@ export default {
     login: function() {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.loginEmail, this.password)
+        .signInWithEmailAndPassword(this.loginEmail, this.loginPass)
         .then(
           user => {
             this.getUserInfo();
