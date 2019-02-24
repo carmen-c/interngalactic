@@ -124,7 +124,13 @@ export default {
     };
   },
   created: function() {
-    this.getJobs();
+    if (this.store.searchResults == []) {
+      this.getJobs();
+    } else {
+      this.keyword = this.store.searchKey;
+      this.location = this.store.searchLoc;
+      this.jobsArray = this.store.searchResults;
+    }
   },
   methods: {
     getJobs: function() {

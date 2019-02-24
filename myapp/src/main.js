@@ -25,7 +25,10 @@ Vue.prototype.store = {
   adminPage: 1,
   userType: "",
   username: "",
-  alist: []
+  alist: [],
+  searchResults: [],
+  searchKey: "",
+  searchLoc: ""
 };
 
 firebase.auth().onAuthStateChanged(() => {
