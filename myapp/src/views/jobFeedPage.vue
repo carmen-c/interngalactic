@@ -5,7 +5,7 @@
       <!--******* LEFT SIDE OF THE PAGE *************		 -->
       <div class="col-md-3 marginTop linkStyles">
         <div class="recent-Location">
-          <h2 class="h4MarginBottom">Recent Searches:</h2>
+          <h2 class="h4MarginBottom">JobType:</h2>
           <p>
             <a href="#">Graphic Designer</a>
           </p>
@@ -26,25 +26,27 @@
         <div class="recent-Location">
           <h2 class="h4MarginBottom">Locations:</h2>
           <p>
-            <a href="#">Vancouver (104)</a>
+            <a href="#">Vancouver</a>
           </p>
           <p>
-            <a href="#">Burnaby (92)</a>
+            <a href="#">Burnaby</a>
           </p>
           <p>
-            <a href="#">Richmond (59)</a>
+            <a href="#">Richmond</a>
           </p>
           <p>
-            <a href="#">Coquitlam (36)</a>
+            <a href="#">Coquitlam</a>
           </p>
           <p>
-            <a href="#">Surrey (6)</a>
+            <a href="#">Surrey</a>
           </p>
         </div>
         <hr class="line">
+<!--
         <div class="recent-Location">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Clear All Searches</button>
         </div>
+-->
       </div>
 
       <!--<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->

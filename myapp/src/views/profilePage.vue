@@ -11,14 +11,53 @@
         <img src="../../images/TD.png">
       </div>
       <div class="profileContainer">
-        <h1>Austin Glover</h1>
-        <h3>Vancouver, BC</h3>
-        <h3>
-          Currently Studying at
-          <b>Simon Fraser University</b>
-        </h3>
+        <h1>Username: {{this.store.username}}</h1>
+        <h3>Residing at: {{this.store.current_location}}</h3>
+        <h3>Currently Studying at: <b>{{this.store.current_school}}</b></h3>
         <div class="container userBio">
-          <p>Passionate Project Manager PMP with 10+ years of experience, seeking to increase profitability for C.S. Mott Children's Hospital. At Seton Hospital, slashed costs by 32% in 6 months by implementing Lean training across all departments. Cut stockroom waste by 65% with a new Kanban system. Skilled in Continuous Improvement, Agile, and Business Process Improvement.</p>
+          <p>{{this.store.professional_sum}}</p>
+          <div>
+            
+<b-button v-b-modal.modalxl variant="primary">
+  Edit   
+  <i class="glyphicon glyphicon-user"></i>
+  </b-button>
+<b-modal 
+         id="modalxl" 
+         size="xl"
+         @ok="changeInformation"
+         title="Edit Intro">
+  <div class="col-4">
+    <p><span style="
+      float:left; 
+      font-size:1em;
+      margin-bottom:5px;">Current Location</span></p>
+    <b-form-input 
+                  v-model="current_location" 
+                  type="text"
+                  placeholder="Ex. Vancouver, BC" />
+     <p><span style="
+      float:left; 
+      font-size:1em;
+      margin-bottom:5px;">Current School</span></p>
+    <b-form-input 
+                  v-model="current_school" 
+                  type="text" 
+                  placeholder="Ex. BCIT" />
+    <p><span style="
+      float:left; 
+      font-size:1em;
+      margin-bottom:5px;">Professional Summary</span></p>
+    <b-form-textarea
+      id="textarea2"
+      :state="text.length >= 120"
+      v-model="professional_sum"
+      placeholder="Enter at least 220 characters"
+      rows="5"
+    />
+  </div>
+  </b-modal>
+</div>
         </div>
         <div class="resumeUploadContainer">
           <h3>
@@ -28,7 +67,7 @@
           &nbsp;&nbsp;
           <p>{{this.progress}}</p>
 
-          <iframe :src="uploadedResume" width="800px" height="800px"></iframe>
+          <iframe :src="uploadedResume" width="300px" height="300px"></iframe>
         </div>
       </div>
     </div>
@@ -50,10 +89,33 @@ export default {
     return {
       resume: "",
       progress: "",
-      uploadedResume: ""
+      uploadedResume: "",
+      text:'',
+      current_location:'',
+      current_school:'',
+      professional_sum: ''
     };
   },
   methods: {
+    changeInformation: function() {
+      const currentUser = firebase.auth().currentUser;
+      if (currentUser) {
+        //STORE GLOBAL
+        this.store.current_location = this.current_location;
+        this.store.current_school = this.current_school;
+        this.store.professional_sum = this.professional_sum;
+        alert("Store");
+        //
+        var ref = firebase.firestore().collection("users").doc(currentUser.uid);
+        ref
+          .set({
+          current_location: this.store.current_location,
+          current_school: this.store.current_school,
+          professional_sum: this.store.professional_sum
+        },{merge:true});
+        };
+      alert("hello");
+      },
     checkdates: function() {},
     checkResume: function() {
       var currentUser = firebase.auth().currentUser;
