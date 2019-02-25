@@ -1,10 +1,10 @@
 <template>
   <div class="Home">
-    <div v-if="page=='company'" class="row">
+    <div v-if="this.store.userType =='company'" class="row">
       <adminHomePage/>
     </div>
 
-    <div v-if="page=='intern'" class="row">
+    <div v-if="this.store.userType =='intern'" class="row">
       <internHomePage/>
     </div>
   </div>
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      page: "intern",
+      page: "",
       adminPage: this.store.adminPage
     };
   },
@@ -32,35 +32,28 @@ export default {
     changePage: function(value) {
       this.store.adminPage = value;
       this.adminPage = this.store.adminPage;
-    },
-    getUserInfo: function() {
+    }
+  },
+
+  beforeCreate: function() {
+    if (this.store.userType == "") {
       var currentuser = firebase.auth().currentUser;
       var ref = firebase
         .firestore()
         .collection("users")
         .doc(currentuser.uid);
 
-      ref
-        .get()
-        .then(doc => {
-          if (!doc.exists) {
-            alert("doc does not exist");
-          } else {
-            //            console.log(doc.data());
-            this.store.username = doc.data().name;
-            this.store.userType = doc.data().userType;
-            this.page = doc.data().userType;
-          }
-        })
-        .catch(err => {
-          alert(err.message);
-        });
-    }
-  },
-
-  created: function() {
-    if (this.store.userType == "") {
-      this.getUserInfo();
+      ref.get().then(doc => {
+        if (!doc.exists) {
+          alert("doc does not exist");
+        } else {
+          //            console.log(doc.data());
+          this.store.username = doc.data().name;
+          this.store.userType = doc.data().userType;
+          this.page = doc.data().userType;
+          console.log(this.page);
+        }
+      });
     } else {
       //do nothing
     }
