@@ -24,7 +24,6 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
 import clientHeader from '@/components/clientHeader.vue';
 import firebase from 'firebase';
 	

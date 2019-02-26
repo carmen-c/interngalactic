@@ -153,7 +153,6 @@
 
 <script>
 // @ is an alias to /src
-import Register from "@/components/Register.vue";
 import firebase from "firebase";
 
 export default {

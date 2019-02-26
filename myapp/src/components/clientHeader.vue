@@ -30,7 +30,7 @@
                 <img src="../../images/TD.png" id="smallProfileImg">&nbsp;&nbsp;</router-link>
               <b-dropdown id="ddown1__BV_toggle_1234" 
                           style="font-size:1.5em;"
-                          text="Austin Glover">
+                          text="Profile">
                 <b-dropdown-item>
                   <router-link to ="/jobFeedPage" class="btn my-2 my-sm-0" dropdownTxt>Internships</router-link></b-dropdown-item>
                 <b-dropdown-item>
