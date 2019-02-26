@@ -17,8 +17,6 @@ Vue.use(require("vue-moment"));
 let app = "";
 
 const config = {
-
-
 };
 
 firebase.initializeApp(config);
