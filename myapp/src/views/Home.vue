@@ -1,10 +1,10 @@
 <template>
   <div class="Home">
-    <div v-if="this.store.userType =='company'" class="row">
+    <div v-if="this.page =='company'" class="row">
       <adminHomePage/>
     </div>
 
-    <div v-if="this.store.userType =='intern'" class="row">
+    <div v-if="this.page =='intern'" class="row">
       <internHomePage/>
     </div>
   </div>
@@ -50,7 +50,7 @@ export default {
           //            console.log(doc.data());
           this.store.username = doc.data().name;
           this.store.userType = doc.data().userType;
-          this.page = doc.data().userType;
+          this.page = this.store.userType;
           console.log(this.page);
         }
       });
