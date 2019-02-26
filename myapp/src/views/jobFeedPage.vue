@@ -124,7 +124,8 @@ export default {
     };
   },
   created: function() {
-    if (this.store.searchResults == []) {
+    console.log(this.store.searchResults);
+    if (this.store.searchResults.length == 0) {
       this.getJobs();
     } else {
       this.keyword = this.store.searchKey;
