@@ -105,7 +105,7 @@
 import firebase from "firebase";
 import AdminHeader from "@/components/adminHeader.vue";
 
-export default {
+  export default {
   name: "jobForm",
   data() {
     return {

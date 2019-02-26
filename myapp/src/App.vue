@@ -3,7 +3,6 @@
 <!--
     <div id="nav">
       <router-link to="/home">Home</router-link> |
-      <router-link to="/about">About</router-link> | 
       <router-link to="/">LoginPage</router-link> | 
 	  <router-link to ="/jobFeedPage">Job Feed</router-link> |
 	  <router-link to ="/currentJobPost">currentJobPost</router-link> |
