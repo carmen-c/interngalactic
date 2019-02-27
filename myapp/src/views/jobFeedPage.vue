@@ -42,11 +42,11 @@
           </p>
         </div>
         <hr class="line">
-<!--
+        <!--
         <div class="recent-Location">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Clear All Searches</button>
         </div>
--->
+        -->
       </div>
 
       <!--<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
@@ -84,18 +84,21 @@
           </div>
         </div>
         <!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
-        <jobPostContainer
-          v-for="job in jobsArray"
-          v-bind:post_id="job.post_id"
-          v-bind:position="job.position"
-          v-bind:company="job.company"
-          v-bind:location="job.location"
-          v-bind:description="job.description"
-          v-bind:start="job.start_date"
-          v-bind:end="job.end_date"
-          v-bind:post_date="job.post_date"
-          v-bind:author="job.uid"
-        />
+        <div class="overflow-auto">
+          <jobPostContainer
+            v-for="job in jobsArray"
+            v-bind:post_id="job.post_id"
+            v-bind:position="job.position"
+            v-bind:company="job.company"
+            v-bind:location="job.location"
+            v-bind:description="job.description"
+            v-bind:start="job.start_date"
+            v-bind:end="job.end_date"
+            v-bind:post_date="job.post_date"
+            v-bind:author="job.uid"
+          />
+          <button @click="getMoreJobs">next</button>
+        </div>
         <!--	PUT THE ACCORDION HERE	  -->
       </div>
     </div>
@@ -122,13 +125,14 @@ export default {
       jobsArray: [],
       keyword: "",
       location: "",
-      allJobs: []
+      allJobs: [],
+      nextPage: ""
     };
   },
   created: function() {
     console.log(this.store.searchResults);
     if (this.store.searchResults.length == 0) {
-      this.getJobs();
+      this.getInitialJobs();
     } else {
       this.keyword = this.store.searchKey;
       this.location = this.store.searchLoc;
@@ -136,12 +140,39 @@ export default {
     }
   },
   methods: {
-    getJobs: function() {
+    getInitialJobs: function() {
+      var firstJobs = firebase
+        .firestore()
+        .collection("jobs")
+        .orderBy("post_date")
+        .limit(2);
+      this.getJobs(firstJobs);
+    },
+    getMoreJobs: function() {
+      this.getJobs(this.nextPage);
+    },
+    getJobs: function(aRef) {
       this.jobsArray = [];
-      var jobs = firebase.firestore().collection("jobs");
-      jobs
+      aRef
         .get()
         .then(snapshot => {
+          // Get the last document
+          var last = snapshot.docs[snapshot.docs.length - 1];
+
+          // Construct a new query starting at this document.
+          if (last == undefined) {
+            alert("no more jobs");
+          } else {
+            var next = firebase
+              .firestore()
+              .collection("jobs")
+              .orderBy("post_date")
+              .startAfter(last.data().post_date)
+              .limit(2);
+            this.nextPage = next;
+          }
+
+          //handle data
           snapshot.forEach(doc => {
             var data = doc.data();
             this.jobsArray.push({

@@ -105,7 +105,7 @@
 import firebase from "firebase";
 import AdminHeader from "@/components/adminHeader.vue";
 
-  export default {
+export default {
   name: "jobForm",
   data() {
     return {
@@ -160,8 +160,7 @@ import AdminHeader from "@/components/adminHeader.vue";
             ref.update({
               post_id: ref.id
             });
-          })
-          .then(() => {
+            alert("posted");
             this.changePage(1);
           });
       } else {
@@ -170,7 +169,6 @@ import AdminHeader from "@/components/adminHeader.vue";
     },
     changePage: function(value) {
       this.store.adminPage = value;
-      this.adminPage = this.store.adminPage;
     }
   }
 };

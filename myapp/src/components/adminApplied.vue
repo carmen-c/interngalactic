@@ -6,7 +6,8 @@
 
     <!--	REPLACE WITH COMPONENT FOR JOB POST	  -->
     <applicants
-      v-for="person in this.store.alist"
+      v-for="person in this.alist"
+      v-if="person.position != 'deleted'"
       v-bind:aname="person.name"
       v-bind:aposition="person.position"
       v-bind:aresume="person.resume"
@@ -68,6 +69,7 @@ export default {
     },
     getJobs: function() {
       this.alist = [];
+      this.store.alist = [];
       var jobs = firebase.firestore().collection("jobs");
       var usersc = firebase.firestore().collection("users");
 
@@ -98,12 +100,10 @@ export default {
                 var data = doc.data();
                 thing.name = doc.data().name;
                 thing.resume = doc.data().resume;
+                this.alist.push(thing);
               }
             });
-          this.alist.push(thing);
-          this.store.alist = this.alist;
-
-          console.log(this.store.alist);
+          //console.log(this.store.alist);
         });
       });
     }

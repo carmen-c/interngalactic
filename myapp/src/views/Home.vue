@@ -1,10 +1,10 @@
 <template>
   <div class="Home">
-    <div v-if="page =='company'" class="row">
+    <div v-if="this.page =='company'" class="row">
       <adminHomePage/>
     </div>
 
-    <div v-if="page =='intern'" class="row">
+    <div v-if="this.page =='intern'" class="row">
       <internHomePage/>
     </div>
   </div>
