@@ -24,17 +24,9 @@ export default {
   },
   data() {
     return {
-      page: "",
-      adminPage: this.store.adminPage
+      page: ""
     };
   },
-  methods: {
-    changePage: function(value) {
-      this.store.adminPage = value;
-      this.adminPage = this.store.adminPage;
-    }
-  },
-
   created: function() {
     if (this.page == "") {
       var currentuser = firebase.auth().currentUser;
