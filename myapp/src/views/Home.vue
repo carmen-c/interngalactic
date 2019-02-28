@@ -35,8 +35,8 @@ export default {
     }
   },
 
-  beforeCreate: function() {
-    if (this.store.userType == "") {
+  created: function() {
+    if (this.page == "") {
       var currentuser = firebase.auth().currentUser;
       var ref = firebase
         .firestore()
