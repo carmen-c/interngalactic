@@ -146,7 +146,7 @@ export default {
         .firestore()
         .collection("jobs")
         .orderBy("post_date")
-        .limit(2);
+        .limit(10);
       this.getJobs(firstJobs);
     },
     getMoreJobs: function() {
@@ -172,7 +172,7 @@ export default {
               .collection("jobs")
               .orderBy("post_date")
               .startAfter(last.data().post_date)
-              .limit(2);
+              .limit(10);
             this.nextPage = next;
           }
 
