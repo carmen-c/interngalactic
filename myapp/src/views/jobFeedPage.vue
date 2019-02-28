@@ -97,7 +97,7 @@
             v-bind:post_date="job.post_date"
             v-bind:author="job.uid"
           />
-          <button @click="getMoreJobs">next</button>
+          <button v-if="nextVisible == true" @click="getMoreJobs">next</button>
         </div>
         <!--	PUT THE ACCORDION HERE	  -->
       </div>
@@ -126,7 +126,8 @@ export default {
       keyword: "",
       location: "",
       allJobs: [],
-      nextPage: ""
+      nextPage: "",
+      nextVisible: true
     };
   },
   created: function() {
@@ -162,6 +163,9 @@ export default {
           // Construct a new query starting at this document.
           if (last == undefined) {
             alert("no more jobs");
+            this.nextVisible = false;
+            // if we go back to first page
+            // this.getInitialJobs();
           } else {
             var next = firebase
               .firestore()
