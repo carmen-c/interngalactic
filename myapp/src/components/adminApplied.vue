@@ -11,6 +11,8 @@
       v-bind:aname="person.name"
       v-bind:aposition="person.position"
       v-bind:aresume="person.resume"
+      v-bind:post_id="person.post_id"
+      v-bind:uid="person.uid"
     />
   </div>
 </template>
@@ -44,12 +46,14 @@ export default {
     return {
       posts: [],
       alist: [],
-      refresh: false
+      refresh: false,
+      tempPos: "",
+      tempId: ""
     };
   },
   methods: {
     checkApply: function() {
-      //find posts that are mine
+      //find posts that are mine with applicants
       const currentUser = firebase.auth().currentUser;
 
       var ref = firebase.firestore().collection("apply");
@@ -69,13 +73,14 @@ export default {
     },
     getJobs: function() {
       this.alist = [];
-      this.store.alist = [];
       var jobs = firebase.firestore().collection("jobs");
       var usersc = firebase.firestore().collection("users");
 
+      //get details of the job
       this.posts.forEach(post => {
         var thing = new Object();
 
+        //go through posts and grab data
         jobs
           .where("post_id", "==", post.post_id)
           .get()
@@ -86,25 +91,26 @@ export default {
               snapshot.forEach(doc => {
                 if (doc.exists) {
                   thing.position = doc.data().position;
+                  thing.post_id = doc.data().post_id;
                 }
+              });
+              //go through users and find the applicants
+              post.users.forEach(user => {
+                usersc
+                  .doc(user)
+                  .get()
+                  .then(doc => {
+                    if (doc.exists) {
+                      thing.name = doc.data().name;
+                      thing.resume = doc.data().resume;
+                      thing.uid = user;
+                    }
+                    this.alist.push(thing);
+                  });
+                // console.log(this.alist);
               });
             }
           });
-
-        post.users.forEach(user => {
-          usersc
-            .doc(user)
-            .get()
-            .then(doc => {
-              if (doc.exists) {
-                var data = doc.data();
-                thing.name = doc.data().name;
-                thing.resume = doc.data().resume;
-                this.alist.push(thing);
-              }
-            });
-          //console.log(this.store.alist);
-        });
       });
     }
   },

@@ -25,7 +25,6 @@ Vue.prototype.store = {
   adminPage: 1,
   userType: "",
   username: "",
-  alist: [],
   searchResults: [],
   searchKey: "",
   searchLoc: "",

@@ -12,9 +12,7 @@
               :download="this.aname + '_resume_for' + this.aposition"
             >Download Resume</a>
           </button>
-          <button class="downloadBtn">
-            <a href="Download" download>Delete</a>
-          </button>
+          <button class="downloadBtn" @click="deleteThis">Delete</button>
         </b-col>
       </b-row>
     </b-container>
@@ -67,7 +65,18 @@ export default {
   data() {
     return {};
   },
-  props: ["aname", "aposition", "aresume"],
-  methods: {}
+  props: ["aname", "aposition", "aresume", "post_id", "uid"],
+  methods: {
+    deleteThis: function() {
+      var ref = firebase
+        .firestore()
+        .collection("apply")
+        .doc(this.post_id);
+
+      ref.update({
+        users: firebase.firestore.FieldValue.arrayRemove(this.uid)
+      });
+    }
+  }
 };
 </script>
