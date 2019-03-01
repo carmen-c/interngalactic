@@ -143,10 +143,16 @@
                 >
               </div>
               <button @click="signup" class="btn btn-default" id="registerBtn">Register</button>
+              <br>
+              <br>
+              <br>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <About/>
     </div>
   </div>
 </template>
@@ -154,10 +160,13 @@
 <script>
 // @ is an alias to /src
 import firebase from "firebase";
+import About from "./About";
 
 export default {
   name: "LoginPage",
-  components: {},
+  components: {
+    About
+  },
   data() {
     return {
       userType: "",
@@ -267,8 +276,6 @@ export default {
 /* ******************************************  */
 .leftContainer {
   background: linear-gradient(-135deg, #c850c0, #4158d0);
-  height: 100vh;
-  width: 100vw;
 }
 #StrokeImg {
   position: absolute;
@@ -297,8 +304,6 @@ export default {
 }
 /* ******************************************  */
 .rightContainer {
-  height: 100vh;
-  width: 100vw;
 }
 .userLoginInput {
   margin-right: 50px;
