@@ -16,7 +16,9 @@ Vue.use(require("vue-moment"));
 
 let app = "";
 
-const config = {};
+const config = {
+
+};
 
 firebase.initializeApp(config);
 
@@ -30,7 +32,9 @@ Vue.prototype.store = {
   searchLoc: "",
   current_location: "",
   current_school: "",
-  professional_sum: ""
+  professional_sum: "",
+  profileImg:"",
+  uploadedImage:""
 };
 
 firebase.auth().onAuthStateChanged(() => {

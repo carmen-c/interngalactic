@@ -27,7 +27,7 @@
         <div class="dropDown">
             <b-form inline>
               <router-link to ="/profilePage" class="btn my-2 my-sm-0 dropdownTxt">
-                <img src="../../images/TD.png" id="smallProfileImg">&nbsp;&nbsp;</router-link>
+                <img :src="ClientHeaderImage" id="smallProfileImg">&nbsp;&nbsp;</router-link>
               <b-dropdown id="ddown1__BV_toggle_1234" 
                           style="font-size:1.5em;"
                           text="Profile">
@@ -107,6 +107,9 @@ export default {
   },
   components: {},
   methods: {
+    data: function () {
+      ClientHeaderImage: this.store.uploadedImage;
+    },
     logout: function() {
       firebase
         .auth()

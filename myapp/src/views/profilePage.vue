@@ -8,7 +8,7 @@
     -->
     <div class="container userProfileContainer">
       <div class="profileImgContainer">
-        <img src="../../images/TD.png">
+        <img :src="uploadedImage">
       </div>
       <div class="profileContainer">
         <h1>Username: {{this.store.username}}</h1>
@@ -55,6 +55,17 @@
       placeholder="Enter at least 220 characters"
       rows="5"
     />
+    <p><span style="
+      width:100%;
+      float:left;
+      text-align:left;
+      font-size:1em;
+      margin-bottom:5px;
+      display:block;">Profile Picture</span>
+  </p>
+    <div style="width:100%;">
+    <input type="file" @change="onFileSelected">
+  </div>
   </div>
   </b-modal>
 </div>
@@ -93,10 +104,64 @@ export default {
       text:'',
       current_location:'',
       current_school:'',
-      professional_sum: ''
+      professional_sum: '',
+      uploadedImage: ''
     };
   },
   methods: {
+    onFileSelected: function(event) {
+      var user = firebase.auth().currentUser;
+      var file = event.target.files[0];
+      console.log(file);
+      var uploadTask = firebase
+        .storage()
+        .ref()
+        .child(user.uid + "_pic")
+        .put(file);
+      
+      uploadTask.on(
+        firebase.storage.TaskEvent.STATE_CHANGED,
+        snapshot => {
+          var progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          this.progress = progress + " %";
+
+          switch (snapshot.state) {
+            case firebase.storage.TaskState.PAUSED:
+              this.progress = "upload paused";
+              break;
+            case firebase.storage.TaskState.RUNNING:
+              console.log("upload running");
+              break;
+          }
+        },
+        err => {
+          console.log(err);
+        },
+        () => {
+          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+            console.log("download at ", downloadURL);
+            this.uploadedImage = downloadURL;
+            this.saveProfileImg(downloadURL);
+          });
+        }
+      );
+      
+    },
+    saveProfileImg: function(url) {
+      var currentUser = firebase.auth().currentUser;
+      var ref = firebase
+        .firestore()
+        .collection("users")
+        .doc(currentUser.uid);
+
+      ref.set(
+        {
+          profilePic: url
+        },
+        { merge: true }
+      );
+    },
     changeInformation: function() {
       const currentUser = firebase.auth().currentUser;
       if (currentUser) {
@@ -104,6 +169,8 @@ export default {
         this.store.current_location = this.current_location;
         this.store.current_school = this.current_school;
         this.store.professional_sum = this.professional_sum;
+        this.store.uploadedImage = this.uploadedImage;
+        console.log(this.store.uploadedImage, "Hello");
         alert("Store");
         //
         var ref = firebase.firestore().collection("users").doc(currentUser.uid);
@@ -111,7 +178,8 @@ export default {
           .set({
           current_location: this.store.current_location,
           current_school: this.store.current_school,
-          professional_sum: this.store.professional_sum
+          professional_sum: this.store.professional_sum,
+          uploadedImage: this.store.uploadedImage   
         },{merge:true});
         };
       alert("hello");
@@ -128,6 +196,7 @@ export default {
         if (doc.exists == true) {
           if (doc.data().resume != undefined) {
             this.uploadedResume = doc.data().resume;
+            this.uploadedImage = doc.data().profilePic;
             console.log(doc.data().resume);
           } else {
             // do nothing
