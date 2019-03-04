@@ -276,32 +276,35 @@ export default {
 /* ******************************************  */
 .leftContainer {
   background: linear-gradient(-135deg, #c850c0, #4158d0);
+  height: 100vh;
 }
 #StrokeImg {
   position: absolute;
   top: 0px;
   left: 0px;
   opacity: 0.04;
-  width: 1000px;
+  width: 1300px;
   height: auto;
   top: 100px;
   left: -450px;
 }
 .leftIcon {
-  width: 100px;
+  width: 130px;
 }
 .leftText {
   color: white;
   text-align: left;
   font-weight: bold;
-  font-size: 1.5em;
-  margin-top: 7%;
+  font-size: 1.8em;
+  margin-top: 10%;
+  
   /*    background-color: blue;*/
 }
 .infoContainer {
-  margin-top: 40%;
-  margin-left: 10px;
+  margin-top: 35%;
 }
+
+
 /* ******************************************  */
 .rightContainer {
 }
@@ -319,11 +322,11 @@ export default {
   font-size: 1.5em;
 }
 .rightLogo {
-  width: 100px;
+  width: 80px;
 }
 .searchTxt {
   font-weight: 600;
-  font-size: 2em;
+  font-size: 1.7em;
   color: black;
 }
 .registerContainer {

@@ -108,13 +108,11 @@ export default {
        ClientHeaderImage: this.store.uploadedImage
     };
   },
-//  created() {
-//    var ref= firebase.firestore().collection("user").doc(currentuser.uid);
-//    console.log(ref);
-//    
-//  },
   components: {},
   methods: {
+    data: function () {
+      ClientHeaderImage: this.store.uploadedImage;
+    },
     logout: function() {
       firebase
         .auth()
