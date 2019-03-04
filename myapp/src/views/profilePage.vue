@@ -105,8 +105,7 @@ export default {
       current_location:'',
       current_school:'',
       professional_sum: '',
-      uploadedImage: '',
-      userName: ''
+      uploadedImage: ''
     };
   },
   methods: {
@@ -171,7 +170,6 @@ export default {
         this.store.current_school = this.current_school;
         this.store.professional_sum = this.professional_sum;
         this.store.uploadedImage = this.uploadedImage;
-        clientHeader.clientHeaderImage = this.uploadedImage;
         console.log(this.store.uploadedImage, "Hello");
         alert("Store");
         //
