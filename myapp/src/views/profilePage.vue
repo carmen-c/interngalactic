@@ -12,10 +12,10 @@
       </div>
       <div class="profileContainer">
         <h1>Username: {{this.store.username}}</h1>
-        <h3>Residing at: {{this.store.current_location}}</h3>
-        <h3>Currently Studying at: <b>{{this.store.current_school}}</b></h3>
+        <h3>Residing at: {{this.current_location}}</h3>
+        <h3>Currently Studying at: <b>{{this.current_school}}</b></h3>
         <div class="container userBio">
-          <p>{{this.store.professional_sum}}</p>
+          <p>{{this.professional_sum}}</p>
           <div>
             
 <b-button v-b-modal.modalxl variant="primary">
@@ -163,25 +163,40 @@ export default {
         { merge: true }
       );
     },
+    uploadUserData: function() {
+    var user = firebase.auth().currentUser;
+    var ref= firebase.firestore().collection("user").doc(user.uid);
+    
+    console.log(ref);
+    ref.get().then(doc => {
+      if(doc.exists == true) {
+      
+        this.current_location = doc.data().current_location;
+        this.current_school = doc.data().current_school;
+        this.professional_sum = doc.data().professional_sum;
+        this.uploadedImage = doc.data().uploadedImage;  
+      }
+    })
+  },
     changeInformation: function() {
       const currentUser = firebase.auth().currentUser;
       if (currentUser) {
         //STORE GLOBAL
-        this.store.current_location = this.current_location;
-        this.store.current_school = this.current_school;
-        this.store.professional_sum = this.professional_sum;
-        this.store.uploadedImage = this.uploadedImage;
-        clientHeader.clientHeaderImage = this.uploadedImage;
-        console.log(this.store.uploadedImage, "Hello");
+//        this.store.current_location = this.current_location;
+//        this.store.current_school = this.current_school;
+//        this.store.professional_sum = this.professional_sum;
+//        this.store.uploadedImage = this.uploadedImage;
+//        clientHeader.clientHeaderImage = this.uploadedImage;
+//        console.log(this.store.uploadedImage, "Hello");
         alert("Store");
         //
         var ref = firebase.firestore().collection("users").doc(currentUser.uid);
         ref
           .set({
-          current_location: this.store.current_location,
-          current_school: this.store.current_school,
-          professional_sum: this.store.professional_sum,
-          uploadedImage: this.store.uploadedImage   
+          current_location: this.current_location,
+          current_school: this.current_school,
+          professional_sum: this.professional_sum,
+          uploadedImage: this.uploadedImage   
         },{merge:true});
         };
       alert("hello");
@@ -274,6 +289,7 @@ export default {
   },
   created: function() {
     this.checkResume();
+    this.uploadUserData();
   }
 };
 </script>
