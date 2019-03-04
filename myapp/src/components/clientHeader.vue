@@ -103,13 +103,16 @@ import router from "../router.js";
 export default {
   name: "adminHeader",
   data() {
-    return {};
+    console.log(this.store);
+    return {
+       ClientHeaderImage: this.store.uploadedImage
+    };
+  },
+  created() {
+    
   },
   components: {},
   methods: {
-    data: function () {
-      ClientHeaderImage: this.store.uploadedImage;
-    },
     logout: function() {
       firebase
         .auth()
