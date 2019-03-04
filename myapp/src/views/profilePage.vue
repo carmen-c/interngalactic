@@ -13,62 +13,73 @@
       <div class="profileContainer">
         <h1>Username: {{this.store.username}}</h1>
         <h3>Residing at: {{this.current_location}}</h3>
-        <h3>Currently Studying at: <b>{{this.current_school}}</b></h3>
+        <h3>
+          Currently Studying at:
+          <b>{{this.current_school}}</b>
+        </h3>
         <div class="container userBio">
           <p>{{this.professional_sum}}</p>
           <div>
-            
-<b-button v-b-modal.modalxl variant="primary">
-  Edit   
-  <i class="glyphicon glyphicon-user"></i>
-  </b-button>
-<b-modal 
-         id="modalxl" 
-         size="xl"
-         @ok="changeInformation"
-         title="Edit Intro">
-  <div class="col-4">
-    <p><span style="
+            <b-button v-b-modal.modalxl variant="primary">
+              Edit
+              <i class="glyphicon glyphicon-user"></i>
+            </b-button>
+            <b-modal id="modalxl" size="xl" @ok="changeInformation" title="Edit Intro">
+              <div class="col-4">
+                <p>
+                  <span
+                    style="
       float:left; 
       font-size:1em;
-      margin-bottom:5px;">Current Location</span></p>
-    <b-form-input 
-                  v-model="current_location" 
+      margin-bottom:5px;"
+                  >Current Location</span>
+                </p>
+                <b-form-input
+                  v-model="current_location"
                   type="text"
-                  placeholder="Ex. Vancouver, BC" />
-     <p><span style="
+                  placeholder="Ex. Vancouver, BC"
+                />
+                <p>
+                  <span
+                    style="
       float:left; 
       font-size:1em;
-      margin-bottom:5px;">Current School</span></p>
-    <b-form-input 
-                  v-model="current_school" 
-                  type="text" 
-                  placeholder="Ex. BCIT" />
-    <p><span style="
+      margin-bottom:5px;"
+                  >Current School</span>
+                </p>
+                <b-form-input v-model="current_school" type="text" placeholder="Ex. BCIT"/>
+                <p>
+                  <span
+                    style="
       float:left; 
       font-size:1em;
-      margin-bottom:5px;">Professional Summary</span></p>
-    <b-form-textarea
-      id="textarea2"
-      :state="text.length >= 120"
-      v-model="professional_sum"
-      placeholder="Enter at least 220 characters"
-      rows="5"
-    />
-    <p><span style="
+      margin-bottom:5px;"
+                  >Professional Summary</span>
+                </p>
+                <b-form-textarea
+                  id="textarea2"
+                  :state="text.length >= 120"
+                  v-model="professional_sum"
+                  placeholder="Enter at least 220 characters"
+                  rows="5"
+                />
+                <p>
+                  <span
+                    style="
       width:100%;
       float:left;
       text-align:left;
       font-size:1em;
       margin-bottom:5px;
-      display:block;">Profile Picture</span>
-  </p>
-    <div style="width:100%;">
-    <input type="file" @change="onFileSelected">
-  </div>
-  </div>
-  </b-modal>
-</div>
+      display:block;"
+                  >Profile Picture</span>
+                </p>
+                <div style="width:100%;">
+                  <input type="file" @change="onFileSelected">
+                </div>
+              </div>
+            </b-modal>
+          </div>
         </div>
         <div class="resumeUploadContainer">
           <h3>
@@ -78,7 +89,7 @@
           &nbsp;&nbsp;
           <p>{{this.progress}}</p>
 
-          <iframe :src="uploadedResume" width="300px" height="300px"></iframe>
+          <iframe :src="uploadedResume" width="300px" height="300px" title="Resume"></iframe>
         </div>
       </div>
     </div>
@@ -101,11 +112,11 @@ export default {
       resume: "",
       progress: "",
       uploadedResume: "",
-      text:'',
-      current_location:'',
-      current_school:'',
-      professional_sum: '',
-      uploadedImage: ''
+      text: "",
+      current_location: "",
+      current_school: "",
+      professional_sum: "",
+      uploadedImage: ""
     };
   },
   methods: {
@@ -118,7 +129,7 @@ export default {
         .ref()
         .child(user.uid + "_pic")
         .put(file);
-      
+
       uploadTask.on(
         firebase.storage.TaskEvent.STATE_CHANGED,
         snapshot => {
@@ -146,7 +157,6 @@ export default {
           });
         }
       );
-      
     },
     saveProfileImg: function(url) {
       var currentUser = firebase.auth().currentUser;
@@ -163,42 +173,50 @@ export default {
       );
     },
     uploadUserData: function() {
-    var user = firebase.auth().currentUser;
-    var ref= firebase.firestore().collection("user").doc(user.uid);
-    
-    console.log(ref);
-    ref.get().then(doc => {
-      if(doc.exists == true) {
-      
-        this.current_location = doc.data().current_location;
-        this.current_school = doc.data().current_school;
-        this.professional_sum = doc.data().professional_sum;
-        this.uploadedImage = doc.data().uploadedImage;  
-      }
-    })
-  },
+      var currentuser = firebase.auth().currentUser;
+      var ref = firebase
+        .firestore()
+        .collection("users")
+        .doc(currentuser.uid);
+
+      ref.get().then(doc => {
+        if (!doc.exists) {
+          console.log("No such document!");
+        } else {
+          this.current_location = doc.data().current_location;
+          this.current_school = doc.data().current_school;
+          this.professional_sum = doc.data().professional_sum;
+          this.uploadedImage = doc.data().uploadedImage;
+        }
+      });
+    },
     changeInformation: function() {
       const currentUser = firebase.auth().currentUser;
       if (currentUser) {
         //STORE GLOBAL
-        this.store.current_location = this.current_location;
-        this.store.current_school = this.current_school;
-        this.store.professional_sum = this.professional_sum;
-        this.store.uploadedImage = this.uploadedImage;
-        console.log(this.store.uploadedImage, "Hello");
-        alert("Store");
+        // this.store.current_location = this.current_location;
+        // this.store.current_school = this.current_school;
+        // this.store.professional_sum = this.professional_sum;
+        // this.store.uploadedImage = this.uploadedImage;
+        // console.log(this.store.uploadedImage, "Hello");
+        // alert("Store");
         //
-        var ref = firebase.firestore().collection("users").doc(currentUser.uid);
-        ref
-          .set({
-          current_location: this.current_location,
-          current_school: this.current_school,
-          professional_sum: this.professional_sum,
-          uploadedImage: this.uploadedImage   
-        },{merge:true});
-        };
+        var ref = firebase
+          .firestore()
+          .collection("users")
+          .doc(currentUser.uid);
+        ref.set(
+          {
+            current_location: this.current_location,
+            current_school: this.current_school,
+            professional_sum: this.professional_sum
+            // uploadedImage: this.uploadedImage
+          },
+          { merge: true }
+        );
+      }
       alert("hello");
-      },
+    },
     checkdates: function() {},
     checkResume: function() {
       var currentUser = firebase.auth().currentUser;
