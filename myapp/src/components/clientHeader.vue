@@ -1,6 +1,6 @@
 <template>
   <div id="clientHeader">
-    <nav class="navbar navbar-expand-lg">
+    <!-- <nav class="navbar navbar-expand-lg">
       <img src="../../images/InternLogo.svg" id="internLogoClient">
       <a class="navbar-brand" href="#" id="internGalacticC">Intern Galactic</a>
       <button
@@ -23,8 +23,8 @@
           id="logoBtn"
           type="submit"
         >Profile</button>
--->
-        <div class="dropDown">
+    -->
+    <!-- <div class="dropDown">
             <b-form inline>
               <router-link to ="/profilePage" class="btn my-2 my-sm-0 dropdownTxt">
                 <img :src="ClientHeaderImage" id="smallProfileImg">&nbsp;&nbsp;</router-link>
@@ -43,7 +43,30 @@
   </b-form>
   </div>
   </div>
-  </nav>
+    </nav>-->
+    <b-navbar toggleable="lg" variant="info">
+      <b-navbar-brand>
+        <img src="../../images/InternLogo.svg" id="internLogoClient">
+        Intern Galactic
+      </b-navbar-brand>
+      <b-navbar-toggle target="nav_collapse" class="togglebtn"/>
+      <b-collapse is-nav id="nav_collapse">
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item>
+            <router-link to="/jobFeedPage" class="btn my-2 my-sm-0 dropdownTxt">Internships</router-link>
+          </b-nav-item>
+          <b-nav-item>
+            <router-link to="/internHomePage" class="btn my-2 my-sm-0 dropdownTxt">Search</router-link>
+          </b-nav-item>
+          <b-nav-item>
+            <router-link to="/profilePage" class="btn my-2 my-sm-0 dropdownTxt">Profile</router-link>
+          </b-nav-item>
+          <b-nav-item>
+            <button class="btn my-2 my-sm-0 dropdownTxt" @click="logout">Logout</button>
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 
@@ -56,15 +79,15 @@
 .navbar {
   background: linear-gradient(-135deg, #c850c0, #4158d0);
 }
-  #ddown1__BV_toggle_1234{
-/*    color: white;*/
-    height: 25px;
-    font-size: 1.7em;
-  }
-  #smallProfileImg {
-    width: 28px;
-    border-radius: 50%;
-  }
+#ddown1__BV_toggle_1234 {
+  /*    color: white;*/
+  height: 25px;
+  font-size: 1.7em;
+}
+#smallProfileImg {
+  width: 28px;
+  border-radius: 50%;
+}
 #logoBtn {
   margin-right: 10px;
   font-size: 1.2em;
@@ -72,13 +95,13 @@
   border: none;
   color: white;
   font-weight: bold;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
 }
-  #logoBtn:hover {
-    background-color: none !important;
-    
-    color: black;
-  }
+#logoBtn:hover {
+  background-color: none !important;
+
+  color: black;
+}
 .navbar-brand {
   font-family: "Comfortaa", cursive;
   color: white !important;
@@ -89,10 +112,16 @@
   margin-left: 10px;
   margin-right: 15px;
 }
-  #internGalacticC {
-    font-size: 1.75em;
-    letter-spacing: .1em;
-  }
+#internGalacticC {
+  font-size: 1.75em;
+  letter-spacing: 0.1em;
+}
+.dropdownTxt {
+  color: #ffffff !important;
+}
+.ml-auto {
+  margin-right: 20px;
+}
 </style>
 
 <script>
@@ -105,12 +134,12 @@ export default {
   data() {
     console.log(this.store);
     return {
-       ClientHeaderImage: this.store.uploadedImage
+      ClientHeaderImage: this.store.uploadedImage
     };
   },
   components: {},
   methods: {
-    data: function () {
+    data: function() {
       ClientHeaderImage: this.store.uploadedImage;
     },
     logout: function() {

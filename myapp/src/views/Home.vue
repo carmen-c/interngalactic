@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      page: "intern"
+      page: ""
     };
   },
   created: function() {

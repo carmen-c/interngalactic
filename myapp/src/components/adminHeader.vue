@@ -1,6 +1,6 @@
 <template>
   <div id="adminHeader">
-        <nav class="navbar navbar-expand-lg">
+    <!-- <nav class="navbar navbar-expand-lg">
       <img src="../../images/InternLogo.svg" id="internLogoClient">
       <a class="navbar-brand" href="#" id="internGalacticC">Intern Galactic</a>
       <button
@@ -22,8 +22,8 @@
           id="logoBtn"
           type="submit"
         >Profile</button>
--->
-        <div class="dropDown">
+    -->
+    <!-- <div class="dropDown">
             <b-form inline>
               <router-link to ="/adminHomePage" class="btn my-2 my-sm-0 dropdownTxt">
                 <img src="../../images/TD.png" id="smallProfileImg">&nbsp;&nbsp;</router-link>
@@ -37,15 +37,29 @@
   </b-form>
   </div>
   </div>
-  </nav>
+    </nav>-->
+    <b-navbar toggleable="lg" variant="info">
+      <b-navbar-brand>
+        <img src="../../images/InternLogo.svg" id="internLogoClient">
+        Intern Galactic
+      </b-navbar-brand>
+      <b-navbar-toggle target="nav_collapse" class="togglebtn"/>
+      <b-collapse is-nav id="nav_collapse">
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item>
+            <button class="btn my-2 my-sm-0 dropdownTxt" @click="logout">Logout</button>
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
-<!--
+  <!--
     <div class="header col-md-12">
       <div class="banner">
         <div class="banner-title">Welcome Back, {{this.store.username}}!</div>
       </div>
     </div>
--->
+  -->
 </template>
 
 
@@ -58,8 +72,6 @@
     color: WHITE;
   }
 */
-  
-
 </style>
 
 
