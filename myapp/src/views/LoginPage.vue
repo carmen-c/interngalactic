@@ -155,8 +155,7 @@
       <About/>
         </div>
       <div class="container-fluid">
-<!--    NOT SHOWING    -->
-        <footer />
+        <pageFooter />
         </div>
     </div>
   </div>
@@ -166,13 +165,13 @@
 // @ is an alias to /src
 import firebase from "firebase";
 import About from "./About";
-import footer from "@/components/footer.vue";
+import pageFooter from "@/components/pageFooter.vue";
 
 export default {
   name: "LoginPage",
   components: {
     About,
-    footer
+    pageFooter
   },
   data() {
     return {

@@ -7,6 +7,9 @@
     <div v-if="this.page =='intern'" class="row">
       <internHomePage/>
     </div>
+    <div class="container-fluid">
+        <pageFooter />
+        </div>
   </div>
 </template>
 
@@ -15,12 +18,14 @@
 import internHomePage from "@/components/internHomePage.vue";
 import adminHomePage from "@/components/adminHomePage.vue";
 import firebase from "firebase";
+import pageFooter from "@/components/pageFooter.vue";
 
 export default {
   name: "home",
   components: {
     internHomePage,
-    adminHomePage
+    adminHomePage,
+    pageFooter
   },
   data() {
     return {

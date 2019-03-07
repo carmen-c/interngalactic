@@ -93,6 +93,9 @@
         </div>
       </div>
     </div>
+    <div class="container-fluid">
+        <pageFooter />
+        </div>
   </div>
 </template>
 
@@ -100,12 +103,14 @@
 // @ is an alias to /src
 import calendar from "@/components/calendar.vue";
 import clientHeader from "@/components/clientHeader.vue";
+import pageFooter from "@/components/pageFooter.vue";
 import firebase from "firebase";
 
 export default {
   name: "profilePage",
   components: {
-    clientHeader
+    clientHeader,
+    pageFooter
   },
   data() {
     return {

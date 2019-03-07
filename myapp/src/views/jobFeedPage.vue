@@ -102,6 +102,9 @@
         <!--	PUT THE ACCORDION HERE	  -->
       </div>
     </div>
+    <div class="container-fluid">
+        <pageFooter />
+        </div>
   </div>
 </template>
 
@@ -109,6 +112,7 @@
 // @ is an alias to /src
 import clientheader from "@/components/clientHeader.vue";
 import firebase from "firebase";
+import pageFooter from "@/components/pageFooter.vue";
 import jobPostContainer from "@/components/jobPostContainer.vue";
 // Boot Strap Vue
 import "bootstrap/dist/css/bootstrap.css";
@@ -118,7 +122,8 @@ export default {
   name: "LoginPage",
   components: {
     clientheader,
-    jobPostContainer
+    jobPostContainer,
+    pageFooter
   },
   data() {
     return {
