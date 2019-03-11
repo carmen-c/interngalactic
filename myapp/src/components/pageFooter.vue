@@ -7,7 +7,7 @@
                 <li><a href="#">Reviews</a></li>
                 <li><a href="#">Terms of service</a></li>
             </ul>
-        <p class="footer-copyright">© 2016 Copyright Text</p>
+        <p class="footer-copyright">InternGalactic © 2019 Copyright Text</p>
         </div>
         <div class="footer-social">
             <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>

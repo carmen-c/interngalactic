@@ -3,26 +3,8 @@
     <clientheader/>
     <div class="row">
       <!--******* LEFT SIDE OF THE PAGE *************		 -->
-      <div class="col-md-3 marginTop linkStyles">
-        <div class="recent-Location">
-          <h2 class="h4MarginBottom">JobType:</h2>
-          <p>
-            <a href="#">Graphic Designer</a>
-          </p>
-          <p>
-            <a href="#">Developer</a>
-          </p>
-          <p>
-            <a href="#">Content Creator</a>
-          </p>
-          <p>
-            <a href="#">UI/UX Design</a>
-          </p>
-          <p>
-            <a href="#">Marketing</a>
-          </p>
-        </div>
-        <hr class="line">
+      <div class="col-md-3 marginTop linkStyles" id="leftSideStyle">
+<!--        <hr class="line">-->
         <div class="recent-Location">
           <h2 class="h4MarginBottom">Locations:</h2>
           <p>
@@ -73,11 +55,13 @@
                       v-model="location"
                     />
                   </b-input-group>
+<!--
                   <div>
                     <b-dropdown id="ddown1" text="Sort By" class="m-md-2">
                       <b-dropdown-item>Most Recent</b-dropdown-item>
                     </b-dropdown>
                   </div>
+-->
                 </b-form>
               </div>
             </div>
@@ -97,7 +81,9 @@
             v-bind:post_date="job.post_date"
             v-bind:author="job.uid"
           />
-          <button v-if="nextVisible == true" @click="getMoreJobs">next</button>
+          <div class="container-fluid">
+          <button id="nextButton" v-if="nextVisible == true" @click="getMoreJobs">next</button>
+            </div>
         </div>
         <!--	PUT THE ACCORDION HERE	  -->
       </div>
@@ -313,6 +299,26 @@ export default {
 .test1 {
   margin-left: 30px;
 }
+  #nextButton {
+    margin-top: 2%;
+    color: #fff !important;
+    font-weight: bold !important;
+    background-color: #3369e8 !important;
+    padding: 0 1.5rem !important;
+    height: 3rem;
+    width: 14rem;
+    font-size: 1.35em;
+  }
+  #leftSideStyle {
+    border-right: 1px;
+/*    background-color: red;*/
+    border-right-color: #7fd686;
+    border-left-color: #FFF;
+    border-top-color: #FFF;
+    border-bottom-color: #FFF;
+    border-style: solid;
+
+  }
 </style>
 
 

@@ -1,6 +1,152 @@
 <template>
   <div class="LoginPage">
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6" style="background: linear-gradient(-135deg, #c850c0, #4158d0);
+                                 border-bottom-right-radius: 80%;">
+      <img id="StrokeImg" src="../../images/strokeLOGO.svg">
+      <div class="leftSideMargin">
+        <div class="container infoText">
+          <div class="row infoContainer">
+            <div class="col textAlignRight">
+              <img class="leftIcon" src="../../images/find.svg">
+            </div>
+            <div class="col">
+              <p class="leftText">Find internships most relevant to you.</p>
+            </div>
+            <div class="w-100"></div>
+            <div class="col textAlignRight">
+              <img class="leftIcon" src="../../images/getintouch.svg">
+            </div>
+            <div class="col">
+              <p class="leftText">Browse hundreds of intern opportunities.</p>
+            </div>
+            <div class="w-100"></div>
+            <div class="col textAlignRight">
+              <img class="leftIcon" src="../../images/browse.svg">
+            </div>
+            <div class="col" style="margin-bottom:100px;">
+              <p
+                class="leftText"
+              >Get in touch with companies and clients with the click of a button.</p>
+            </div>
+          </div>
+        </div>
+  </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="col-12">
+          <div class="form-inline float-right userLoginInput">
+            <input
+              type="email"
+              name="loginEmail"
+              class="form-control inputMargins"
+              v-model="loginEmail"
+              placeholder="Email"
+              style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+            >
+            <input
+              type="password"
+              name="loginPass"
+              class="form-control inputMargins"
+              v-model="loginPass"
+              placeholder="Password"
+              style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+            >
+            <button
+              @click="login"
+              type="submit"
+              class="btn btn-default inputMargins"
+              id="signinBtn"
+            >Login</button>
+          </div>
+        </div>
+<div class="container registerContainer">
+          <div class="col-6 registerMargin" id="#">
+            <img class="rightLogo" src="../../images/InternLogo.svg">
+            <br>
+            <br>
+            <h3
+              class="searchTxt"
+            >Searching the Galaxy to find you the internship opportunities you deserve.</h3>
+            <br>
+            <br>
+            <br>
+            <p class="fontSizeTxts">I would like to register as:</p>
+            <div class="btn-group">
+              <button
+                class="btn user-class"
+                :class="{'selected':userType=='company'}"
+                @click="selectType('company')"
+                style="font-size:1.5em;
+                     letter-spacing:0.5px;"
+              >
+                <b>Company</b>
+              </button>
+              <button
+                class="btn user-class"
+                :class="{'selected':userType=='intern'}"
+                @click="selectType('intern')"
+                style="font-size:1.5em;
+                     letter-spacing:0.5px;"
+              >
+                <b>Intern</b>
+              </button>
+            </div>
+            <div class="marginInput registerWidthInput">
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email"
+                  v-model="email"
+                  style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+                >
+              </div>
+              <div class="form-group">
+                <input
+                  type="name"
+                  class="form-control"
+                  v-model="name"
+                  placeholder="Full Name"
+                  style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+                >
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  v-model="password"
+                  style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+                >
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  v-model="retypePass"
+                  placeholder="Re-type Password"
+                  style="font-size:1.5em;
+                      padding-top:15px;padding-bottom:15px;"
+                >
+              </div>
+              <button @click="signup" class="btn btn-default" id="registerBtn">Register</button>
+              <br>
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>    </div>
+  </div>
+</div>
     <div class="row">
+<!--
       <div class="col-5 leftContainer">
         <img id="StrokeImg" src="../../images/strokeLOGO.svg">
         <div class="container infoText">
@@ -30,7 +176,9 @@
           </div>
         </div>
       </div>
+-->
 
+<!--
       <div class="col-7 rightContainer">
         <div class="col-12">
           <div class="form-inline float-right userLoginInput">
@@ -150,6 +298,7 @@
           </div>
         </div>
       </div>
+-->
       
       <div class="container-fluid">
       <About/>
@@ -205,7 +354,7 @@ export default {
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(
             user => {
-              alert("account created");
+              alert("Your account has been created! Login and start searching for your internships and good luck!");
               console.log(user);
               var ref = firebase
                 .firestore()
@@ -219,7 +368,7 @@ export default {
               });
             },
             function(err) {
-              alert("error");
+              alert("Sorry, it seems to us that the email you have entered has been taken already or it could mean your password does not match the criteria.");
             }
           );
       }
@@ -274,7 +423,8 @@ export default {
   float: right;
 }
 .infoText {
-  margin-top: 27%;
+  margin-top: 20%;
+  margin-bottom: 20%;
 }
 .w-100 {
   margin-top: 7%;
@@ -306,9 +456,6 @@ export default {
   
   /*    background-color: blue;*/
 }
-.infoContainer {
-  margin-top: 35%;
-}
 
 
 /* ******************************************  */
@@ -336,7 +483,7 @@ export default {
   color: black;
 }
 .registerContainer {
-  margin-top: 10%;
+  margin-top: 20%;
   text-align: left;
 }
 .registerMargin {
@@ -372,7 +519,14 @@ export default {
 .inputPaddings {
   padding: 20px;
 }
+  .leftSideMargin {
+/*    margin-left: 100px;*/
+    position: relative;
+    right: 150px;
+    top:0;
+  }
 /* ******************************************  */
+/*
 @media only screen and (max-width: 768px) {
   .LoginPage {
   }
@@ -397,4 +551,5 @@ export default {
     width: 300px;
   }
 }
+*/
 </style>
