@@ -1,7 +1,7 @@
 <template>
   <div class="internHomePage bg container-fluid">
     <ClientHeader/>
-    <img id="internPageImgStroke" src="../../images/strokeLOGO.svg">
+<!--    <img id="internPageImgStroke" src="../../images/strokeLOGO.svg">-->
     <div class="container h-50">
       <div class="row align-items-center h-100">
         <div class="col-10 mx-auto">
@@ -17,7 +17,9 @@
               v-model="keyword"
               class="input-style"
               style="font-size:1.5em;
-                          padding:1em;"
+                     padding:0.5em;
+                     border-radius: none;
+                     border-bottom: 1px solid #0b0b0b;"
             >
             <h1 class="internh1" id="internWhere">Where:</h1>
             <input
@@ -26,7 +28,8 @@
               v-model="location"
               class="input-style"
               style="font-size:1.5em;
-                          padding:1em;"
+                     padding:0.5em;
+                     border-bottom: 1px solid #0b0b0b;"
             >
             <!-- <b-dropdown id="__BVID__27__BV_toggle_" class="dropdown" :text="dropdown">
               
@@ -64,22 +67,27 @@
 }
 .searchBtn {
   margin-top: 2%;
-  color: #fff !important;
+  color: #FFF !important;
   font-weight: bold !important;
-  background-color: #3369e8 !important;
+  background-color: #7fd686 !important;
   padding: 0 1.5rem !important;
   border-radius: 0.5rem !important;
   height: 3rem;
+  border: none;
+  outline: none;
   width: 14rem;
 }
-#internPageImgStroke {
+.searchBtn:active,
+.searchBtn:hover {
+  background-color: #019966 !important;
+}
+  #internPageImgStroke {
   position: absolute;
   transform: rotate(-10deg);
   top: 100px;
   left: 0px;
   width: 900px;
   height: auto;
-  opacity: 0.02;
   overflow: hidden;
 }
 .container-fluid {
@@ -95,16 +103,17 @@
 .bg {
   overflow: hidden;
   height: 100vh;
-  background-color: #0b0b0b;
+  background-color: #fff;
 }
 .bg-title {
-  color: #fff;
+  color: #0b0b0b;
   padding-top: 20%;
   font-size: 4em;
   margin-bottom: 3%;
 }
 .internh1 {
-  color: white;
+  color: #0b0b0b;
+  border-radius: none;
   margin-right: 1%;
   margin-left: 3%;
 }

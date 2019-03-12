@@ -13,8 +13,8 @@
       <br/>
       <br/>
       <div class="profileContainer">
-        <h2>Username: {{this.store.username}}</h2>
-        <h3>Residing at: {{this.current_location}}</h3>
+        <h2>Username: <b>{{this.store.username}}</b></h2>
+        <h3>Residing at: <b>{{this.current_location}}</b></h3>
         <h3>
           Currently Studying at:
           <b>{{this.current_school}}</b>
