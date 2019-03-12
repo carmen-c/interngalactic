@@ -5,16 +5,16 @@
     <div class="row profile">
       <div class="col-sm-12 userprofile">
         <div class="row">
-          <div class="userpic col-sm-12 col-md-2">
-            <img :src="uploadedImage">
+          <div class="col-sm-12 col-md-2">
+            <div class="userpic">
+              <img :src="uploadedImage">
+            </div>
           </div>
           <div class="userinfo col-sm-12 col-md-10">
             <div class="col-sm-12 p-0 username">
               <h1>{{this.username}}</h1>
               <b-button v-b-modal.modalxl variant="primary">
                 <i class="glyphicon glyphicon-user"></i>
-
-                
                 Edit Profile
               </b-button>
             </div>
@@ -312,10 +312,25 @@ export default {
   flex-direction: column;
   text-align: left;
 }
-.userpic img {
+.userpic::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.userpic {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   border-radius: 50%;
-  max-width: 100%;
-  float: right;
+}
+.userpic img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
 }
 .userinfo {
   text-align: left;
