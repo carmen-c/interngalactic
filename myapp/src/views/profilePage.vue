@@ -1,17 +1,19 @@
 <template>
   <div class="profilePage">
     <clientHeader/>
-    <!--
+    
    <div class="hero">
     <img src="../../images/herobanner_generic4.jpg"/>
   </div>
-    -->
+    
     <div class="container userProfileContainer">
       <div class="profileImgContainer">
         <img :src="uploadedImage">
       </div>
+      <br/>
+      <br/>
       <div class="profileContainer">
-        <h1>Username: {{this.store.username}}</h1>
+        <h2>Username: {{this.store.username}}</h2>
         <h3>Residing at: {{this.current_location}}</h3>
         <h3>
           Currently Studying at:
@@ -81,15 +83,28 @@
             </b-modal>
           </div>
         </div>
-        <div class="resumeUploadContainer">
+<!--
+        <div class="container">
           <h3>
-            <b>Upload Resume</b>
+            <b>Resume</b>&nbsp;	&nbsp;	
+            <input type="file" placeholder="choose file" @change="confirmUpload($event)">
           </h3>
+        </div>
+-->
+<!--
+          <div class="container">
           <input type="file" placeholder="choose file" @change="confirmUpload($event)">
-          &nbsp;&nbsp;
-          <p>{{this.progress}}</p>
-
-          <iframe :src="uploadedResume" width="300px" height="300px" title="Resume"></iframe>
+            </div>
+-->
+<!--          <p>{{this.progress}}</p>-->
+        <div class="resumeUploadContainer">
+          <iframe :src="uploadedResume" width="770px" height="1150px" title="Resume"></iframe>
+        </div>
+        <div class="container uploadfileConatiner">
+            <h4>
+            <b>Upload Resume:  </b>
+              <input type="file" placeholder="choose file" @change="confirmUpload($event)">
+          </h4>
         </div>
       </div>
     </div>
@@ -311,6 +326,7 @@ export default {
   created: function() {
     this.checkResume();
     this.uploadUserData();
+    this.saveProfileImg();
   }
 };
 </script>
@@ -351,7 +367,7 @@ export default {
   padding: 15px;
 }
 .resumeUploadContainer {
-  margin-top: 3%;
+  margin-top: 5%;
 }
 .resumeUploadContainer p {
   display: inline;
@@ -363,17 +379,24 @@ export default {
   border: none;
   color: black;
 }
-/*  
   .hero {
     width:100%; 
     overflow:hidden; 
-    margin:0; 
+    margin:0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
   .hero img {
     display: block;
     width: 100%;
   }
-*/
+  .uploadfileConatiner {
+    width: 70%;
+    text-align: left;
+    margin-bottom: 15%;
+  }
 </style>
 
 
