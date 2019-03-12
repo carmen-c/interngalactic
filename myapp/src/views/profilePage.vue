@@ -1,116 +1,78 @@
 <template>
   <div class="profilePage">
     <clientHeader/>
-    
-   <div class="hero">
-    <img src="../../images/herobanner_generic4.jpg"/>
-  </div>
-    
-    <div class="container userProfileContainer">
-      <div class="profileImgContainer">
-        <img :src="uploadedImage">
-      </div>
-      <br/>
-      <br/>
-      <div class="profileContainer">
-        <h2>Username: <b>{{this.store.username}}</b></h2>
-        <h3>Residing at: <b>{{this.current_location}}</b></h3>
-        <h3>
-          Currently Studying at:
-          <b>{{this.current_school}}</b>
-        </h3>
-        <div class="container userBio">
-          <p>{{this.professional_sum}}</p>
-          <div>
-            <b-button v-b-modal.modalxl variant="primary">
-              Edit
-              <i class="glyphicon glyphicon-user"></i>
-            </b-button>
-            <b-modal id="modalxl" size="xl" @ok="changeInformation" title="Edit Intro">
-              <div class="col-4">
-                <p>
-                  <span
-                    style="
-      float:left; 
-      font-size:1em;
-      margin-bottom:5px;"
-                  >Current Location</span>
-                </p>
-                <b-form-input
-                  v-model="current_location"
-                  type="text"
-                  placeholder="Ex. Vancouver, BC"
-                />
-                <p>
-                  <span
-                    style="
-      float:left; 
-      font-size:1em;
-      margin-bottom:5px;"
-                  >Current School</span>
-                </p>
-                <b-form-input v-model="current_school" type="text" placeholder="Ex. BCIT"/>
-                <p>
-                  <span
-                    style="
-      float:left; 
-      font-size:1em;
-      margin-bottom:5px;"
-                  >Professional Summary</span>
-                </p>
-                <b-form-textarea
-                  id="textarea2"
-                  :state="text.length >= 120"
-                  v-model="professional_sum"
-                  placeholder="Enter at least 220 characters"
-                  rows="5"
-                />
-                <p>
-                  <span
-                    style="
-      width:100%;
-      float:left;
-      text-align:left;
-      font-size:1em;
-      margin-bottom:5px;
-      display:block;"
-                  >Profile Picture</span>
-                </p>
-                <div style="width:100%;">
-                  <input type="file" @change="onFileSelected">
-                </div>
-              </div>
-            </b-modal>
+
+    <div class="row profile">
+      <div class="col-sm-12 userprofile">
+        <div class="row">
+          <div class="userpic col-sm-12 col-md-2">
+            <img :src="uploadedImage">
+          </div>
+          <div class="userinfo col-sm-12 col-md-10">
+            <div class="col-sm-12 p-0 username">
+              <h1>{{this.username}}</h1>
+              <b-button v-b-modal.modalxl variant="primary">
+                <i class="glyphicon glyphicon-user"></i>
+
+                
+                Edit Profile
+              </b-button>
+            </div>
+
+            <br>
+            <h3>{{this.current_location}}</h3>
+            <h3>{{this.current_school}}</h3>
+            <br>
+            <p>{{this.professional_sum}}</p>
           </div>
         </div>
-<!--
+      </div>
+
+      <div class="col-sm-12">
         <div class="container">
-          <h3>
-            <b>Resume</b>&nbsp;	&nbsp;	
-            <input type="file" placeholder="choose file" @change="confirmUpload($event)">
-          </h3>
+          <iframe :src="uploadedResume" width="100%" height="600px" title="Resume"></iframe>
         </div>
--->
-<!--
-          <div class="container">
-          <input type="file" placeholder="choose file" @change="confirmUpload($event)">
+      </div>
+
+      <div class="profileContainer">
+        <div class="container userBio">
+          <b-modal id="modalxl" size="lg" @ok="changeInformation" title="Edit Profile">
+            <div class="col-12">
+              <div class="profilePicUpload">
+                <p class="editTitle">Profile Picture</p>
+                <input type="file" @change="onFileSelected">
+                <p>{{this.picprogress}}</p>
+              </div>
+
+              <p class="editTitle">Current Location</p>
+              <b-form-input v-model="current_location" type="text" placeholder="Ex. Vancouver, BC"/>
+
+              <p class="editTitle">Current School</p>
+              <b-form-input v-model="current_school" type="text" placeholder="Ex. BCIT"/>
+
+              <p class="editTitle">Professional Summary</p>
+              <b-form-textarea
+                id="textarea2"
+                :state="text.length >= 120"
+                v-model="professional_sum"
+                placeholder="Enter at least 220 characters"
+                rows="5"
+              />
+
+              <div class="profilePicUpload">
+                <p class="editTitle">Upload Resume</p>
+                <input type="file" placeholder="choose file" @change="confirmUpload($event)">
+                <p>{{this.progress}}</p>
+              </div>
             </div>
--->
-<!--          <p>{{this.progress}}</p>-->
-        <div class="resumeUploadContainer">
-          <iframe :src="uploadedResume" width="770px" height="1150px" title="Resume"></iframe>
-        </div>
-        <div class="container uploadfileConatiner">
-            <h4>
-            <b>Upload Resume:  </b>
-              <input type="file" placeholder="choose file" @change="confirmUpload($event)">
-          </h4>
+          </b-modal>
         </div>
       </div>
     </div>
+
     <div class="container-fluid">
-        <pageFooter />
-        </div>
+      <pageFooter/>
+    </div>
   </div>
 </template>
 
@@ -131,12 +93,14 @@ export default {
     return {
       resume: "",
       progress: "",
+      picprogress: "",
       uploadedResume: "",
       text: "",
       current_location: "",
       current_school: "",
       professional_sum: "",
-      uploadedImage: ""
+      uploadedImage: "",
+      username: ""
     };
   },
   methods: {
@@ -155,11 +119,11 @@ export default {
         snapshot => {
           var progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          this.progress = progress + " %";
+          this.picprogress = progress + " %";
 
           switch (snapshot.state) {
             case firebase.storage.TaskState.PAUSED:
-              this.progress = "upload paused";
+              this.picprogress = "upload paused";
               break;
             case firebase.storage.TaskState.RUNNING:
               console.log("upload running");
@@ -203,10 +167,12 @@ export default {
         if (!doc.exists) {
           console.log("No such document!");
         } else {
+          console.log(doc.data());
           this.current_location = doc.data().current_location;
           this.current_school = doc.data().current_school;
           this.professional_sum = doc.data().professional_sum;
-          this.uploadedImage = doc.data().uploadedImage;
+          this.uploadedImage = doc.data().profilePic;
+          this.username = doc.data().name;
         }
       });
     },
@@ -326,77 +292,42 @@ export default {
   created: function() {
     this.checkResume();
     this.uploadUserData();
-    this.saveProfileImg();
   }
 };
 </script>
 <style>
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
-.userProfileContainer {
-  margin-top: 10%;
-}
-.userBio {
-  width: 50%;
-}
-.profileContainer p {
-  font-size: 1.5em;
-}
-.profileContainer h1 {
-  font-size: 3em;
-  margin-bottom: 0.5%;
-}
-.profileContainer h3 {
-  font-size: 1.75em;
-}
-.userBio {
-  margin-top: 1%;
-}
-.userBio p {
+.editTitle {
+  float: left;
+  text-align: left !important;
   font-size: 1em;
-  line-height: 1.375em;
+  margin-bottom: 5px;
+  margin-top: 10px;
 }
-.profileImgContainer img {
-  width: 170px;
-  height: 170px;
-  border-radius: 10px;
-  object-fit: cover;
-  background-position: center center;
-  background-size: cover;
+.profile {
+  margin: 10% 5%;
 }
-.profileImgContainer {
-  padding: 15px;
+.profilePicUpload {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
-.resumeUploadContainer {
-  margin-top: 5%;
+.userpic img {
+  border-radius: 50%;
+  max-width: 100%;
+  float: right;
 }
-.resumeUploadContainer p {
-  display: inline;
+.userinfo {
+  text-align: left;
 }
-.resumeUploadContainer button {
-  background-color: lightblue;
-  font-size: 1em;
-  border-radius: 2px;
-  border: none;
-  color: black;
+.username {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-  .hero {
-    width:100%; 
-    overflow:hidden; 
-    margin:0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-  .hero img {
-    display: block;
-    width: 100%;
-  }
-  .uploadfileConatiner {
-    width: 70%;
-    text-align: left;
-    margin-bottom: 15%;
-  }
+.userprofile {
+  margin-bottom: 10%;
+}
 </style>
 
 
