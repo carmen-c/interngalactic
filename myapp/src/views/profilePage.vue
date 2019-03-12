@@ -3,24 +3,28 @@
     <clientHeader/>
 
     <div class="row profile">
-      <div class="col-sm-12">
+      <div class="col-sm-12 userprofile">
         <div class="row">
-          <div class="userpic col-sm-12 col-md-3">
+          <div class="userpic col-sm-12 col-md-2">
             <img :src="uploadedImage">
           </div>
-          <div class="userinfo col-sm-12 col-md-9">
-            <h1>{{this.username}}</h1>
+          <div class="userinfo col-sm-12 col-md-10">
+            <div class="col-sm-12 p-0 username">
+              <h1>{{this.username}}</h1>
+              <b-button v-b-modal.modalxl variant="primary">
+                <i class="glyphicon glyphicon-user"></i>
+
+                
+                Edit Profile
+              </b-button>
+            </div>
+
             <br>
             <h3>{{this.current_location}}</h3>
             <h3>{{this.current_school}}</h3>
             <br>
             <p>{{this.professional_sum}}</p>
           </div>
-
-          <b-button v-b-modal.modalxl variant="primary">
-            Edit
-            <i class="glyphicon glyphicon-user"></i>
-          </b-button>
         </div>
       </div>
 
@@ -46,7 +50,7 @@
               <p class="editTitle">Current School</p>
               <b-form-input v-model="current_school" type="text" placeholder="Ex. BCIT"/>
 
-              <p class="ediTitle">Professional Summary</p>
+              <p class="editTitle">Professional Summary</p>
               <b-form-textarea
                 id="textarea2"
                 :state="text.length >= 120"
@@ -295,8 +299,10 @@ export default {
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
 .editTitle {
   float: left;
+  text-align: left !important;
   font-size: 1em;
   margin-bottom: 5px;
+  margin-top: 10px;
 }
 .profile {
   margin: 10% 5%;
@@ -309,71 +315,19 @@ export default {
 .userpic img {
   border-radius: 50%;
   max-width: 100%;
-}
-.userpic {
+  float: right;
 }
 .userinfo {
-  margin-top: 3%;
   text-align: left;
 }
-/* .userProfileContainer {
-  margin-top: 10%;
+.username {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.userBio {
-  width: 50%;
+.userprofile {
+  margin-bottom: 10%;
 }
-.profileContainer p {
-  font-size: 1.5em;
-}
-.profileContainer h1 {
-  font-size: 3em;
-  margin-bottom: 0.5%;
-}
-.profileContainer h3 {
-  font-size: 1.75em;
-}
-.userBio {
-  margin-top: 1%;
-}
-.userBio p {
-  font-size: 1em;
-  line-height: 1.375em;
-}
-.profileImgContainer img {
-  width: 170px;
-  height: 170px;
-  border-radius: 10px;
-  object-fit: cover;
-  background-position: center center;
-  background-size: cover;
-}
-.profileImgContainer {
-  padding: 15px;
-}
-.resumeUploadContainer {
-  margin-top: 3%;
-}
-.resumeUploadContainer p {
-  display: inline;
-}
-.resumeUploadContainer button {
-  background-color: lightblue;
-  font-size: 1em;
-  border-radius: 2px;
-  border: none;
-  color: black;
-} */
-/*  
-  .hero {
-    width:100%; 
-    overflow:hidden; 
-    margin:0; 
-  }
-  .hero img {
-    display: block;
-    width: 100%;
-  }
-*/
 </style>
 
 
