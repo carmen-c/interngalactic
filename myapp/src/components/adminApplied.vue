@@ -1,7 +1,7 @@
 <template>
   <div class="currentJobPost">
     <div class="form-row pleasefilloutTxt">
-      <h1>Applicants.</h1>
+      <h1>You have {{this.alist.length}} Applicants.</h1>
     </div>
 
     <!--	REPLACE WITH COMPONENT FOR JOB POST	  -->

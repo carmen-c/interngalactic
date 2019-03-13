@@ -5,22 +5,20 @@
         <b-col col lg="3" class="applicantName">{{aname}}</b-col>
         <b-col cols="12" md="4" class="applicantReason">Applying for {{aposition}}</b-col>
         <b-col class="downloadResume" col lg="3">
-          <button class="downloadBtn">
+          <b-button class="downloadBtn" variant="primary">
             <a
               :href="this.aresume"
               target="_blank"
               :download="this.aname + '_resume_for' + this.aposition"
             >Download Resume</a>
-          </button>
-          <button class="downloadBtn" @click="deleteThis">Delete</button>
+          </b-button>&nbsp;&nbsp;
+          <b-button class="downloadBtn" @click="deleteThis" variant="primary">Delete</b-button>
         </b-col>
       </b-row>
     </b-container>
   </div>
 </template>
 <style>
-.applicants {
-}
 .Applicant-container {
   background-color: #ededed;
   margin: 10px;
@@ -35,16 +33,21 @@
   margin: 10px;
   padding: 10px;
 }
+.downloadBtn {
+  border: none !important;
+  background-color: #7fd686 !important;
+}
+.downloadBtn:hover,
+.downloadBtn:active {
+  background-color: #019966 !important;
+}
 .downloadResume a {
-  color: #7fd686;
+  color: #ffffff;
   text-decoration: none;
-  border: 1px solid #7fd686;
-  padding: 10px;
-  border-radius: 10px;
 }
 .downloadResume a:hover {
   text-decoration: none;
-  color: #7fd686;
+  color: #ffffff;
 }
 .applicantReason {
   margin: 10px;

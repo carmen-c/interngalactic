@@ -4,7 +4,7 @@
     <div class="row">
       <!--******* LEFT SIDE OF THE PAGE *************		 -->
       <div class="col-md-3 marginTop linkStyles" id="leftSideStyle">
-<!--        <hr class="line">-->
+        <!--        <hr class="line">-->
         <div class="recent-Location">
           <h2 class="h4MarginBottom">Locations:</h2>
           <p>
@@ -55,13 +55,13 @@
                       v-model="location"
                     />
                   </b-input-group>
-<!--
+                  <!--
                   <div>
                     <b-dropdown id="ddown1" text="Sort By" class="m-md-2">
                       <b-dropdown-item>Most Recent</b-dropdown-item>
                     </b-dropdown>
                   </div>
--->
+                  -->
                 </b-form>
               </div>
             </div>
@@ -82,15 +82,15 @@
             v-bind:author="job.uid"
           />
           <div class="container-fluid">
-          <button id="nextButton" v-if="nextVisible == true" @click="getMoreJobs">next</button>
-            </div>
+            <button id="nextButton" v-if="nextVisible == true" @click="getMoreJobs">next</button>
+          </div>
         </div>
         <!--	PUT THE ACCORDION HERE	  -->
       </div>
     </div>
     <div class="container-fluid">
-        <pageFooter />
-        </div>
+      <pageFooter/>
+    </div>
   </div>
 </template>
 
@@ -122,7 +122,7 @@ export default {
     };
   },
   created: function() {
-    console.log(this.store.searchResults);
+    // console.log(this.store.searchResults);
     if (this.store.searchResults.length == 0) {
       this.getInitialJobs();
     } else {
@@ -153,7 +153,7 @@ export default {
 
           // Construct a new query starting at this document.
           if (last == undefined) {
-            alert("no more jobs");
+            // alert("no more jobs");
             this.nextVisible = false;
             // if we go back to first page
             // this.getInitialJobs();
@@ -185,7 +185,7 @@ export default {
         })
         .then(() => {
           this.allJobs = this.jobsArray;
-          console.log(this.allJobs);
+          // console.log(this.allJobs);
         });
     },
     handleSearch: function() {
@@ -299,26 +299,25 @@ export default {
 .test1 {
   margin-left: 30px;
 }
-  #nextButton {
-    margin-top: 2%;
-    color: #fff !important;
-    font-weight: bold !important;
-    background-color: #3369e8 !important;
-    padding: 0 1.5rem !important;
-    height: 3rem;
-    width: 14rem;
-    font-size: 1.35em;
-  }
-  #leftSideStyle {
-    border-right: 1px;
-/*    background-color: red;*/
-    border-right-color: #7fd686;
-    border-left-color: #FFF;
-    border-top-color: #FFF;
-    border-bottom-color: #FFF;
-    border-style: solid;
-
-  }
+#nextButton {
+  margin-top: 2%;
+  color: #fff !important;
+  font-weight: bold !important;
+  background-color: #3369e8 !important;
+  padding: 0 1.5rem !important;
+  height: 3rem;
+  width: 14rem;
+  font-size: 1.35em;
+}
+#leftSideStyle {
+  border-right: 1px;
+  /*    background-color: red;*/
+  border-right-color: #7fd686;
+  border-left-color: #fff;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+  border-style: solid;
+}
 </style>
 
 

@@ -121,7 +121,7 @@ export default {
             { merge: true }
           )
           .then(() => {
-            alert("app");
+            // alert("app");
             this.applySuccess = "block";
           });
       }
