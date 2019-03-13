@@ -5,23 +5,24 @@
       <div class="row">
         <div class="col-md-12">
           <div class="text-right pull-right">
-            <b-button v-b-modal="'myModal' + post_id" variant="primary">Edit</b-button>
+            <b-button
+              v-b-modal="'myModal' + post_id"
+              variant="primary"
+              class="admin-posting-btn"
+            >Edit</b-button>&nbsp;&nbsp;
             <b-button variant="primary" class="admin-posting-btn" @click="deletePost">Delete</b-button>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-2">
-          <p>Logo Here</p>
+        <div class="col-md-2 postimage">
+          <img class="contractIcon jobDuration" src="../../images/contract.svg">
         </div>
         <div class="col-md-10 text-left">
           <h1>{{position}}</h1>
           <p>{{company}} - {{location}} posted on {{post_date.seconds | moment("MMMM Do YYYY")}}</p>
-          <p>
-            <img class="contractIcon jobDuration" src="../../images/contract.svg">
-            {{start.seconds | moment("MMMM Do YYYY")}} to {{end.seconds | moment("MMMM Do YYYY")}}
-          </p>
+          <p>{{start.seconds | moment("MMMM Do YYYY")}} to {{end.seconds | moment("MMMM Do YYYY")}}</p>
         </div>
       </div>
 
@@ -100,16 +101,13 @@ export default {
 </script>
 
 <style>
-/* #cardWrapper1 {
-  border: none;
-  width: 100%;
-}
 .admin-posting-btn {
-  background-color: #7fd686;
+  background-color: #7fd686 !important;
+  border: none !important;
 }
 .admin-posting-btn:active,
 .admin-posting-btn:hover {
-  background: #019966;
+  background: #019966 !important;
 }
 .activePost {
   background-color: #ededed;
@@ -121,6 +119,11 @@ export default {
   text-align: left;
 }
 .text-right {
-  text-align: right; 
-} */
+  text-align: right;
+}
+.postimage img {
+  padding: 10%;
+  width: 60%;
+  margin: 0;
+}
 </style>

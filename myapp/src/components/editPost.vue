@@ -1,39 +1,25 @@
 <template>
   <div class="editPost">
-    <div class="container">
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <p class="editTitle">Company</p>
-          <input
-            type="text"
-            class="form-control"
-            v-model="edit_company"
-            placeholder="Name of your company"
-          >
-          <p class="editTitle">Position</p>
-          <input
-            type="text"
-            class="form-control"
-            v-model="edit_position"
-            placeholder="Internship position"
-          >
-          <p class="editTitle">Location</p>
-          <input
-            type="text"
-            class="form-control"
-            v-model="edit_location"
-            placeholder="Enter Location"
-          >
-          <p class="editTitle">Dates</p>
-          <v-date-picker
-            class="datePickerStyle"
-            mode="range"
-            v-model="edit_myDates"
-            :theme-styles="themeStyle"
-            tint-color="#7fd686"
-            show-caps
-          ></v-date-picker>
-        </div>
+    <div class="form-row">
+      <div class="editposting col-md-12">
+        <p class="editTitle">Company</p>
+        <input type="text" v-model="edit_company" placeholder="Name of your company">
+
+        <p class="editTitle">Position</p>
+        <input type="text" v-model="edit_position" placeholder="Internship position">
+
+        <p class="editTitle">Location</p>
+        <input type="text" v-model="edit_location" placeholder="Enter Location">
+
+        <p class="editTitle">Dates</p>
+        <v-date-picker
+          class="datePickerStyle"
+          mode="range"
+          v-model="edit_myDates"
+          :theme-styles="themeStyle"
+          tint-color="#7fd686"
+          show-caps
+        ></v-date-picker>
       </div>
     </div>
     <p class="editTitle">Description</p>
@@ -43,7 +29,8 @@
       class="form-control"
       style="height: 130px;"
     ></textarea>
-    <b-button @click="saveJob()">Done</b-button>
+    <br>
+    <b-button class="admin-posting-btn" variant="primary" @click="saveJob()">Done</b-button>
   </div>
 </template>
 
@@ -138,18 +125,24 @@ export default {
 </script>
 
 <style>
-.form-control {
-  margin: 5px 0;
+.editTitle {
+  float: left;
+  text-align: left !important;
+  font-size: 1em;
+  margin-bottom: 5px;
+  margin-top: 10px;
 }
-.editBox {
-  padding: 50px 0 50px 50px !important;
-  background-color: red;
+.editposting {
+  display: flex;
+  flex-direction: column;
 }
-.editPost h2 {
-  font-size: 1.75em;
+.admin-posting-btn {
+  background: #7fd686 !important;
+  border: none !important;
 }
-.editBox2 {
-  padding: 50px 50px 50px 0 !important;
+.admin-posting-btn:active,
+.admin-posting-btn:hover {
+  background: #019966 !important;
 }
 </style>
 
