@@ -1,6 +1,14 @@
 <template>
   <div class="jobForm">
     <div class="wrapper">
+      <div
+        class="alert alert-success alert-dismissable"
+        :id="post_id + 'alert'"
+        :style="'display: '+ applySuccess"
+      >
+        <button type="button" class="close" aria-hidden="true" @click="dismissAlert">&times;</button>
+        Success! You have posted your job.
+      </div>
       <div class="inner">
         <div class="form-row pleasefilloutTxt">
           <h1>Please fill out the fields below.</h1>
@@ -116,6 +124,7 @@ export default {
       description: "",
       company: "",
       myDates: "",
+      applySuccess: "none",
       attribute: {},
       themeStyle: {
         wrapper: {
@@ -135,6 +144,9 @@ export default {
     AdminHeader
   },
   methods: {
+    dismissAlert: function() {
+      this.applySuccess = "none";
+    },
     postJob: function() {
       this.start_date = this.myDates.start;
       this.end_date = this.myDates.end;
@@ -160,8 +172,7 @@ export default {
             ref.update({
               post_id: ref.id
             });
-            alert("posted");
-            this.changePage(1);
+            this.applySuccess = "block";
           });
       } else {
         alert("error message");
