@@ -1,8 +1,8 @@
 <template>
   <div class="currentJobPost">
-      <div class="form-row pleasefilloutTxt">
-        <h1>Your active job postings.</h1>
-      </div>
+    <div class="form-row pleasefilloutTxt">
+      <h1>You have {{activePosts.length}} active job postings.</h1>
+    </div>
 
     <!--	REPLACE WITH COMPONENT FOR JOB POST	  -->
     <adminActive
@@ -15,22 +15,22 @@
       v-bind:start="job.start_date"
       v-bind:end="job.end_date"
       v-bind:post_date="job.post_date"
+      v-on:refreshit="checkPosts"
     />
   </div>
 </template>
 
 <style>
-  .pleasefilloutTxt h1 {
-    font-size: 3em;
-    margin-bottom:1%;
-    border-bottom: 1px solid black;
-    border-bottom-style:dotted;
-    width: 50%;
-  }
-  .pleasefilloutTxt {
-    margin-top: 2%;
-  }
-  
+.pleasefilloutTxt h1 {
+  font-size: 3em;
+  margin-bottom: 1%;
+  border-bottom: 1px solid black;
+  border-bottom-style: dotted;
+  width: 50%;
+}
+.pleasefilloutTxt {
+  margin-top: 2%;
+}
 </style>
 
 <script>
@@ -53,6 +53,7 @@ export default {
   },
   methods: {
     checkPosts: function() {
+      this.activePosts = [];
       var currentUser = firebase.auth().currentUser;
       var jobs = firebase.firestore().collection("jobs");
 

@@ -8,8 +8,8 @@
       <internHomePage/>
     </div>
     <div class="container-fluid">
-        <pageFooter />
-        </div>
+      <pageFooter/>
+    </div>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
   },
   data() {
     return {
-      page: "intern"
+      page: ""
     };
   },
   created: function() {

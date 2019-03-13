@@ -1,69 +1,49 @@
 <template>
   <div class="editPost">
-    <div class="row">
-      <div class="container">
-        <h2 class="text-left">Editing <b>{{position}}</b> internship for <b>{{company}}</b>.</h2>
-      </div>
-    </div>
     <div class="container">
-<div class="form-row">
+      <div class="form-row">
         <div class="form-group col-md-12">
-          <input 
-                 type="text" 
-                 class="form-control" 
-                 v-model="edit_company" 
-                 placeholder="Name of your company">
-          <input 
-                 type="text" 
-                 class="form-control" 
-                 v-model="edit_position" 
-                 placeholder="Internship position"> 
-          <input 
-                 type="text" 
-                 class="form-control" 
-                 v-model="edit_location" 
-                 placeholder="Enter Location">
+          <p class="editTitle">Company</p>
+          <input
+            type="text"
+            class="form-control"
+            v-model="edit_company"
+            placeholder="Name of your company"
+          >
+          <p class="editTitle">Position</p>
+          <input
+            type="text"
+            class="form-control"
+            v-model="edit_position"
+            placeholder="Internship position"
+          >
+          <p class="editTitle">Location</p>
+          <input
+            type="text"
+            class="form-control"
+            v-model="edit_location"
+            placeholder="Enter Location"
+          >
+          <p class="editTitle">Dates</p>
           <v-date-picker
             class="datePickerStyle"
             mode="range"
-            v-model="myDates"
+            v-model="edit_myDates"
             :theme-styles="themeStyle"
             tint-color="#7fd686"
             show-caps
           ></v-date-picker>
-  </div>
-  </div>
-  </div>
-     <textarea 
-               v-model="edit_description" 
-               placeholder="Description of the Internship" 
-               class="form-control" 
-               style="height: 130px;">
-  </textarea>
-    <div class="row">
-      <div class="container">
-        <div class="col-md-12">
-          <p class="addCompanyLogo">
-            <b>Add Company Logo</b>
-          </p>
-          <br>
-          <ul class="other-info">
-            <li>
-              <button>Choose file</button>
-            </li>
-            <li>
-              <input type="radio"> Require resume
-            </li>
-            <li>
-              <input type="radio"> Applicants will fill out fields provided on application
-            </li>
-            <li>
-              <button @click="saveJob">Save</button>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
+    <p class="editTitle">Description</p>
+    <textarea
+      v-model="edit_description"
+      placeholder="Description of the Internship"
+      class="form-control"
+      style="height: 130px;"
+    ></textarea>
+    <b-button @click="saveJob()">Done</b-button>
   </div>
 </template>
 
@@ -123,7 +103,7 @@ export default {
           })
 
           .then(() => {
-            alert("updated");
+            this.$emit("editPost");
           });
       } else {
         alert("error message");
@@ -165,9 +145,9 @@ export default {
   padding: 50px 0 50px 50px !important;
   background-color: red;
 }
-  .editPost h2 {
-    font-size: 1.75em;
-  }
+.editPost h2 {
+  font-size: 1.75em;
+}
 .editBox2 {
   padding: 50px 50px 50px 0 !important;
 }

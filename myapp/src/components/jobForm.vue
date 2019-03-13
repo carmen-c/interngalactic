@@ -230,7 +230,7 @@ export default {
   cursor: pointer;
   font-family: "Montserrat-Medium";
   text-transform: uppercase;
-  background: #84cde1;
+  background: #7fd686;
   border-radius: 5px;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -256,7 +256,7 @@ export default {
   animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  background-color: #17c8f8;
+  background-color: #019966;
   color: white;
 }
 .postJobBtn:hover i {
@@ -338,12 +338,12 @@ textarea.form-control {
 
 @-webkit-keyframes hvr-back-pulse {
   50% {
-    background-color: rgba(32, 152, 209, 0.75);
+    background-color: #7fd686;
   }
 }
 @keyframes hvr-back-pulse {
   50% {
-    background-color: rgba(32, 152, 209, 0.75);
+    background-color: #7fd686;
   }
 }
 @-webkit-keyframes hvr-icon-buzz-out {
