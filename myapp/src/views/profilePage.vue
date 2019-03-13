@@ -107,7 +107,7 @@ export default {
     onFileSelected: function(event) {
       var user = firebase.auth().currentUser;
       var file = event.target.files[0];
-      console.log(file);
+      // console.log(file);
       var uploadTask = firebase
         .storage()
         .ref()
@@ -126,7 +126,7 @@ export default {
               this.picprogress = "upload paused";
               break;
             case firebase.storage.TaskState.RUNNING:
-              console.log("upload running");
+              // console.log("upload running");
               break;
           }
         },
@@ -135,7 +135,7 @@ export default {
         },
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
-            console.log("download at ", downloadURL);
+            // console.log("download at ", downloadURL);
             this.uploadedImage = downloadURL;
             this.saveProfileImg(downloadURL);
           });
@@ -165,9 +165,9 @@ export default {
 
       ref.get().then(doc => {
         if (!doc.exists) {
-          console.log("No such document!");
+          // console.log("No such document!");
         } else {
-          console.log(doc.data());
+          // console.log(doc.data());
           this.current_location = doc.data().current_location;
           this.current_school = doc.data().current_school;
           this.professional_sum = doc.data().professional_sum;
@@ -201,7 +201,7 @@ export default {
           { merge: true }
         );
       }
-      alert("hello");
+      // alert("hello");
     },
     checkdates: function() {},
     checkResume: function() {
@@ -216,7 +216,7 @@ export default {
           if (doc.data().resume != undefined) {
             this.uploadedResume = doc.data().resume;
             this.uploadedImage = doc.data().profilePic;
-            console.log(doc.data().resume);
+            // console.log(doc.data().resume);
           } else {
             // do nothing
           }
@@ -258,7 +258,7 @@ export default {
               this.progress = "upload paused";
               break;
             case firebase.storage.TaskState.RUNNING:
-              console.log("upload running");
+              // console.log("upload running");
               break;
           }
         },
@@ -267,7 +267,7 @@ export default {
         },
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
-            console.log("download at ", downloadURL);
+            // console.log("download at ", downloadURL);
             this.uploadedResume = downloadURL;
             this.saveToUser(downloadURL);
           });
