@@ -33,8 +33,8 @@ Vue.prototype.store = {
   current_location: "",
   current_school: "",
   professional_sum: "",
-  profileImg:"",
-  uploadedImage:""
+  profileImg: "",
+  uploadedImage: ""
 };
 
 firebase.auth().onAuthStateChanged(() => {

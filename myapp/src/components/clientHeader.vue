@@ -47,7 +47,7 @@
     <b-navbar toggleable="lg" variant="info">
       <b-navbar-brand>
         <img src="../../images/InternLogo.svg" id="internLogoClient">
-        Intern Galactic
+        <span class="brandName">Intern Galactic</span>
       </b-navbar-brand>
       <b-navbar-toggle target="nav_collapse" class="togglebtn"/>
       <b-collapse is-nav id="nav_collapse">
@@ -118,9 +118,13 @@
 }
 .dropdownTxt {
   color: #ffffff !important;
+  font-size: 1.5em !important;
 }
 .ml-auto {
   margin-right: 20px;
+}
+.brandName {
+  font-size: 1.5em;
 }
 </style>
 

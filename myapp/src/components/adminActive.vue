@@ -4,7 +4,7 @@
     <div class="container activePost">
       <div class="row">
         <div class="col-md-12">
-          <div class="text-right pull-right">
+          <div class="text-right">
             <b-button
               v-b-modal="'myModal' + post_id"
               variant="primary"
@@ -19,11 +19,18 @@
         <div class="col-md-2 postimage">
           <img class="contractIcon jobDuration" src="../../images/contract.svg">
         </div>
-        <div class="col-md-10 text-left">
+        <div class="col-md-10 text-left postinfo">
           <h1>{{position}}</h1>
-          <p>{{company}} - {{location}} posted on {{post_date.seconds | moment("MMMM Do YYYY")}}</p>
+          <p><i class="fas fa-building icon"></i>{{company}}
+          &nbsp;&nbsp;
+          <i class="fas fa-map-marker-alt icon"></i>{{location}}
+          </p>
           <p>{{start.seconds | moment("MMMM Do YYYY")}} to {{end.seconds | moment("MMMM Do YYYY")}}</p>
         </div>
+      </div>
+
+      <div class="row postedDate">
+          posted on {{post_date.seconds | moment("MMMM Do YYYY")}}
       </div>
 
       <b-modal :id="'myModal' + post_id" :title="'Editing '+ position" hide-footer>
@@ -40,19 +47,6 @@
           />
         </div>
       </b-modal>
-      <!-- <b-collapse :id="post_id" role="tabpanel" v-model="showCollapse">
-          <b-card-body>
-            <editPost
-              v-bind:post_id="post_id"
-              v-bind:position="position"
-              v-bind:company="company"
-              v-bind:location="location"
-              v-bind:description="description"
-              v-bind:start="start.seconds"
-              v-bind:end="end.seconds"
-            />
-          </b-card-body>
-      </b-collapse>-->
     </div>
     <!-- </b-card> -->
   </div>
@@ -111,7 +105,6 @@ export default {
 }
 .activePost {
   background-color: #ededed;
-  border-radius: 15px;
   padding: 10px;
   margin: 40px;
 }
@@ -119,11 +112,26 @@ export default {
   text-align: left;
 }
 .text-right {
-  text-align: right;
+  text-align: right !important;
 }
 .postimage img {
   padding: 10%;
   width: 60%;
   margin: 0;
+}
+.postinfo {
+  font-size: 1.5em;
+}
+</style>
+<style scoped>
+.icon {
+  margin: 0 !important;
+  padding: 0 5px 0 0;
+  font-size: 1em !important;
+}
+.postedDate {
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 15px;
 }
 </style>

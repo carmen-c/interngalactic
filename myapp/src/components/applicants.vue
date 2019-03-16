@@ -1,10 +1,9 @@
 <template>
   <div class="applicants">
-    <b-container class="Applicant-container">
-      <b-row class="justify-content-md-center test123">
-        <b-col col lg="3" class="applicantName">{{aname}}</b-col>
-        <b-col cols="12" md="4" class="applicantReason">Applying for {{aposition}}</b-col>
-        <b-col class="downloadResume" col lg="3">
+    <div class="container Applicant-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-right">
           <b-button class="downloadBtn" variant="primary">
             <a
               :href="this.aresume"
@@ -13,16 +12,32 @@
             >Download Resume</a>
           </b-button>&nbsp;&nbsp;
           <b-button class="downloadBtn" @click="deleteThis" variant="primary">Delete</b-button>
-        </b-col>
-      </b-row>
-    </b-container>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 text-left">
+          <p>{{aname}}</p>
+        </div>
+        <div class="col-md-10 text-left">
+          <h1>{{aposition}}</h1>
+          <p><i class="fas fa-building icon"></i>{{company}}
+          &nbsp;&nbsp;
+          <i class="fas fa-map-marker-alt icon"></i>{{location}}
+          </p>
+          <p>From {{startDate.seconds | moment("MMMM Do YYYY")}} to {{endDate.seconds | moment("MMMM Do YYYY")}}</p>
+        </div>
+        
+      </div>
+    </div>
   </div>
 </template>
 <style>
 .Applicant-container {
   background-color: #ededed;
-  margin: 10px;
-  border-radius: 10px;
+  font-size: 1.5em;
+  padding: 10px;
+  margin: 40px;
 }
 .applicantName {
   font-weight: bold;
@@ -42,16 +57,12 @@
   background-color: #019966 !important;
 }
 .downloadResume a {
-  color: #ffffff;
-  text-decoration: none;
+  color: #ffffff !important;
+  text-decoration: none !important;
 }
 .downloadResume a:hover {
   text-decoration: none;
   color: #ffffff;
-}
-.applicantReason {
-  margin: 10px;
-  padding: 10px;
 }
 </style>
 
@@ -68,7 +79,7 @@ export default {
   data() {
     return {};
   },
-  props: ["aname", "aposition", "aresume", "post_id", "uid"],
+  props: ["aname", "aposition", "aresume", "post_id", "uid", "startDate", "endDate", "company", "location"],
   methods: {
     deleteThis: function() {
       var ref = firebase
@@ -83,3 +94,15 @@ export default {
   }
 };
 </script>
+<style scoped>
+.icon {
+  margin: 0 !important;
+  padding: 0 5px 0 0;
+  font-size: 1em !important;
+}
+.postedDate {
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+</style>

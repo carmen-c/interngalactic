@@ -1,7 +1,7 @@
 <template>
   <div class="internHomePage bg container-fluid">
     <ClientHeader/>
-<!--    <img id="internPageImgStroke" src="../../images/strokeLOGO.svg">-->
+   <!-- <img id="internPageImgStroke" src="../../images/strokeLOGO.svg"> -->
     <div class="container h-50">
       <div class="row align-items-center h-100">
         <div class="col-10 mx-auto">
@@ -10,7 +10,8 @@
             <br>
           </div>
           <div class="searchForm">
-            <h1 class="internh1" id="internWhat">What:</h1>
+            <!-- <h1 class="internh1" id="internWhat">What:</h1> -->
+            <i class="fas fa-pager icon"></i>
             <input
               type="text"
               placeholder="Internship Title"
@@ -19,9 +20,11 @@
               style="font-size:1.5em;
                      padding:0.5em;
                      border-radius: none;
-                     border-bottom: 1px solid #0b0b0b;"
+                     border-bottom: 1px solid #7fd686;"
             >
-            <h1 class="internh1" id="internWhere">Where:</h1>
+            <!-- <h1 class="internh1" id="internWhere">Where:</h1> -->
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <i class="fas fa-map-marker-alt icon"></i>
             <input
               type="text"
               placeholder="Location"
@@ -29,19 +32,8 @@
               class="input-style"
               style="font-size:1.5em;
                      padding:0.5em;
-                     border-bottom: 1px solid #0b0b0b;"
+                     border-bottom: 1px solid #7fd686;"
             >
-            <!-- <b-dropdown id="__BVID__27__BV_toggle_" class="dropdown" :text="dropdown">
-              
-              <b-dropdown-item @click="dropdownSelect('Relevance')" 
-                               value="Relevance"
-                               >Relevance</b-dropdown-item>
-              <b-dropdown-item @click="dropdownSelect('Date Posted')"
-                               value="Date Posted"
-                               >Date Posted</b-dropdown-item>
-              <b-dropdown-item @click="dropdownSelect('Location')"
-                               >Location</b-dropdown-item>
-            </b-dropdown>-->
           </div>
           <br>
           <button
@@ -103,7 +95,6 @@
 .bg {
   overflow: hidden;
   height: 100vh;
-  background-color: #fff;
 }
 .bg-title {
   color: #0b0b0b;

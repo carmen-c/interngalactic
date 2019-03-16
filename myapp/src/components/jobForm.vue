@@ -1,6 +1,6 @@
 <template>
   <div class="jobForm">
-    <div class="wrapper">
+    <div class="wrapper col-md-12">
       <div
         class="alert alert-success alert-dismissable"
         :id="post_id + 'alert'"
@@ -11,23 +11,37 @@
       </div>
       <div class="inner">
         <div class="form-row pleasefilloutTxt">
-          <h1>Please fill out the fields below.</h1>
+          <h1>Post an Internship</h1>
         </div>
         <div class="form-row">
           <div class="form-group col-md-12">
+            <b-input-group>
+              <i class="fas fa-building icon"></i>
             <input
               type="text"
-              class="form-control"
+              class="form-control input-style"
               v-model="company"
               placeholder="Name of your company"
             >
+            </b-input-group>
+            <br>
+            <b-input-group>
+              <i class="fas fa-pager icon"></i>
             <input
               type="text"
-              class="form-control"
+              class="form-control input-style"
               v-model="position"
               placeholder="Internship position"
             >
-            <input type="text" class="form-control" v-model="location" placeholder="Enter Location">
+            </b-input-group>
+            <br>
+            <b-input-group>
+            <i class="fas fa-map-marker-alt icon"></i>
+            <input type="text" class="form-control input-style" v-model="location" placeholder="Enter Location">
+            </b-input-group>
+            <br>
+            <b-input-group>
+            <i class="fas fa-calendar-alt icon"></i>
             <v-date-picker
               class="datePickerStyle"
               mode="range"
@@ -36,75 +50,21 @@
               tint-color="#7fd686"
               show-caps
             ></v-date-picker>
+            </b-input-group>
           </div>
         </div>
+        <b-input-group>
+          <i class="fas fa-pen icon"></i>
         <textarea
           v-model="description"
           placeholder="Description of the Internship"
           class="form-control"
           style="height: 130px;"
         ></textarea>
+        </b-input-group>
         <button class="postJobBtn" @click="postJob">Post Now</button>
       </div>
     </div>
-
-    <!--
-  
-    <div class="formContainer">
-      <div class="row">
-        <h2>Please fill out the fields below.</h2>
-      </div>
-
-      <div class="row col-md-12">
-        <div class="col-md-5">
-          <input type="text" class="form-control" v-model="company" placeholder="Company Name">
-          <input type="text" class="form-control" v-model="position" placeholder="Intern Position">
-          <input
-            type="text"
-            class="form-control description"
-            v-model="description"
-            placeholder="Description"
-          >
-        </div>
-        <div class="col-md-3">
-          <v-date-picker
-            class="datePickerStyle"
-            mode="range"
-            v-model="myDates"
-            :theme-styles="themeStyle"
-            tint-color="#7fd686"
-            show-caps
-          ></v-date-picker>
-          <div style="margin-left:10px">
-            <input type="text" class="form-control" v-model="location" placeholder="Enter location">
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-8">
-          <p class="addCompanyLogo">
-            <b>Add Company Logo</b>
-          </p>
-          <br>
-          <ul class="other-info">
-            <li>
-              <button>Choose file</button>
-            </li>
-            <li>
-              <input type="radio"> Require resume
-            </li>
-            <li>
-              <input type="radio"> Applicants will fill out fields provided on application
-            </li>
-            <li>
-              <button @click="postJob">Post</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    -->
   </div>
 </template>
 
@@ -192,17 +152,15 @@ export default {
 }
 .inner h1 {
   font-size: 3em;
-  margin-bottom: 1%;
-  border-bottom: 1px solid black;
-  border-bottom-style: dotted;
-  width: 50%;
+  margin: 5%;
+  border: none;
 }
 .jobForm {
   margin-top: 2%;
 }
-.form-control {
+/* .form-control {
   font-size: 1em;
-}
+} */
 .other-info {
   list-style: none;
   display: flex;
@@ -216,15 +174,18 @@ export default {
   text-align: left;
   text-indent: 1em;
   margin-bottom: -10px;
-}
+} 
 .datePickerStyle input {
-  width: 20%;
+  min-width: 20%;
   float: left;
   border-radius: 2px;
   margin-bottom: -1%;
   border-style: none;
-  border: 1.2px solid #e6e6e6;
   padding: 5px;
+  font-size: 1.5em;
+  height: 30px;
+  border: none;
+  border-bottom:#7fd686 1px solid;
 }
 </style>
 <style>
@@ -240,7 +201,7 @@ export default {
   margin-top: 30px;
   cursor: pointer;
   font-family: "Montserrat-Medium";
-  text-transform: uppercase;
+  font-size: 1.5em;
   background: #7fd686;
   border-radius: 5px;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -281,12 +242,15 @@ export default {
   animation-iteration-count: infinite;
 }
 .form-control {
-  height: 47px;
+  height: 150px;
   display: block;
-  border: 1px solid #e6e6e6;
   background: none;
   border-radius: 5px;
   padding: 0 19px;
+  font-size: 1.5em !important;
+}
+textarea.form-control  {
+  border: 1px solid #7fd686 !important;
 }
 .form-control:focus {
   border: 1px solid #f4d5cc;
@@ -345,6 +309,12 @@ textarea.form-control {
   top: 50%;
   transform: translateY(-50%);
   right: 20px;
+}
+.input-style {
+  font-size: 1.5em !important;
+  height: 30px !important;
+  border: none !important;
+  border-bottom:#7fd686 1px solid !important;
 }
 
 @-webkit-keyframes hvr-back-pulse {

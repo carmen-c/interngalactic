@@ -1,20 +1,23 @@
 <template>
+<div class="pageFooter">
 <footer id="myFooter">
-        <div class="container">
-            <ul>
-                <li><a href="#">Company Information</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Terms of service</a></li>
-            </ul>
-        <p class="footer-copyright">InternGalactic © 2019 Copyright Text</p>
-        </div>
-        <div class="footer-social">
-            <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
-            <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
-        </div>
-    </footer>
+    <div class="footer-social">
+        <ul>
+            <li><a href="#">Company Information</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Terms of service</a></li>
+        </ul>
+        <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
+        <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+        <br>
+        <br>
+        <br>
+        <p class="footer-copyright">InternGalactic © 2019</p>
+    </div>
+</footer>
+</div>
 </template>
 
 <script>
@@ -38,7 +41,7 @@ export default {
 #myFooter .footer-copyright{
     margin-bottom: 35px;
     text-align: center;
-    color: #777;
+    color: #666;
 }
 
 #myFooter ul{
@@ -48,7 +51,7 @@ export default {
 }
 
 #myFooter a{
-    color: #282b2d;
+    color: #666;
     font-size: 18px;
 }
 
@@ -60,23 +63,23 @@ export default {
 
 #myFooter .footer-social{
     text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #eee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #eee;
 }
 
 #myFooter .fa{
-    font-size: 36px;
+    font-size: 16px;
     margin-right: 15px;
     margin-left: 20px;
     background-color: white;
     color: #d0d0d0;
-    border-radius: 51%;
-    padding: 10px;
-    height: 60px;
-    width: 60px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    padding-left: 2px;
     text-align: center;
-    line-height: 43px;
+    line-height: 30px;
     text-decoration: none;
     transition:color 0.2s;
 }
@@ -105,7 +108,6 @@ export default {
 #myFooter .fa-twitter:focus{
     color:#00aced;
 }
-
 
 
 /* CSS used for positioning the footers at the bottom of the page. */

@@ -1,7 +1,7 @@
 <template>
   <div class="currentJobPost">
     <div class="form-row pleasefilloutTxt">
-      <h1>You have {{activePosts.length}} active job postings.</h1>
+      <h1>{{activePosts.length}} Active Internships</h1>
     </div>
 
     <!--	REPLACE WITH COMPONENT FOR JOB POST	  -->
@@ -23,10 +23,8 @@
 <style>
 .pleasefilloutTxt h1 {
   font-size: 3em;
-  margin-bottom: 1%;
-  border-bottom: 1px solid black;
-  border-bottom-style: dotted;
-  width: 50%;
+  margin: 5%;
+  border: none;
 }
 .pleasefilloutTxt {
   margin-top: 2%;

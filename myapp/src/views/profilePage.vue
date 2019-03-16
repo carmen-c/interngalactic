@@ -7,30 +7,43 @@
         <div class="row">
           <div class="col-sm-12 col-md-2">
             <div class="userpic">
-              <img :src="uploadedImage">
+              <img :src="uploadedImage" v-if="this.uploadedImage != ''">
+              <img v-else src="../../images/clienticon.svg">
             </div>
           </div>
           <div class="userinfo col-sm-12 col-md-10">
             <div class="col-sm-12 p-0 username">
-              <h1>{{this.username}}</h1>
-              <b-button v-b-modal.modalxl variant="primary">
+              <h1 v-if="this.username.length != 0">{{this.username}}</h1>
+              <h1 v-else>Intern</h1>
+              <b-button v-b-modal.modalxl variant="primary" class="edit-btn">
                 <i class="glyphicon glyphicon-user"></i>
                 Edit Profile
               </b-button>
             </div>
 
             <br>
-            <h3>{{this.current_location}}</h3>
-            <h3>{{this.current_school}}</h3>
+            <h3 v-if="this.current_location.length != 0">{{this.current_location}}</h3>
+            <h3 v-else>No specific location</h3>
+            
+            <h3 v-if="this.current_school.length != 0">{{this.current_school}}</h3>
+            <h3 v-else>Not currently in school</h3>
             <br>
-            <p>{{this.professional_sum}}</p>
+            <p v-if="this.professional_sum.length != 0">{{this.professional_sum}}</p>
+            <p v-else class="summary">You do not have a summary yet.</p>
           </div>
+                
         </div>
+        <br>
+        <br>
+        <hr class="line">
       </div>
 
       <div class="col-sm-12">
-        <div class="container">
+        <div class="container" v-if="this.uploadedResume !=''">
           <iframe :src="uploadedResume" width="100%" height="600px" title="Resume"></iframe>
+        </div>
+        <div v-else>
+          <p>no resume uploaded yet :(</p>
         </div>
       </div>
 
@@ -38,6 +51,8 @@
         <div class="container userBio">
           <b-modal id="modalxl" size="lg" @ok="changeInformation" title="Edit Profile">
             <div class="col-12">
+              <p class="editTitle">Name</p>
+              <b-form-input v-model="username" type="text" placeholder="Your Name"/>
               <div class="profilePicUpload">
                 <p class="editTitle">Profile Picture</p>
                 <input type="file" @change="onFileSelected">
@@ -195,7 +210,8 @@ export default {
           {
             current_location: this.current_location,
             current_school: this.current_school,
-            professional_sum: this.professional_sum
+            professional_sum: this.professional_sum,
+            name: this.username
             // uploadedImage: this.uploadedImage
           },
           { merge: true }
@@ -300,12 +316,23 @@ export default {
 .editTitle {
   float: left;
   text-align: left !important;
-  font-size: 1em;
+  font-size: 1.5em;
   margin-bottom: 5px;
   margin-top: 10px;
 }
+.edit-btn{
+  background-color: #7fd686;
+  font-size: 1.2em;
+  border: none;
+  outline: none;
+}
+.edit-btn:active,
+.edit-btn:hover {
+  background-color: #019966;
+}
 .profile {
   margin: 10% 5%;
+  /* font-size: 1.5em; */
 }
 .profilePicUpload {
   display: flex;
@@ -342,6 +369,12 @@ export default {
 }
 .userprofile {
   margin-bottom: 10%;
+}
+.userinfo p {
+  font-size: 1.5em !important;
+}
+.modal-title{
+  font-size: 2em !important;
 }
 </style>
 

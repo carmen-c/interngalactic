@@ -1,28 +1,37 @@
 <template>
   <div class="col-md-12">
     <AdminHeader/>
-    <div class="col-md-12 navigationAdmin">
-      <button
-        type="button"
-        class="btn admin-buttons"
-        :class="{'active-button':adminPage==1}"
-        @click="changePage(1)"
-      >Postings</button>
-      <button
-        type="button"
-        class="btn admin-buttons"
-        :class="{'active-button':adminPage==2}"
-        @click="changePage(2)"
-      >Post Jobs</button>
-      <button
-        type="button"
-        class="btn admin-buttons"
-        :class="{'active-button':adminPage==3}"
-        @click="changePage(3)"
-      >Applicants</button>
-      <!--          {{this.store.username}}-->
+    <div class="row">
+    <div class="col-md-3 mt-5 navigationAdmin">
+      <ul class="mb-0">
+        <li>
+          <button
+          type="button"
+          class="btn admin-buttons"
+          :class="{'active-button':adminPage==1}"
+          @click="changePage(1)"
+        >Posted Internships</button>
+        </li>
+        <li>
+          <button
+          type="button"
+          class="btn admin-buttons"
+          :class="{'active-button':adminPage==2}"
+          @click="changePage(2)"
+        >New Internship</button>
+        </li>
+        <li>
+          <button
+          type="button"
+          class="btn admin-buttons"
+          :class="{'active-button':adminPage==3}"
+          @click="changePage(3)"
+        >Applicants</button>
+        </li>
+      </ul>
     </div>
-    <div class="page container">
+    <div class="col-md-1"></div>
+    <div class="page col-md-7">
       <!--              Postings-->
       <div v-if="adminPage==1">
         <currentJobPost/>
@@ -36,6 +45,8 @@
         <adminApplied/>
       </div>
     </div>
+    <div class="col-md-1"></div>
+    </div> 
   </div>
 </template>
 <style>
@@ -44,71 +55,22 @@
   border: 0 !important;
 }
 .navigationAdmin {
-  background-image: url(../../images/herobanner_generic4.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: soft-light;
+  border-right: #7fd686 1px solid;
+}
+.navigationAdmin ul{
+  list-style: none;
+}
+.navigationAdmin ul li{
+  padding: 5%;
 }
 .navigationAdmin button {
-  font-size: 3em;
-  padding-left: 4%;
-  padding-right: 4%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-right: 2%;
-  margin-left: 2%;
-  border-radius: 10px;
-  border: 1px solid #dddddd;
-  background-color: #fff;
+  font-size: 2em;
   /*    opacity: 0.6;*/
-  color: black;
 }
-/*
-  .home {
-    overflow: hidden;
-  }
-.align-center {
-  text-align: center;
-  margin: 0 auto;
+.navigationAdmin button:hover {
+  /*    opacity: 0.6;*/
+  color: #7fd686;
 }
-.btn-secondary {
-  background-color: #3369E8 !important;
-  border: 0 !important;
-}
-.applicantContainer {
-  width: 50%;
-  margin-right: 100px;
-  text-align: left;
-  justify-content: center;
-}
-.applicantWrapper {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  margin-top: 20px;
-}
-.admin-navigation {
-  margin-top: -38px;
-  z-index: 5;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.admin-buttons {
-  background-color: #e6e6e6 !important;
-  text-transform: uppercase;
-  border-top-left-radius: 1rem !important;
-  border-top-right-radius: 1rem !important;
-  border-bottom-right-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  margin: 0 0.25rem;
-}
-.active-button {
-  background-color: #7fd686 !important;
-  color: #fff !important;
-}
-  
-*/
 </style>
 <script>
 // @ is an alias to /src

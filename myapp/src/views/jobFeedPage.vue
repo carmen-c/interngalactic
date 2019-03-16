@@ -2,44 +2,48 @@
   <div class="jobFeedPage">
     <clientheader/>
     <div class="row">
-      <!--******* LEFT SIDE OF THE PAGE *************		 -->
-      <div class="col-md-3 marginTop linkStyles" id="leftSideStyle">
-        <!--        <hr class="line">-->
-        <div class="recent-Location">
-          <h2 class="h4MarginBottom">Locations:</h2>
+      <!-- ******* LEFT SIDE OF THE PAGE *************		 -->
+      <!-- <div class="col-md-3 marginTop linkStyles" id="leftSideStyle"> -->
+               <!-- <hr class="line"> -->
+        <!-- <div class="recent-Location">
+          <h2 class="h4MarginBottom">Search Locations</h2>
+          <ul>
+            <li >Vancouver</li>
+          </ul>
           <p>
-            <a href="#">Vancouver</a>
+            <a @click="this.clickLocation('Vancouver')" class="clickLocation" href="#">Vancouver</a>
           </p>
           <p>
-            <a href="#">Burnaby</a>
+            <a @click="this.clickLocation('Burnaby')" class="clickLocation">Burnaby</a>
           </p>
-          <p>
+          <p @click="this.clickLocation('Richmond')" class="clickLocation">
             <a href="#">Richmond</a>
           </p>
-          <p>
+          <p @click="this.clickLocation('Coquitlam')" class="clickLocation">
             <a href="#">Coquitlam</a>
           </p>
-          <p>
+          <p @click="this.clickLocation('Surrey')" class="clickLocation">
             <a href="#">Surrey</a>
           </p>
-        </div>
-        <hr class="line">
+        </div> -->
+        <!-- <hr class="line"> -->
         <!--
         <div class="recent-Location">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Clear All Searches</button>
         </div>
         -->
-      </div>
+      <!-- </div> -->
 
       <!--<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
       <!--******* RIGHT SIDE OF THE PAGE *************		 -->
-      <div class="col-md-9">
-        <div class="test1">
+      <div class="col-md-12">
+        <div class="test1 m-0">
           <div class="row">
             <!--DROP DOWN MENU -->
             <div class="col-xs-12 col-md-12 dropDown">
               <div>
                 <b-form inline>
+                  <i class="fas fa-pager icon"></i>
                   <b-input
                     class="mb-2 mr-sm-2 mb-sm-0"
                     id="inlineFormInputName2"
@@ -47,7 +51,9 @@
                     @change="handleSearch"
                     v-model="keyword"
                   />
+                  
                   <b-input-group left="@" class="mb-2 mr-sm-2 mb-sm-0">
+                    <i class="fas fa-map-marker-alt icon"></i>
                     <b-input
                       id="inlineFormInputGroupUsername2"
                       placeholder="Location"
@@ -55,20 +61,17 @@
                       v-model="location"
                     />
                   </b-input-group>
-                  <!--
-                  <div>
-                    <b-dropdown id="ddown1" text="Sort By" class="m-md-2">
-                      <b-dropdown-item>Most Recent</b-dropdown-item>
-                    </b-dropdown>
-                  </div>
-                  -->
+                  <b-input-group>
+                    <i class="fas fa-scroll icon"></i>
+                  </b-input-group>
+                  <h3 class="inlineFormInputGroupUsername2 internshipNumber m-0">Internships Found: {{jobsArray.length}}</h3>
                 </b-form>
-              </div>
+              </div>        
             </div>
           </div>
         </div>
         <!--	THIS SECTION CREATE TEMPLATE THAT CAN REPEAT	  -->
-        <div class="overflow-auto">
+        <div class="overflow-auto col-md-12" v-if="jobsArray.length != 0">
           <jobPostContainer
             v-for="job in jobsArray"
             v-bind:post_id="job.post_id"
@@ -84,6 +87,9 @@
           <div class="container-fluid">
             <button id="nextButton" v-if="nextVisible == true" @click="getMoreJobs">next</button>
           </div>
+        </div>
+        <div v-else>
+          <h1>No more internships :(</h1>
         </div>
         <!--	PUT THE ACCORDION HERE	  -->
       </div>
@@ -132,6 +138,10 @@ export default {
     }
   },
   methods: {
+    clickLocation: function(pass) {
+      this.location = pass;
+      this.handleSearch();
+    },
     getInitialJobs: function() {
       var firstJobs = firebase
         .firestore()
@@ -241,8 +251,7 @@ export default {
 /*	*******************************  */
 .line {
   margin-top: 20px;
-  margin-left: 70px;
-  width: 50%;
+  width: 100%;
   border: 0.5px solid #7fd686;
 }
 /*	*******************************  */
@@ -283,10 +292,14 @@ export default {
 #inlineFormInputName2 {
   font-size: 1.5em;
   height: 30px;
+  border: none;
+  border-bottom:#7fd686 1px solid;
 }
 #inlineFormInputGroupUsername2 {
   font-size: 1.5em;
   height: 30px;
+  border:none;
+  border-bottom:#7fd686 1px solid;
 }
 .test1 {
   justify-content: left;
@@ -317,6 +330,20 @@ export default {
   border-top-color: #fff;
   border-bottom-color: #fff;
   border-style: solid;
+}
+.clickLocation:hover, .clickLocation:active{
+  color: #7fd686;
+  text-decoration: none;
+}
+.icon {
+  font-size: 2em; 
+  margin-left: 10px; 
+  padding: 5px;
+  color: #7fd686;
+}
+.internshipNumber {
+  color: #999;
+  font-weight: 400;
 }
 </style>
 

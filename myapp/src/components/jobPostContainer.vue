@@ -4,77 +4,75 @@
       <b-card no-body class="mb-1" id="cardWrapper">
         <div class="jobWrapper">
           <div class="jobContainer" :id="post_id">
+            <div
+              class="alert alert-success alert-dismissable"
+              :id="post_id + 'alert'"
+              :style="'display: '+ applySuccess"
+            >
+              <button type="button" class="close" aria-hidden="true" @click="dismissAlert">&times;</button>
+              Success! You have applied to {{company}} for the {{position}}.
+            </div>
+
             <div class="row jobBox">
               <div class="col-md-3 col-md-push-3 test3">
                 <div class="col-md-12 col-sm-6 col-md-push-3">
                   <!-- *********************************************************************** -->
                   <!-- COMPANY LOGO'S MUST BE 180 BY 180 -->
                   <!-- *********************************************************************** -->
-                  <img class="companyLogo" src="../../images/TD.png">
+                  <img class="companyLogo" src="../../images/contract.svg">
                 </div>
               </div>
+
               <div class="col-md-9 col-md-pull-9 textLeft">
                 <div class="jobTitle">
                   <h1>{{position}}</h1>
                 </div>
                 <div class="jobLocation">
+                  <p><i class="fas fa-building icon"></i>{{company}}
+                  &nbsp;&nbsp;
+                  <i class="fas fa-map-marker-alt icon"></i>{{location}}
+                  </p>
                   <p>
-                    {{company}} - {{location}}
-                    posted on {{post_date.seconds | moment("MMMM Do YYYY")}}
+                    <span>{{start.seconds | moment("MMMM Do YYYY")}}</span>
+                    to {{end.seconds | moment("MMMM Do YYYY")}}
                   </p>
                 </div>
-                <!-- *********************************************************************** -->
-                <!-- Maxium Word Count for Description is 65 NO MORE -->
-                <!-- *********************************************************************** -->
-                <div class="jobDescription">
+                <div class="jobDescription" style="fontSize:1.5em;">
                   <p v-if="description.length <= 200">{{description}}</p>
                   <p v-if="description.length >200">{{description.substring(0,200)+"..."}}</p>
                 </div>
                 <div class="test3">
+                  
                   <p>
-                    <img class="contractIcon jobDuration" src="../../images/contract.svg">
-                    <span>{{start.seconds | moment("MMMM Do YYYY")}}</span>
-                    to {{end.seconds | moment("MMMM Do YYYY")}}
-                    <!--
-             class is for static classes, it doesnt change
-             :class will check if showCollapse is collapsed or null
-             :aria-controls tells this button what it controls
-             :aria-expanded will toggle showCollapse to true or false
-                    -->
                     <button
-                      block
-                      href="#"
-                      @click="showCollapse = !showCollapse"
-                      class="btn btn-outline-success learnMore"
-                      :class="showCollapse ? 'collapsed':'null'"
-                      :aria-controls="post_id"
-                      :aria-expanded="showCollapse ? 'true':'false'"
-                      type="submit"
-                    >Learn More</button>
-                    <button class="btn btn-outline-success" @click="applyNow">Apply Now</button>
+                  block
+                  href="#"
+                  @click="showCollapse = !showCollapse"
+                  class="btn btn-outline-success learnMore"
+                  :class="showCollapse ? 'collapsed':'null'"
+                  :aria-controls="post_id"
+                  :aria-expanded="showCollapse ? 'true':'false'"
+                  type="submit"
+                >Learn More</button>
+              <button class="btn btn-outline-success" @click="applyNow">Apply Now</button>
                   </p>
                 </div>
               </div>
             </div>
+            <div class="row">
+             <!--      we bind this to showCollapse so it knows when to display/disappear -->
+            <b-collapse :id="post_id" role="tabpanel" v-model="showCollapse" class="expandStyling">
+              <b-card-body>
+                <h3 class="card-text">Internship Description</h3>
+                <h4>{{start.seconds | moment("MMMM Do YYYY")}} to {{end.seconds | moment("MMMM Do YYYY")}}</h4>
+                <br>
+                <p>{{ description }}</p>
+              </b-card-body>
+            </b-collapse>
+            </div>
+
           </div>
         </div>
-        <div
-          class="alert alert-success alert-dismissable"
-          :id="post_id + 'alert'"
-          :style="'display: '+ applySuccess"
-        >
-          <button type="button" class="close" aria-hidden="true" @click="dismissAlert">&times;</button>
-          Success! You have applied to {{company}} for the {{position}}.
-        </div>
-        <!--      we bind this to showCollapse so it knows when to display/disappear -->
-        <b-collapse :id="post_id" role="tabpanel" v-model="showCollapse" class="expandStyling">
-          <b-card-body>
-            <h1 class="card-text">Job Description</h1>
-            <h4>{{start.seconds | moment("MMMM Do YYYY")}} to {{end.seconds | moment("MMMM Do YYYY")}}</h4>
-            <br>
-            <p>{{ description }}</p>
-          </b-card-body>
-        </b-collapse>
       </b-card>
     </div>
   </div>
@@ -145,13 +143,11 @@ export default {
   width: 100%;
 }
 .jobContainer {
-  background-color: #fafafa;
-  border-radius: 15px;
+  background-color: #eee;
   padding: 10px;
   margin: 40px;
   margin-right: 35px;
   position: relative;
-  right: 3%;
 }
 .jobBox {
   width: 100%;
@@ -163,6 +159,7 @@ export default {
 }
 .learnMore {
   margin: 10px;
+  margin-left: 0px;
 }
 .contractIcon {
   width: 30px;
@@ -182,7 +179,6 @@ export default {
 }
 #cardWrapper {
   border: none;
-  width: 75%;
 }
 .expandStyling {
   text-align: left;
@@ -199,5 +195,17 @@ export default {
 .expandStyling p {
   font-size: 1em;
   line-height: 1.575em;
+}
+</style>
+<style scoped>
+.icon {
+  margin: 0 !important;
+  padding: 0 5px 0 0;
+  font-size: 1em !important;
+}
+.postedDate {
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 15px;
 }
 </style>

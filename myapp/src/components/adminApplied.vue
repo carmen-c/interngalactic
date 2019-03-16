@@ -1,7 +1,7 @@
 <template>
   <div class="currentJobPost">
     <div class="form-row pleasefilloutTxt">
-      <h1>You have {{this.alist.length}} Applicants.</h1>
+      <h1>{{this.alist.length}} Applicants</h1>
     </div>
 
     <!--	REPLACE WITH COMPONENT FOR JOB POST	  -->
@@ -12,6 +12,10 @@
       v-bind:aposition="person.position"
       v-bind:aresume="person.resume"
       v-bind:post_id="person.post_id"
+      v-bind:location="person.location"
+      v-bind:company="person.company"
+      v-bind:startDate="person.startDate"
+      v-bind:endDate="person.endDate"
       v-bind:uid="person.uid"
     />
   </div>
@@ -92,6 +96,10 @@ export default {
                 if (doc.exists) {
                   thing.position = doc.data().position;
                   thing.post_id = doc.data().post_id;
+                  thing.company = doc.data().company;
+                  thing.location = doc.data().location;
+                  thing.startDate = doc.data().start_date;
+                  thing.endDate = doc.data().end_date;
                 }
               });
               //go through users and find the applicants
