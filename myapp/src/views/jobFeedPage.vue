@@ -89,7 +89,8 @@
           </div>
         </div>
         <div v-else>
-          <h1>No more internships :(</h1>
+          <img src="../../images/nointernbg.svg" width="30%"/>
+          <h1>Sorry, there are currently no more internships.</h1>
         </div>
         <!--	PUT THE ACCORDION HERE	  -->
       </div>
@@ -316,11 +317,12 @@ export default {
   margin-top: 2%;
   color: #fff !important;
   font-weight: bold !important;
-  background-color: #3369e8 !important;
+  background-color: #7fd686 !important;
+  border: none;
   padding: 0 1.5rem !important;
   height: 3rem;
   width: 14rem;
-  font-size: 1.35em;
+  font-size: 1.5em;
 }
 #leftSideStyle {
   border-right: 1px;
