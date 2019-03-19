@@ -40,7 +40,7 @@
 
       <div class="col-sm-12">
         <div class="container" v-if="this.uploadedResume !=''">
-          <iframe :src="uploadedResume" width="100%" height="600px" title="Resume"></iframe>
+          <iframe :src="uploadedResume" width="100%" height="1200px" title="Resume"></iframe>
         </div>
         <div v-else>
           <p>no resume uploaded yet :(</p>
@@ -255,7 +255,7 @@ export default {
     },
     uploadResume: function(event, user) {
       var file = event.target.files[0];
-
+ 
       var uploadTask = firebase
         .storage()
         .ref()

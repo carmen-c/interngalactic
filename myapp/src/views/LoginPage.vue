@@ -43,7 +43,7 @@
               <input
                 type="email"
                 name="loginEmail"
-                class="form-control inputMargins"
+                class="form-control"
                 v-model="loginEmail"
                 placeholder="Email"
                 style="font-size:1.5em;
@@ -52,7 +52,7 @@
               <input
                 type="password"
                 name="loginPass"
-                class="form-control inputMargins"
+                class="form-control"
                 v-model="loginPass"
                 placeholder="Password"
                 style="font-size:1.5em;
@@ -61,7 +61,7 @@
               <button
                 @click="login"
                 type="submit"
-                class="btn btn-default inputMargins"
+                class="btn btn-default"
                 id="signinBtn"
               >Login</button>
             </div>

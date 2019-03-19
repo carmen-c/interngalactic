@@ -153,9 +153,9 @@ export default {
   width: 100%;
 }
 .companyLogo {
-  width: 100%;
+  width: 120px;
   height: auto;
-  margin: 10px;
+  margin: 30px;
 }
 .learnMore {
   margin: 10px;
