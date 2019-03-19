@@ -242,7 +242,6 @@ export default {
   animation-iteration-count: infinite;
 }
 .form-control {
-  height: 150px;
   display: block;
   background: none;
   border-radius: 5px;
@@ -251,6 +250,7 @@ export default {
 }
 textarea.form-control  {
   border: 1px solid #7fd686 !important;
+  height: 150px;
 }
 .form-control:focus {
   border: 1px solid #f4d5cc;
